@@ -41,12 +41,12 @@ switchValue(2); // 小終
 function switchValue($value)
 {
     switch($value) {
-        case '6':
+        case 6:
             echo '大';
-        case '4':
+        case 4:
             echo '中';
             break; //breakがある場合はそこで処理を切り上げる
-        case '2':
+        case 2:
             echo '小';
         default:
             echo '終';
