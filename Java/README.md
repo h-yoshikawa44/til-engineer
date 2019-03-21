@@ -11,4 +11,5 @@ openjdk 11.0.1
 
 ## 主なフレームワーク
 - Spring
-- Struct
+- Struts
+など

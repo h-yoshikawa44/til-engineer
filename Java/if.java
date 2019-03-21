@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        // 条件式
+        // 条件文
 
         /* if (条件式1) {
          *      処理1;

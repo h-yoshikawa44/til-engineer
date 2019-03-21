@@ -14,3 +14,9 @@ Ruby 2.5.3
 
 ### 主なフレームワーク
 - Rails
+- Sinatra
+- Cuba mivroframework
+- Ramaze
+- HANAMI
+- Padrino
+など

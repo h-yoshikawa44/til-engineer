@@ -14,3 +14,7 @@ Python 3.6.6
 ### 主なフレームワーク
 - Django
 - Flask
+- Responder
+- Bottle
+- Tornado
+など
