@@ -61,9 +61,7 @@ echo "\n";
  */
 $keyValues = ['a' => 'A', 'b' => 'B', 'c' => 'C'];
 foreach ($keyValues as $key => $value) {
-    echo $key . ':';
-    echo $value;
-    echo "\n";
+    echo $key . ':' . $value . "\n";
 }
 // a:A
 // b:B
