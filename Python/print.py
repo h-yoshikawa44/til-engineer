@@ -15,3 +15,7 @@ print('値：{0}'.format(test)) # 値：ABC
 # print + %記法
 num = 10
 print('%d・%s' % (num, test)) # 10・ABC
+
+# print + 文字数指定
+test2 = 'DEF'
+print(test2[0:2]) # DE
