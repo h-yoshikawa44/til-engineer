@@ -37,4 +37,15 @@ list2.remove(4)
 print(list2) # [2, 6, 5]
 
 # 配列の長さ
-print(len(list2)) # 3
+list3 = [4, 5, 6]
+print(len(list3)) # 3
+
+# 配列 長さ指定表示
+print(list3[0:2]) # [4, 5]
+
+# タプル
+tuple = (1, 2, 3, 4)
+print(tuple[0]) # 1
+print(tuple) # (1, 2, 3, 4)
+# タプルは変更ができない。以下はエラーになる
+# tuple[2] = 6

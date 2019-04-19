@@ -6,6 +6,10 @@
 
 Webアプリケーションだけでなく、計算処理、機械学習などを得意とする。
 
+CGIで実行する場合は文頭に以下をつける（実行ファイルのパスを指定する）  
+`#!/usr/bin/python`　Mac・Linuxの例  
+`#!C/MAMP/bin/python/bin/python`　Windows（MAMPの場合の例）
+
 [公式ドキュメント](https://docs.python.org/ja/3/)
 
 ### 検証バージョン
