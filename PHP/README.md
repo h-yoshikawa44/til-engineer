@@ -13,7 +13,7 @@ PHPの処理系はPHPタグ`<?php ?>`で囲われた部分を解釈・実行し�
 [公式ドキュメント](https://php.net/manual/ja/indexes.functions.php)
 
 ### 検証バージョン
-PHP 7.2.12
+PHP 7.2.17
 
 ### 主なフレームワーク
 - Laravel
