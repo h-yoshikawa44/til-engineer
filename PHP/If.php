@@ -21,6 +21,7 @@ function ifValue($value)
         echo '小' . "\n";
     }
 }
+
 /* switch(対象) {
  * 　case 値1:
  * 　　処理1;

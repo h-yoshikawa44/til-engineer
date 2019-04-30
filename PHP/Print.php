@@ -7,6 +7,7 @@
 $test = 'ABC' . "\n";
 echo $test; // ABC
 echo 'A', 'B', 'C', 'D' . "\n"; // ABCD
+
 /* print
  * 単一の引数のみ受け付ける出力
  * 関数でなく言語構造であるため、引数を括弧でくくる必要がない
@@ -14,11 +15,13 @@ echo 'A', 'B', 'C', 'D' . "\n"; // ABCD
 $testPrint = 'DEF' . "\n";
 print $testPrint; // DEF
 print "alphabet $testPrint\n"; // alphabet DEF
+
 /* printf
  * フォーマット済みの文字列を出力する
  */
 $testPrintF = 'alphabet A:%s B:%s';
 printf($testPrintF, 'a', 'b'); // alphabet A:a B:b
+
 /* var_dump
  * 指定した式に関して、その型や値を含む構造化された情報を返す
  */
@@ -34,6 +37,7 @@ var_dump($testVar);
 //     [3] =>
 //     string(1) "D"
 //   }
+
 /* print_r
  * 指定した変数に関する情報をわかりやすく出力する
  */
