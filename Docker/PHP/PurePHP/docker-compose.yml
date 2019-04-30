@@ -24,6 +24,8 @@ services:
     volumes:
       # DB data persistence
       - ./mysql/data:/var/lib/mysql
+      # DB initialize data
+      - ./mysql/mysql_init:/docker-entrypoint-initdb.d
     environment:
       MYSQL_ROOT_PASSWORD: secret
     command: --innodb-use-native-aio=0
