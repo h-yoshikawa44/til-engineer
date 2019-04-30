@@ -4,7 +4,7 @@
 
 ---
 
-- MySQLファイルに以下を追加（MySQL 8.0からの認証形式の違いにより接続エラーが出るため、従来の認証形式に設定しなおす）
+- MySQL設定ファイルに以下を追加（MySQL 8.0からの認証形式の違いにより接続エラーが出るため、従来の認証形式に設定しなおす）
 ```
 [mysqld]
 default_authentication_plugin=mysql_native_password
@@ -17,8 +17,14 @@ default_authentication_plugin=mysql_native_password
 - DBデータ永続化
 ```yml
 volumes:
-      # DB data persistence
-      - ./mysql/data:/var/lib/mysql
+  # DB data persistence
+  - ./mysql/data:/var/lib/mysql
+```
+- 初期データ投入（DBデータ永続化のマウントの上に書くとエラーになったので下に書く）
+```yml
+volumes:
+  # DB initialize data
+  - ./mysql/mysql_init:/docker-entrypoint-initdb.d
 ```
   [docker-compose＋MySQL5.7(8.0も)+初期化+永続化](https://qiita.com/juhn/items/274e44ee80354a39d872)
 
@@ -54,3 +60,13 @@ CMD ["mysqld"]
 CMD ["client"]
 ```
 - [DockerでLAMP環境を作るときにハマったこと](https://qiita.com/uutarou10/items/94913e6e7536b713a574)
+
+- PHPMyAdminのコンテナで各種環境変数を追加
+```yml
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=db
+      - PMA_USER=root
+      - PMA_PASSWORD=secret
+```
+  [phpMyAdmin on docker が便利すぎる](https://qiita.com/furu8ma/items/50718efebee20fd24517)
