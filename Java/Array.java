@@ -36,5 +36,17 @@ public class Array {
         for(int num : fuga) {
             System.out.print(num); // 1234500000
         }
+
+        // 二次元配列
+        // 要素数はバラバラでも可能
+        int[][] array = {
+			{10,20,30,40},
+			{100,200,300,400},
+			{1000,2000,3000}
+		};
+		System.out.println(array[0][0]); // 10
+		System.out.println(array[0][3]); // 40
+		System.out.println(array[2][2]); // 3000
+    }
     }
 }
