@@ -55,8 +55,8 @@ public class If {
 
     // 三項演算子
     int num = 9;
-	String str = "numの値は";
-	str += num < 10 ? "10未満" : "10以上";
-	System.out.println(str); // numの値は10未満
+    String str = "numの値は";
+    str += num < 10 ? "10未満" : "10以上";
+    System.out.println(str); // numの値は10未満
     }
 }
