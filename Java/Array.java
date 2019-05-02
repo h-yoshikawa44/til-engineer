@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.List;
+
 public class Array {
     public static void main(String[] args) throws Exception {
         // 配列
@@ -36,6 +39,28 @@ public class Array {
         for(int num : fuga) {
             System.out.print(num); // 1234500000
         }
+
+        int[] numList4 = {1, 6, 3};
+
+        // ソート
+        Arrays.sort(numList4);
+        for (int num : numList4) {
+            System.out.println(num);
+        }
+        // 1
+        // 3
+        // 6
+
+        String[] strList = {"A", "B", "C"};
+        // 配列を、固定サイズのリストに変換
+        List<String> list = Arrays.asList(strList);
+        // list.add("D"); //asListでは配列を固定サイズのリストとして返すため、要素を追加しようとするとエラーになる
+        for (String str : list) {
+        	System.out.println(str);
+        }
+        // A
+        // B
+        // C
 
         // 二次元配列
         // 要素数はバラバラでも可能
