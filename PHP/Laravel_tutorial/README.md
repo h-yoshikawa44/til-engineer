@@ -4,10 +4,9 @@
 - 手順  
   [PHPフレームワーク「Laradock」で、手軽にLaravel+Dockerな開発環境を構築する](https://liginc.co.jp/364089)
 
-- Laradockフォルダの名称注意
-- 各種シェル  
-  [LaravelとLaradockを使ったチームでの開発環境を用意する vol.1 ~Laradock設定編~](https://qiita.com/dev_satsuki/items/e2769925da33bfa77df5)
-  [LaravelとLaradockを使ったチームでの開発環境を用意する vol.2 ~Laravelインストール編~](https://qiita.com/dev_satsuki/items/5ce8b98100997f230775)
+- Laradockフォルダの名称注意、各種シェル  
+  [LaravelとLaradockを使ったチームでの開発環境を用意する vol.1 Laradock設定編](https://qiita.com/dev_satsuki/items/e2769925da33bfa77df5)
+  [LaravelとLaradockを使ったチームでの開発環境を用意する vol.2 Laravelインストール編](https://qiita.com/dev_satsuki/items/5ce8b98100997f230775)
 
 - MySQL8対応  
   [DockerとLaradockでPHPフレームワークとCMSの開発環境を構築する](https://ninolog.com/docker-build-php-from-laradock/)
@@ -129,6 +128,7 @@ workspaceコンテナで`$ php artisan migrate`
 
 #### Laravelのenvファイル準備
 - `(gitプロジェクト)/.sh/conf`に`.laravel-env`を作成
+  (Laravelプロジェクトの`.env`をコピー)
 
 - setup.shを更新
 以下を追記する
@@ -141,7 +141,7 @@ cp -f conf/.**laravel**-env ../(Laravelプロジェクトフォルダ）/.env
 `$ git clone (プロジェクトパス)`
 
 - シェルでenvファイル作成  
-`$ sh (Laradockフォルダ)/.sh/setup.sh`
+`$ sh .sh/setup.sh`
 
 - dockerのイメージ作成と起動  
 `$ docker-compose ip --build -d nginx mysql`  
