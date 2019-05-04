@@ -84,7 +84,7 @@ default_authentication_plugin=mysql_native_password
 
 - .sh/setup.shに以下を追加
 ```
-cp -f conf/mysql.cnf ..Laradock/mysql/my.cnf
+cp -f conf/mysql.cnf ../（Laradockフォルダ）/mysql/my.cnf
 ```
 
 #### dockerの起動
