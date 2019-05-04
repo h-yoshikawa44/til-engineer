@@ -1,4 +1,15 @@
-public class Main {
+// 独自例外クラス
+class MyException extends Exception {
+	private int age;
+	public void setAge(int age){
+		this.age = age;
+	}
+	public int getAge(){
+		return this.age;
+	}
+}
+
+public class Try {
     public static void main(String[] args) throws Exception {
         // 例外処理
         // Javaの例外クラスは大きく二つに分類される

@@ -80,6 +80,13 @@ innodb_use_native_aio=0
 default_authentication_plugin=mysql_native_password
 ```
 
+- .sh/conf以下にmysql.cnfを作成（Laradockのmysql/my.cnfをコピー）
+
+- .sh/setup.shに以下を追加
+```
+cp -f conf/mysql.cnf ..Laradock/mysql/my.cnf
+```
+
 #### dockerの起動
 - イメージの作成と起動  
 `$ docker-compose up --build -d nginx mysql`  
@@ -140,7 +147,7 @@ cp -f conf/.**laravel**-env ../(Laravelプロジェクトフォルダ）/.env
 - プロジェクトをクローン  
 `$ git clone (プロジェクトパス)`
 
-- シェルでenvファイル作成  
+- シェルでenvファイル作成 + mysql設定ファイルコピー   
 `$ sh .sh/setup.sh`
 
 - dockerのイメージ作成と起動  
