@@ -5,7 +5,7 @@
   [PHPフレームワーク「Laradock」で、手軽にLaravel+Dockerな開発環境を構築する](https://liginc.co.jp/364089)
 
 - Laradockフォルダの名称注意、各種シェル  
-  [LaravelとLaradockを使ったチームでの開発環境を用意する vol.1 Laradock設定編](https://qiita.com/dev_satsuki/items/e2769925da33bfa77df5)
+  [LaravelとLaradockを使ったチームでの開発環境を用意する vol.1 Laradock設定編](https://qiita.com/dev_satsuki/items/e2769925da33bfa77df5)  
   [LaravelとLaradockを使ったチームでの開発環境を用意する vol.2 Laravelインストール編](https://qiita.com/dev_satsuki/items/5ce8b98100997f230775)
 
 - MySQL8対応  
