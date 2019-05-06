@@ -14,3 +14,34 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// {msg}の形式は必須パラメータ、？をつけると任意パラメータ（デフォルト値を設定しておく）
+Route::get('helloworld/{msg?}', function ($msg='no message.') {
+    $html = <<<EOF
+    <html>
+        <head>
+            <title>Hello World</title>
+            <style>
+                body { font-size:16pt; color:#999; }
+                h1 { font-size:100pt; text-aligh:right; color:#eee;
+                margin:-40px 0px -50px 0px; }
+            </style>
+        </head>
+        <body>
+           <h1>Hello World</h1>
+            <p>{$msg}</p>
+            <p>これは、サンプルで作ったページです</p>
+        </body>
+    </html>
+EOF;
+    return $html;
+});
+
+Route::get('hello/sample/{id?}/{pass?}', 'HelloController@sample');
+Route::get('hello/index', 'HelloController@index');
+Route::get('hello/other', 'HelloController@other');
+
+// シングルアクションコントローラはアクションは指定しない
+Route::get('single', 'SingleController');
+
+Route::get('hello/index2', 'HelloController@index2');
