@@ -24,7 +24,8 @@ function tag($tag, $txt) {
 
 class HelloController extends Controller
 {
-    public function sample($id='noname', $pass='unknown') {
+    public function sample($id='noname', $pass='unknown') 
+    {
         global $head, $style, $body, $end;
 
         $html = $head . tag('title', 'Hello/Sample') . $style . $body
@@ -34,7 +35,8 @@ class HelloController extends Controller
         return $html;
     }
 
-    public function index() {
+    public function index()
+    {
         global $head, $style, $body, $end;
 
         $html = $head . tag('title', 'Hello/Index') . $style . $body
@@ -44,7 +46,8 @@ class HelloController extends Controller
         return $html;
     }
 
-    public function other() {
+    public function other()
+    {
         global $head, $style, $body, $end;
 
         $html = $head . tag('title', 'Hello/Other') . $style
@@ -54,7 +57,8 @@ class HelloController extends Controller
         return $html;
     }
 
-    public function index2(Request $request, Response $response) {
+    public function index2(Request $request, Response $response)
+    {
         $html = <<<EOF
         <html>
         <head>
@@ -97,6 +101,35 @@ EOF;
         // HTTP/1.0 200 OK
         // Cache-Control: no-cache, private
         // Date:          Mon, 06 May 2019 05:57:04 GMT
+    }
+
+    public function index3($id = 'zero', Request $request)
+    {
+        // $msg、$id,、$nameを渡すことになる
+        $data = [
+            'msg' => 'これはコントローラから渡されたメッセージです',
+            'id' => $id,
+            // クエリストリング
+            'name' => $request->name
+        ];
+        // 第2引数（連想配列）にパラメータを渡す
+        return view('hello.index3', $data);
+    }
+
+    public function index4()
+    {
+        return view('hello.index4', ['msg' => '', 'cond' => '']);
+    }
+
+    public function post(Request $request)
+    {
+        return view('hello.index4', ['msg' => $request->msg] );
+    }
+
+    public function index5()
+    {
+        $data = ['one', 'two', 'three', 'four', 'five'];
+        return view('hello.index5', ['data' => $data]);
     }
 }
 
