@@ -13,7 +13,7 @@ resources/views/各ビュー
 
 または
 
-クライアント
+クライアント（フォームなども）
 ↓　↑
 ルーティング（routes/web.php）
 ```php
@@ -22,10 +22,16 @@ Route::get('hello', 'HelloController@index');
 ↓　↑
 コントローラ　⇔　モデル
 （app/Http/Controllers/各コントローラ）
+```php
+return view('hello.index', $data);
+```
 ↓　↑
-ビュー
+ビュー（resources/views/各ビュー）
 
 ### artisan（アーティザン）コマンド
 - 各ファイル作成  
   `php artisan make:(ファイル種類)　ファイル名`  
   例 `php artisan make:controller HelloController`
+
+- migrate実行  
+  `php artisan migrate`

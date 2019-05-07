@@ -45,3 +45,7 @@ Route::get('hello/other', 'HelloController@other');
 Route::get('single', 'SingleController');
 
 Route::get('hello/index2', 'HelloController@index2');
+Route::get('hello3/{id?}', 'HelloController@index3');
+Route::get('hello4', 'HelloController@index4');
+Route::post('hello4', 'HelloController@post');
+Route::get('hello5', 'HelloController@index5');
