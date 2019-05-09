@@ -49,3 +49,4 @@ Route::get('hello3/{id?}', 'HelloController@index3');
 Route::get('hello4', 'HelloController@index4');
 Route::post('hello4', 'HelloController@post');
 Route::get('hello5', 'HelloController@index5');
+Route::get('hello6', 'HelloController@index6');

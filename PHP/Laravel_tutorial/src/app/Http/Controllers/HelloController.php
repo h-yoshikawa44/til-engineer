@@ -131,5 +131,15 @@ EOF;
         $data = ['one', 'two', 'three', 'four', 'five'];
         return view('hello.index5', ['data' => $data]);
     }
+
+    public function index6()
+    {
+        $data = [
+            ['name' => '山田たろう', 'mail' => 'taro@yamada'],
+            ['name' => '田中はなこ', 'mail' => 'hanako@flower'],
+            ['name' => '鈴木さちこ', 'mail' => 'sachico@happy']
+        ];
+        return view('hello.index6', ['data' => $data, 'message' => 'Hello!']);
+    }
 }
 
