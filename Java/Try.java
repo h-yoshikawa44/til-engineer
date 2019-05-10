@@ -1,3 +1,5 @@
+import java.sql.SQLException;
+
 // 独自例外クラス
 class MyException extends Exception {
 	private int age;
@@ -6,6 +8,14 @@ class MyException extends Exception {
 	}
 	public int getAge(){
 		return this.age;
+	}
+}
+
+class MyResourse implements AutoCloseable{
+	private String msg;
+	public MyResourse(String msg){ this.msg = msg;}
+	public void close() throws Exception{
+		System.out.println("close() : "+msg);
 	}
 }
 
@@ -49,7 +59,9 @@ public class Try {
          *     後処理(例外キャッチの有無にかかわらず実行する）;
          * }
          * ※try~catchやtry~finallyでも可能
-         * また、catchブロックを複数定義することや、一つのcatchブロックで複数種類の例外をキャッチすることも可能
+         * また、catchブロックを複数定義することや、
+         * 一つのcatchブロックで複数種類の例外をキャッチ（マルチキャッチ）することも可能
+         * ※こちらは継承関係のある例外クラスは列挙できない
          */
         try{
             int age = -10;
@@ -57,16 +69,47 @@ public class Try {
         }catch(MyException e){
             System.out.println("不正な値です。age : "+e.getAge());
         }
+
+        /* try-with-resources
+         * finallyブロックの使用例として、リソースの解放があげられるが
+         * これらの処理はリソースのアクセスするロジックでは必須となるため、Java　SE７からtry-with-resourse文が導入された
+         * tryブロックにリソースに関する実装を記述することで、
+         * tryブロックが終了する際に暗黙的にclose()メソッドが呼び出され、リソースが解放される
+         *（明示的にClose()メソッドを呼び出すコードを記述しなくてよい）
+         */
+        try(MyResourse obj1 = new MyResourse("obj1");
+        MyResourse obj2 = new MyResourse("obj2")){
+            System.out.println("try ブロック内の処理");
+            throw new SQLException();
+        }catch(SQLException e){
+            //SQLException例外がキャッチされる前にclose処理が呼び出されている
+            //close()の順番はリソースの取得の順と逆（今回はobj2から）
+            System.out.println("catch ブロック : SQLException");
+        }catch(Exception e){
+            System.out.println("catch ブロック : Exception");
+        }finally{
+            System.out.println("finally ブロック");
+        }
+        // try ブロック内の処理
+        // close() : obj2
+        // close() : obj1
+        // catch ブロック : SQLException
+        // finally ブロック
     }
 
-    // throw
-    // プログラム内で明示的に例外をスロー
+    // throws
+    // throws指定された例外クラスのオブジェクトがメソッド内で発生した場合、
+    // その例外オブジェクトはメソッドの呼び出しもとに転送される
     public static void checkAge(int age) throws MyException{
         if(age >= 0){
             System.out.println("OK");
         }else{
             MyException e = new MyException();
             e.setAge(age);
+            // throw
+            // プログラム内で明示的に例外をスロー
             throw e;
 		}
     }
+
+}
