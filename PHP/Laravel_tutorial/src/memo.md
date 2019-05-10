@@ -20,6 +20,10 @@ resources/views/各ビューフォルダ/各ビューファイル
 Route::get('hello', 'HelloController@index');
 ```
 ↓　↑
+ミドルウェア（アクション前、アクション後）
+（$next実行。複数ミドルウェアがある場合は次のミドルウェアに。
+　ない場合は、コントローラーのアクションへ）
+↓　↑
 コントローラ　⇔　モデル
 （app/Http/Controllers/各コントローラ）
 ```php
@@ -28,6 +32,75 @@ return view('hello.index', $data);
 レンダリング（＋ビューコンポーザ）
 ↓　↑
 ビュー（resources/views/各ビューフォルダ/各ビューファイル）
+
+### ミドルウェア
+コントローラーの前処理、後処理を行う箇所。  
+
+一つのコントローラーのアクションに割り当てるにはルーティングに記述するが、複数に割り当てるような場合は、グローバルミドルウェアを用いる。
+Http/Kernel.phpにミドルウェアの登録を行っている箇所があるので、そこに追記する
+
+また、ミドルウェアをグループ化して登録し、それを利用するようにすることも可能
+
+### バリデーション
+送信されたデータをチェックする  
+バリデーションによるエラーは$errorsに格納され、ビュー側に渡される
+```php
+    public function post(Request $request)
+    {
+        // バリデーションルール
+        $validate_rule = [
+            'name' => 'required',
+            'mail' => 'email',
+            'age' => 'numeric|between:0,150',
+        ];
+        // バリデーション実行
+        // 問題がなければ続きの処理へ
+        // 問題があれば例外が発生し、その場でフォームページを表示するレスポンスが生成され返される
+        $this->validate($request, $validate_rule);
+        return view('validate.index', ['msg' => '正しく入力されました']);
+    }
+```
+
+
+バリデーションルール
+- accept　true、on、yes、1といった値かどうか
+- active_url, url　指定されたアドレスが実際に有効であるか
+- after:日付　指定した日付より後であるか
+- after_or_equal　指定した日かそれより後であるか
+- before:日付　指定した日付より前であるか
+- before_or_equal　指定した日かそれより前であるか
+- alpha　すべてアルファベットであるか
+- alpha-dash　アルファベット＋ハイフン＋アンダースコアであるか
+- alpha-num　アルファベットと数字であるか
+- array　配列であるか
+- between:最小値, 最大値　値が指定の範囲内であるか
+- boolean　真偽値かどうか
+- date　日時の値として扱える値かどうか（strtotimeで変換できるか）
+- date_format:フォーマット　値が指定フォーマットの定義に一致するか
+- different:フィールド　指定フィールドと違う値かどうか
+- same:フィールド　指定フィールドと同じ値かどうか
+- digits:桁数　指定された桁数かどうか
+- digits_between:最小桁数, 最大桁数　桁数が指定範囲内かどうか
+- distinct　配列内に同じ値がないかどうか
+- email　メールアドレス形式かどうか
+- exists:テーブル, カラム　値が指定データベースの指定カラムにあるかどうか　
+- filled　空でないか
+- required　必須項目
+- in:値1, 値2...　指定した値の中に含まれるかどうか
+- not_in:値1, 値2...　指定した値の中に含まれないかどうか
+- integer　整数であるか
+- numeric　数値であるか
+- ip　IPアドレスかどうか
+- ipv4　IPv4であるかどうか
+- ipv6　IPv6であるかどうか
+- json　JSON形式であるかどうか
+- min:値　指定値よりも小さいか
+- max:値　指定値よりも大きいか
+- regix:パターン　正規表現にマッチするかどうか
+- size:値　文字列ならば文字数、数値の場合は整数値、配列の場合は要素数が一致するか
+- string　文字列かどうか
+- unique:テーブル, カラム　指定テーブルの指定カラムに同じ値が存在しないか
+
 
 ### ビューファイル
 #### レイアウト
@@ -109,6 +182,7 @@ HelloComposer.php
 
   - contoroller(app/Http/Controllers)
   - provider(app/Providers)
+  - middleware(app/Http/Middleware)
 
 - migrate実行  
   `php artisan migrate`

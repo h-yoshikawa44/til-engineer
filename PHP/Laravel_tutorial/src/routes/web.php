@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Middleware\HelloMiddleware;
+use App\Http\Middleware\Hello2Middleware;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -50,3 +53,11 @@ Route::get('hello4', 'HelloController@index4');
 Route::post('hello4', 'HelloController@post');
 Route::get('hello5', 'HelloController@index5');
 Route::get('hello6', 'HelloController@index6');
+
+// ミドルウェアの利用（メソッドチェーンでミドルウェアを連続して記述も可能）
+Route::get('middleware', 'MiddlewareController@index')->middleware(HelloMiddleware::class);
+// グループミドルウェアの利用
+Route::get('middleware2', 'MiddlewareController@index2')->middleware('hello');
+
+Route::get('validate', 'ValidateController@index');
+Route::post('validate', 'ValidateController@post');
