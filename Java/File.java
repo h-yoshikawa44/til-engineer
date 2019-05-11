@@ -165,7 +165,7 @@ public class File {
                 System.out.println(dis.readUTF());
                 //文字列データはUTF-8でコーティングされているため
                 //UTF-8以外のエンコーディングとしているテキストエディタで開くと文字化けする
-            }catch(IOException e){ e.printStackTrace(); }
+        }catch(IOException e){ e.printStackTrace(); }
 
 
         // 〇キャラクタストリーム(char単位でデータ読み書きするストリーム、入出力データの文字コードは自動的に変換される）
@@ -243,7 +243,7 @@ public class File {
                 while((data = br.readLine()) != null){ //1行単位で読込
                     System.out.println(data);
                 }
-            }catch(IOException e){ e.printStackTrace(); }
+        }catch(IOException e){ e.printStackTrace(); }
 
         // コンソールから文字入力の例
         // public static final InputStream in	標準入力ストリーム（キーボード入力）

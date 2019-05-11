@@ -61,3 +61,9 @@ Route::get('middleware2', 'MiddlewareController@index2')->middleware('hello');
 
 Route::get('validate', 'ValidateController@index');
 Route::post('validate', 'ValidateController@post');
+
+Route::get('validate2', 'ValidateController@index2');
+Route::post('validate2', 'ValidateController@post2');
+
+Route::get('cookie', 'CookieController@index');
+Route::post('cookie', 'CookieController@post');
