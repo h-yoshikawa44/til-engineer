@@ -49,5 +49,40 @@ public class List {
 
         // 3.Vector
         // 基本的にArrayListと同様
-        // 同期性：対応（スレッドセーフなコレクションである）   }
+        // 同期性：対応（スレッドセーフなコレクションである）
+
+
+        // 同期化をサポートしたArrayList
+    	// - CopyOnWriteArrayListクラス
+    	//   もとになる配列の新しいコピーを作成することにより、スレッドセーフを実現するArrayListを拡張
+
+    	// mainスレッド側では、スレッドの作成、およびstart()メソッドの呼び出し後、sleep()により休止。
+    	// その間に、iterator()メソッド呼び出しによりイテレータが作成されている
+    	// CopyOnWriteArrayListでは、イテレータを作成した時点の状態を参照するため
+    	// イテレータ取得後の、元のリストへ追加、削除、変更は反映されない。
+
+    	List<String> list = new CopyOnWriteArrayList<String>();
+        list.add("A"); list.add("B"); list.add("C"); list.add("D");
+        new Thread(() -> {
+            Iterator itr = list.iterator();
+            while(itr.hasNext()){
+                System.out.println("ThreadA : "+itr.next());
+                try{
+                    Thread.sleep(5000);
+                }catch(InterruptedException e){ e.printStackTrace();}
+            }
+        }).start();
+        try{
+            Thread.sleep(1000);
+        }catch(InterruptedException e){ e.printStackTrace();}
+        list.add("E");System.out.println("main : add()");
+        list.remove(2); System.out.println("main : remove()");
+        /* ThreadA : A
+         * main : add()
+         * main : remove()
+         * ThreadA : B
+         * ThreadA : C
+         * ThreadA : D
+         */
+    }
 }
