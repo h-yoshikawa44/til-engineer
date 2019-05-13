@@ -67,3 +67,12 @@ Route::post('validate2', 'ValidateController@post2');
 
 Route::get('cookie', 'CookieController@index');
 Route::post('cookie', 'CookieController@post');
+
+Route::get('database', 'DatabaseController@index');
+Route::get('database/add', 'DatabaseController@add');
+Route::post('database/add', 'DatabaseController@create');
+Route::get('database/edit', 'DatabaseController@edit');
+Route::post('database/edit', 'DatabaseController@update');
+Route::get('database/del', 'DatabaseController@del');
+Route::post('database/del', 'DatabaseController@remove');
+Route::get('database/show', 'DatabaseController@show');
