@@ -2,6 +2,9 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.PriorityQueue;
 import java.util.Queue;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.TimeUnit;
 
 public class Queue {
     public static void main(String[] args) throws Exception {
@@ -93,5 +96,50 @@ public class Queue {
         System.out.println(deq3.pop()); // L
         System.out.println(deq3); // [K, J]
 
+
+        // 同期化をサポートしたキュー
+        // - BlockingQueueインタフェース　要素を取り出すときに、キューを空にしないために待機するようQueueインタフェースを拡張
+        // ↓実装クラス
+        // - SynchronousQueueクラス　BlockingQueueインタフェースを実装した基本的なブロッキングキュー
+        // - LinkedBlockingQueueクラス　リンクノードに基づいたFIFOブロッキングキュー
+        // - ArrayBlockingQueueクラス　配列に基づいたFIFOブロッキングキュー
+        // - PriorityBlockingQueueクラス　キュー内の要素を指定された順序でソートするブロッキングキュー
+        // - DelayQueueクラス　遅延時間が経過後にのみ、要素を取得できるブロッキングキュー
+
+        // また、BlockingQueueの実装クラスではないが、スレッドセーフなQueueインタフェースの実装クラスとして、
+        // ConcurrentLinkedQueueクラスも提供されている
+        // （リンクノードに基づいたキューを提供するが、こちらはブロッキングを使用していない分高速）
+
+    	// BlockingQueueインタフェースの主なメソッド
+    	// 		例外のスロー　　特殊な値　　　ブロック　　タイムアウト
+    	// 挿入　　add(e)		offer(e)　　put(e)　　offer(e,time,utit)
+    	// 削除　　remove()		poll()	　　take()　　poll(time,unit)
+    	// 検査	element()	peek()	　　 適用外　　 適用外
+
+    	// ブロック…操作が正常に完了するまで現在のスレッドを無期限にブロック
+    	// タイムアウト…処理を中止するまで指定された制限時間内のみブロック
+
+        //このコードは無限ループになるため強制終了させること
+        BlockingQueue<Double> queue = new LinkedBlockingQueue<>(3);
+	    //容量が3に固定されたLinkedBlockingQueueオブジェクトの生成
+        new Thread(() ->{ //キューに要素を追加するスレッド
+            while(true){
+                try{
+                    queue.offer(Math.random(),2,TimeUnit.SECONDS);
+                    //offer(キューに要素を追加）キューに空きがない際は待機するためにタイムアウト情報を引数に指定
+                    System.out.println("offer() : "+queue.size());
+                }catch(InterruptedException e){e.printStackTrace();}
+            }
+        }).start();
+
+        new Thread(() -> { //キューから要素を取得および削除するスレッド
+            while(true){
+                try{
+                    double pNum = queue.poll(2,TimeUnit.SECONDS);
+                    //poll(キューから取得および削除）キューに要素がない場合は待機するためにタイムアウト情報を引数に指定
+                    System.out.println("poll() : "+pNum);
+                }catch(InterruptedException e){ e.printStackTrace();}
+            }
+        }).start();
     }
 }
