@@ -76,3 +76,9 @@ Route::post('database/edit', 'DatabaseController@update');
 Route::get('database/del', 'DatabaseController@del');
 Route::post('database/del', 'DatabaseController@remove');
 Route::get('database/show', 'DatabaseController@show');
+
+Route::get('person', 'PersonController@index');
+Route::get('person/find', 'PersonController@find');
+Route::post('person/find', 'PersonController@search');
+Route::get('person/add', 'PersonController@add');
+Route::post('person/add', 'PersonController@create');
