@@ -55,10 +55,13 @@ laradockの中の`env-example`をコピーして作成
 - .laradock-envを編集  
 `APP_CODE_PATH_HOST`はLaradockのwebサーバー上で同期するディレクトリ  
 `DATA_PATH_HOST`はdockerのストレージなどを保存するローカルのディレクトリ  
+`COMPOSE_PROJECT_NAME`はコンテナの接頭辞（デフォルトのlaradockだと、複数プロジェクトでLaradockを使用する際に名前が被って上書きになってしまうので変更しておく）
 ```
 例
 APP_CODE_PATH_HOST=../(Laravelプロジェクトフォルダ)/
-DATA_PATH_HOST=/.(Laradockフォルダ)/data
+DATA_PATH_HOST=../.(Laradockフォルダ)/data
+
+COMPOSE_PROJECT_NAME=laraveltutorial
 ```
 
 - setup.shを編集
