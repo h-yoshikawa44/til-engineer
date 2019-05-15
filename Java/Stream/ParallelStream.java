@@ -155,5 +155,39 @@ public class ParallelStream {
 							Set::add,
 							Set::addAll);
 		for(String e : set3){ System.out.print(e + " ");} // orange banana lemon
+
+        // groupingByConsurrent()メソッド
+        // groupingBy()メソッドと同等の処理（要素のグループ化）を行うパラレルストリームでのメソッド
+        // - static<T,K> Collector<T,?,Concurrent<ap<K,List<T>>>groupingByConcurrent
+        // (Function<? super T,? extends K> classifier)
+        // 指定した関数に従ってグループ化し、結果をConcurrentMapに格納して返す並行Collectorを返す
+
+        Stream<String> stream1 =
+                Stream.of("belle","akko","ami","bob","nao").parallel(); //パラレルストリームを取得
+        Map<String,List<String>> map1=
+                stream1.collect(Collectors.groupingByConcurrent(
+                    s -> s.substring(0,1))); //頭文字でグルーピングするように指定
+                    //グループ化したマップに対して行いたい処理があれば第2引数以降で指定
+        System.out.println(map1); // {a=[ami, akko], b=[belle, bob], n=[nao]}
+        System.out.println("map1のクラス名 :"+map1.getClass()); // map1のクラス名 :class java.util.concurrent.ConcurrentHashMap
+
+
+        // toConcurrentMap()メソッド
+        // toMap()メソッドと同等の処理（要素をもとにマップに変換）を行うパラレルストリームでのメソッド
+        // static<T,K,U> Collector<T,?,ConcurrentMap<K,U>>toConcurrentMap<K,U>>toConcurrentMap
+    	// (Function<? super T,? extends K> keyMapper,
+        //      Function<? super T,? extends U>valueMapper,BinaryOperator<U>mergeFunction)
+        // Mapに蓄積する並行Collectorを返す
+
+        Stream<String> stream2=
+            Stream.of("nao","akko","ami").parallel();
+        Map<Integer,String> map2=
+            stream2.collect(Collectors.toConcurrentMap(
+                    String::length, //第1引数にキー
+                    s -> s, //第2引数に値
+                    (s1,s2) -> s1+" : "+s2)); //第3引数にマージ処理を指定
+                    //値をコロンで区切りながら結合
+        System.out.println(map2); // {3=nao : ami, 4=akko}
+        System.out.println("map2のクラス名 :"+map2.getClass()); // map2のクラス名 :class java.util.concurrent.ConcurrentHashMap
     }
 }
