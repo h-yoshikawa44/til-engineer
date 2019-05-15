@@ -50,7 +50,8 @@
 ```
 
 - `conf/`のなかに`.laradock-env`を作成
-laradockの中の`env-example`をコピーして作成
+laradockの中の`env-example`をコピーして作成  
+(以降、Laradockを更新した際はenv-exampleの内容が更新されている場合があるので、その際は再度合わせる)
 
 - .laradock-envを編集  
 `APP_CODE_PATH_HOST`はLaradockのwebサーバー上で同期するディレクトリ  
