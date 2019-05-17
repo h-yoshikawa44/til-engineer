@@ -141,5 +141,25 @@ EOF;
         ];
         return view('hello.index6', ['data' => $data, 'message' => 'Hello!']);
     }
+
+    public function rest(Request $request)
+    {
+        return view('hello.rest');
+    }
+
+    public function ses_get(Request $request)
+    {
+        // セッションから値を取得
+        $sesdata = $request->session()->get('msg');
+        return view('hello.session', ['session_data' => $sesdata]);
+    }
+
+    public function ses_put(Request $request)
+    {
+        $msg = $request->input;
+        // セッションに値をセット
+        $request->session()->put('msg', $msg);
+        return redirect('hello/session');
+    }
 }
 

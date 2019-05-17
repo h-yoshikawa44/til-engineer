@@ -578,6 +578,95 @@ Board:all()とするところを以下のようにすることで、内部的な
 $items = Board::with('person')->get();
 ```
 
+### RESTful
+ルーティングにリソースで7つのアクションをまとめて登録
+
+```php
+Route::resource('rest', 'RestappController');
+// 7つのアクションを一括登録
+// rest(GET)　index
+// rest/create(GET)　create
+// rest(POST)　store
+// rest/番号(GET)　show(番号=ID)
+// rest/番号/edit(GET)　edit(番号=ID)
+// rest/番号(PUT/PATCH)　update(番号=ID)
+// rest/番号(DELEtE)　delete(番号=ID)
+```
+なお、これではRourcefulになってしまうが、このうちcreateとeditを除いた5つのメソッドRESTfulだといえる  
+(RESTfulではCRUDはすべて同じアドレスで、アクセスに使うHTTPメソッドの違いによって処理を分ける)
+
+Laravelでは配列をリターンすると自動的にJSONに変換してくれる
+```php
+    public function index()
+    {
+        $items = Restdata::all();
+        // 配列にしてリターン（JSONにしてリターン）
+        return $items->toArray();
+    }
+```
+
+### セッション
+それぞれのユーザごとにIDとなる値をクッキーとして保管（セッションID）  
+そのIDに関連付けてデータベースに保存する。取り出す際もそのIDをもとに取り出す。  
+デフォルトではファイルに保存（storage/framewark/sessions）  
+セッションに関する設定はconfig/session.phpにある
+
+値取得
+```php
+$sesdata = $request->session()->get('msg');
+```
+
+値セット
+```php
+$request->session()->put('msg', $msg);
+```
+
+session.phpでdriverをdaabaseに変更することでデータベースに保存するように変更可能  
+なお、セッション用のテーブルは特殊なので以下のコマンドでマイグレーションファイルを生成できるようになっている  
+` php artisan session:table`
+
+### ページネーション
+コントローラ  
+orderByで順番の指定などもできる。その場合は、必ずsimplepaginateが最後に来るようにする
+```php
+    public function index(Request $request)
+    {
+        // 1ページ当たりの表示数を指定
+        $items = DB::table('people')->simplePaginate(5);
+
+        // モデル利用の場合
+        //$items = Person::all()->simplepaginate(5);
+        return view('pagenate.index', ['items' => $items])
+    }
+```
+
+ビュー
+※$itemsはDBからの取得データ  
+以下でページ送りのリンク作成
+```php
+ {{$items->links()}}
+ ```
+ パラメータの追加
+ ```php
+ {{$items->appends(['sort' => $sort])->links()}}
+ ```
+
+ページ数指定のページ送りをする場合の例  
+pagenateで指定する
+```php
+$items = Person::orderBy($sort, 'asc')->paginate(2);
+```
+
+#### リンクのテンプレート
+リンクを生成するlinksメソッドは、使用するテンプレートを指定することもできる  
+テンプレートを作成
+` php artisan vendor:publish --tag=laravel-pagination`
+
+### スタイルシート
+デフォルトで/css/app.cssがある
+```html
+<link rel="stylesheet" type="text/css" href="/css/app.css">
+```
 ### artisan（アーティザン）コマンド
 - 各ファイル作成  
   `php artisan make:(ファイル種類)　ファイル名`  
@@ -590,6 +679,9 @@ $items = Board::with('person')->get();
   - migration(database/migrations)
   - seeder(database/seeds)
   - model(app)
+
+オプション
+- `--resource`　コントローラでCRUDのメソッドを用意する
 
 - migrate実行  
   `php artisan migrate`
