@@ -46,7 +46,25 @@ public class JDBC {
         // - Statementインタフェース	静的SQL文を実行し、作成された結果を返すために使用されるオブジェクト
         // - ResultSetインタフェース	データベースの結果セットを表すデータオブジェクト
 
-        // 結果の取得と処理
+    	// 4. JDBCでは3種類のステートメントを使用できる。
+    	// -  Statement				標準的なSQL文を実行
+    	// - PrepareStatement		プリコンパイルされたSQL文を実行
+    	// - CallableStatement		ストアドプロシージャを実行
+
+    	// 5. Statementインタフェースの主なメソッド
+    	// ResultSet executeQuery(String sql)throws SQLException
+    	// 単一のResultSetオブジェクトを返す。指定されたSQL文を実行する。
+    	// 該当するレコードがない場合でも、nullにはならない
+
+    	// int executeUpdate(String sql)throws SQLException
+    	// 指定されたSQL文を実行する。SQL文は、INSERT文、UPDATE文、DELETE文のようなSQLデータ操作言語（DML)文、
+    	// あるいはDDL文のような何も返さないSQL文を指定する。戻り値は、引数がDML文の場合は行数を返し、
+    	// 何も返さないSQL文の場合は0を返す
+
+    	// boolean execute(String sql)throws SQLException
+    	// SQL文の実行結果がResultSetオブジェクトの場合はtrueを、更新行数または結果がない場合はfalseを返す
+
+        // 6. 結果の取得と処理
         // executeQuery()メソッドの実行により、ResultSetオブジェクトとして検索結果が返る。
         // ResultSetオブジェクトは問い合わせにより返されたデータを表し、その結果を1行ずつ処理できる。
         // 値を取り出すには次の手順で行および列へアクセス
@@ -86,8 +104,7 @@ public class JDBC {
         Statement stmt = null;
         ResultSet rs =  null;
         try{
-	        DbConnector connector = new DbConnector();
-            con = connector.getConnect();
+            con = DbConnector.getConnect();
             //④ステートメントの取得
             stmt = con.createStatement();
             //⑤SQL文の実行
@@ -123,5 +140,40 @@ public class JDBC {
         // 主なメソッド
         // - int getErrorCode()	ベンダ固有の例外コードを取得する
         // - String getSQLState()	SQLStateを取得する
+
+
+        // ResultSetオブジェクト上でデータの挿入・更新
+        // 更新可能なResultSetオブジェクトでは、問い合わせ結果を使用してレコードの挿入や更新・削除を行うことができる
+
+        // ResultSetインタフェースの更新処理用メソッド
+        // void updateString(int columnIndex,String x)throws SQLException
+     	// 第1引数で指定された列を、第2引数で指定したString値で更新する
+
+        // void updateInt(int columnIndex,int x)throws SQLException
+     	// 第1引数で指定された列を、第2引数で指定したint値で更新する
+
+        // void updateRow()throws SQLException
+     	// 変更内容をデータベースに反映する
+
+        // void moveToInsertRow()throws SQLException
+     	// カーソルを挿入行に移動する
+
+        // void insertRow()throws SQLException
+     	// 挿入行の内容をデータベースに挿入する
+
+        // void deleteRow()throws SQLException
+     	// データベースから、現在の行を削除する
+
+        String sql = "SELECT dept_code,dept_address FROM department "+
+                     "WHERE dept_code = 4";
+        try(Connection con = DbConnector.getConnect();
+            Statement stmt = con.createStatement(
+                ResultSet.TYPE_SCROLL_INSENSITIVE,
+                ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = stmt.executeQuery(sql)){
+                if(rs.next()) System.out.println(rs.getString(2));
+                rs.updateString(2, "Chiba"); //2列目の要素をChibaに更新
+                rs.updateRow(); //変更内容をデータベースに変更
+        }catch(SQLException e){e.printStackTrace();}
     }
 }
