@@ -54,6 +54,11 @@ Route::post('hello4', 'HelloController@post');
 Route::get('hello5', 'HelloController@index5');
 Route::get('hello6', 'HelloController@index6');
 
+Route::get('hello/rest', 'HelloController@rest');
+
+Route::get('hello/session', 'HelloController@ses_get');
+Route::post('hello/session', 'HelloController@ses_put');
+
 // ミドルウェアの利用（メソッドチェーンでミドルウェアを連続して記述も可能）
 Route::get('middleware', 'MiddlewareController@index')->middleware(HelloMiddleware::class);
 // グループミドルウェアの利用
@@ -90,3 +95,18 @@ Route::post('person/del', 'PersonController@remove');
 Route::get('board', 'BoardController@index');
 Route::get('board/add', 'BoardController@add');
 Route::post('board/add', 'BoardController@create');
+
+Route::resource('rest', 'RestappController');
+// 7つのアクションを一括登録
+// rest(GET)　index
+// rest/create(GET)　create
+// rest(POST)　store
+// rest/番号(GET)　show(番号=ID)
+// rest/番号/edit(GET)　edit(番号=ID)
+// rest/番号(PUT/PATCH)　update(番号=ID)
+// rest/番号(DELEtE)　delete(番号=ID)
+
+Route::get('paginate', 'PaginateController@index');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
