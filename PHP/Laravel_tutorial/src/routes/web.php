@@ -107,6 +107,8 @@ Route::resource('rest', 'RestappController');
 // rest/番号(DELEtE)　delete(番号=ID)
 
 Route::get('paginate', 'PaginateController@index');
+Route::get('paginate/auth', 'PaginateController@getAuth');
+Route::post('paginate/auth', 'PaginateController@postAuth');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
