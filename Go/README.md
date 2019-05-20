@@ -11,6 +11,12 @@ go 1.11.1
 
 ## 主なフレームワーク
 - gin
+  - [公式](https://gin-gonic.com/ja/)
+  - [GitHub](https://github.com/gin-gonic/gin)
 - beego
+  - [公式](https://beego.me/)
+  - [GitHub](https://github.com/astaxie/beego)
 - iris
+  - [公式](https://iris-go.com/)
+  - [GitHub](https://github.com/kataras/iris)
 など

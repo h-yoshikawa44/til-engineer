@@ -17,8 +17,19 @@ Python 3.6.6
 
 ### 主なフレームワーク
 - Django
+  - [公式](https://www.djangoproject.com)
+  - [日本語訳サイト](https://djangoproject.jp/)
+  - [GitHub](https://github.com/django/django)
 - Flask
+  - [公式](http://flask.pocoo.org/)
+  - [GitHub](https://github.com/pallets/flask)
 - Responder
+  - [公式](https://python-responder.org/en/latest/)
+  - [GitHub](https://github.com/kennethreitz/responder)
 - Bottle
+  - [公式](https://bottlepy.org/docs/dev/)
+  - [GitHub](https://github.com/bottlepy/bottle)
 - Tornado
+  - [公式](https://www.tornadoweb.org/en/stable/)
+  - [GitHub](https://github.com/tornadoweb/tornado)
 など
