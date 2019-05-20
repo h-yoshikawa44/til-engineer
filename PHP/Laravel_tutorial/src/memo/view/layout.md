@@ -1,5 +1,7 @@
 ## レイアウト
-resources/views/layoutsにレイアウトの土台となるファイルを作成  
+パス：App\resources\view\layouts
+
+レイアウトの土台となるファイルを作成  
 そのレイアウトを継承したビューファイルを作成し、@yeildにはめ込む@sectionを書いていく
 
 レイアウト　　　　　　　継承ファイル
@@ -7,5 +9,6 @@ resources/views/layoutsにレイアウトの土台となるファイルを作成
 　　　　　　　　　　　　　　@extends('layouts.helloapp')
 @yeild('title')　　　←　　@section('title', 'Index')
 
-　　　　　　　　　　　　　　@parent
 @section('menubar')　←　　@section('menubar')
+　　　　　　　　　　　　　　　@parent
+　　　　　　　　　　　　　　@endsection

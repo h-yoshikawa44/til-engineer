@@ -1,4 +1,9 @@
 ## モデル
+パス(namespace)：App
+基底クラス：Illuminate\Database\Eloquent\Model(use必要)
+
+※artisanコマンドではApp配下に作成されるがModelフォルダをはさんでもいいかもしれない
+
 テーブル内容を定義したクラス  
 命名規則は単数形  
 Eloquent(ORM)を用いて、データベース操作を扱いやすくなる
@@ -6,7 +11,10 @@ Eloquent(ORM)を用いて、データベース操作を扱いやすくなる
 取得されたデータはモデルクラスのインスタンスのコレクションとなる
 そのため、モデルクラスで定義したメソッドを使用することも可能
 
-データ取得（全レコード）の例
+### モデルクラスによるCRUD
+
+#### SELECT
+レコード全取得
 ```php
 $items = Person::all();
 ```
@@ -19,6 +27,41 @@ $item = Person::find($request->input);
 whereを用いた取得の例
 ```php
 $item = Person::where('name', $request->input)->first();
+```
+
+#### INSERT
+```php
+    public function create(Request $request)
+    {
+        $this->validate($request, Person::$rules);
+        $person = new Person;
+        $form = $request->all();
+        unset($form['_token']); // テーブル側にないフィールドは削除しておく
+        $person->fill($form)->save(); // モデルのプロパティに代入
+        return redirect('/person');
+    }
+```
+
+#### UPDATE
+```php
+   public function update(Request $request)
+    {
+        $this->validate($request, Person::$rules);
+        $person = Person::find($request->id);
+        $form = $request->all();
+        unset($form['_token']);
+        $person->fill($form)->save();
+        return redirect('/person');
+    }
+```
+
+#### DELETE
+```php
+    public function remove(Request $request)
+    {
+        Person::find($request->id)->delete();
+        return redirect('/person');
+    }
 ```
 
 ### スコープ  
@@ -71,51 +114,19 @@ class ScopePerson implements Scope
 }
 ```
 
-呼び出し側（モデルクラス）
+呼び出し側（モデルクラス・グローバル）
 ```php
-static::addGlobalScope(new ScopePerson);
+    protected static function boot()
+        parent::boot();
+        static::addGlobalScope(new ScopePerson);
+    }
 ```
----
 
+### 値の保護
 IDなどのオートインクリメントの値など、DB側で値を用意するものは、入力の保護が可能
 ```php
 // 値を用意しておかないカラム
 protected $guarded = array('id');
-```
-
-### モデルクラスによるCRUD
-挿入の例
-```php
-    public function create(Request $request)
-    {
-        $this->validate($request, Person::$rules);
-        $person = new Person;
-        $form = $request->all();
-        unset($form['_token']); // テーブル側にないフィールドは削除しておく
-        $person->fill($form)->save(); // モデルのプロパティに代入
-        return redirect('/person');
-    }
-```
-更新の例
-```php
-   public function update(Request $request)
-    {
-        $this->validate($request, Person::$rules);
-        $person = Person::find($request->id);
-        $form = $request->all();
-        unset($form['_token']);
-        $person->fill($form)->save();
-        return redirect('/person');
-    }
-```
-
-削除の例
-```php
-    public function remove(Request $request)
-    {
-        Person::find($request->id)->delete();
-        return redirect('/person');
-    }
 ```
 
 ### リレーション
@@ -129,6 +140,7 @@ Personクラスの例（主：Person、従：Board）
 リレーションがあると、Personクラスのインスタンス→Boardクラスのインスタンス  
 といったようにアクセスできる（hasManyの場合はBoardクラスのインスタンスの配列を持つ（配列であるが、名前は単数形のboard ※参考書では誤ってか複数形になっていたので注意）
 
+Boardクラス側の例
 ```php
    public function person()
     {
