@@ -1,4 +1,5 @@
 ## テスト
+LaravelにはテストライブラリとしてPHPUnitがある。
 
 ### ユニットテスト
 テスト実行は`vendor/bin/phpunit`  
