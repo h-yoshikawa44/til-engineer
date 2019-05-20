@@ -16,7 +16,7 @@
 
 コンポーネント　　　　　　　　　ビューファイル
 (item.blade.php)　　　　　　　(index6.blade.php)
-<li>{{$item['name']}}</li>　　@each('components.item', $data, 'item)
+<li>{{$item['name']}}</li>　　@each('components.item', $data, 'item')
 ※$dataはコントローラから渡された配列の変数
 
 ### ページネーション

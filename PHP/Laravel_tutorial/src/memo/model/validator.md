@@ -3,7 +3,7 @@
 バリデーションによるエラーは$errorsに格納され、ビュー側に渡される  
 エラーがある場合は、自動的に元のページにリダイレクトする(入力されていた値を設定しておきたい場合は、value="{{old('name')}}"のようにoldを使ってセットする
 
-モデルクラスに用意するのが推奨される(バリデーションルールをモデルクラスにstaticで定義しておく)
+モデルクラスに用意(バリデーションルールをモデルクラスにstaticで定義しておく)して利用もできるが、フォームリクエストで行うのが望ましい（formrequest.mdを参照）
 
 コントローラで手動で行う例
 （※フォームリクエストもしくはバリデータで行うのが推奨）
@@ -64,9 +64,6 @@
 - string　文字列かどうか
 - unique:テーブル, カラム　指定テーブルの指定カラムに同じ値が存在しないか
 
-
-
-
 ### バリデータ
 独自ルールなど独自作成のバリデーションを利用する際に用いる。
 $request->query()とすることで、クエリ文字列のチェックをすることも可能。
@@ -106,6 +103,9 @@ $request->query()とすることで、クエリ文字列のチェックをする
 ```
 
 ### 独自バリデータ
+パス(namespace)：App\Http\Validators
+基底クラス：Illuminate\Validation\Validator(use必要)
+
 Validatorクラスを継承したクラスを作成  
 validate〇〇のメソッドで、〇〇の部分がルールの名前になる
 ```php
@@ -136,7 +136,10 @@ class HelloValidator extends Validator
 ※サービスプロバイダにルールを書く方法もある  
 こちらは一つのコントローラーでのみ使うルールなどに有効であるが、汎用性はない
 ```php
+    public function boot()
+    {
         Validator::extend('hello', function($attribute, $value, $parameter, $validator) {
             return $value % 2 == 0;
         });
+    }
 ```
