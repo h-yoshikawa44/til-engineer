@@ -14,9 +14,16 @@ Ruby 2.5.3
 
 ### 主なフレームワーク
 - Rails
+  - [公式](https://rubyonrails.org/)
+  - [日本語訳ドキュメント](http://railsdoc.com/)
+  - [GitHub](https://github.com/rails/rails)
 - Sinatra
+  - [公式](http://sinatrarb.com/)
+  - [GitHub](https://github.com/sinatra/sinatra)
 - Cuba mivroframework
-- Ramaze
-- HANAMI
+  - [公式](http://cuba.is/)
+  - [GitHub](https://github.com/soveran/cuba)
 - Padrino
+  - [公式](http://padrinorb.com/)
+  - [GitHub](https://github.com/padrino/padrino-framework)
 など

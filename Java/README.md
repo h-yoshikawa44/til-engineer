@@ -15,5 +15,9 @@ openjdk 11.0.3
 
 ## 主なフレームワーク
 - Spring
+  - [公式](https://spring.io/)
+  - [GitHub](https://github.com/spring-projects/spring-framework)
 - Struts
+  - [公式](https://struts.apache.org/)
+  - [GitHub](https://github.com/apache/struts)
 など

@@ -17,8 +17,21 @@ PHP 7.2.17
 
 ### 主なフレームワーク
 - Laravel
+  - [公式](https://laravel.com/)
+  - [日本語約ドキュメント](https://readouble.com/laravel/)
+  - [GitHub](https://github.com/laravel/laravel)
 - CakePHP
+  - [公式・日本語](https://cakephp.org/jp)
+  - [GitHub](https://github.com/cakephp/cakephp)
 - FuelPHP
+  - [公式](http://fuelphp.com)
+  - [日本語訳ドキュメント](http://fuelphp.jp/)
+  - [GitHub](https://github.com/fuel/fuel)
 - Symfony
+  - [公式](https://symfony.com/)
+  - [GitHub](https://github.com/symfony/symfony)
 - Codeigniter
+  - [公式](https://codeigniter.com/)
+  - [日本語訳ドキュメント](https://codeigniter.jp/)
+  - [GitHub](https://github.com/bcit-ci/CodeIgniter)
 など
