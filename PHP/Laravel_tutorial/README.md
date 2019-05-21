@@ -97,6 +97,9 @@ cp -f conf/mysql.cnf ../（Laradockフォルダ）/mysql/my.cnf
 ※起動するコンテナは使用したいものに応じて変化  
 **初回は作成に少し時間がかかる**
 
+  - phpmyadmin　DBのGUIクライアント
+  - mailhog　SMTPサーバ
+
 - 起動イメージの確認  
 `$ docker-compose ps`  
 StateがすべてUpになっていればOK
