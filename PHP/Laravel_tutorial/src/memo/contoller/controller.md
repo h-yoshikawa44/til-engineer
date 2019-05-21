@@ -2,11 +2,8 @@
 パス(namespace)：app\Http\Controllers
 基底クラス：App/Http/Controllers/Controller(useは不要)
 
-ルートをたどってきたリクエストに対してレスポンスを返す。  
-主なレスポンスは
-- 直接HTMLを返す
-- ビューを返す
-- ビューを返す（ミドルウェアの割り込みあり）
+HTTPリクエストに対応する処理を実行する  
+処理が完了すればResponseを生成して返す
 
 ### 構文
 基本構文（ビューを返す）

@@ -1,19 +1,13 @@
 ## Webページ表示の流れ
-クライアント（URLにアクセス）
+HTTPリクエスト
 ↓　↑
-ルーティング（routes/web.php）
-```php
-Route::get('/', function () {
-    return view('welcome');
-});
-```
+エントリポイント
+(public/index.php)
+行きはHTTPリクエストを受けてIlluminate\Http\Requestを生成
+戻りはIlluminate\Http\ResponseもしくはIlluminate\Http\JsonResponseをうけてHTTP Responseとして出力
 ↓　↑
-resources/views/各ビューフォルダ/各ビューファイル  
-例　welcome.blade.php
-
-または
-
-クライアント（フォームなども）
+HTTPカーネル
+(app/Http/Kernel.php)
 ↓　↑
 ルーティング（routes/web.php）
 ```php
@@ -27,6 +21,7 @@ Route::get('hello', 'HelloController@index');
 ↓　↑
 コントローラ　⇔　モデル
 （app/Http/Controllers/各コントローラ）
+Illuminate\Http\ResponseもしくはIlluminate\Http\JsonResponseを返す
 ```php
 return view('hello.index', $data);
 ```
