@@ -1,0 +1,9 @@
+## ファザード
+
+クラスメソッド形式でフレームワークの機能を利用できるもの
+
+ファザードが動く例
+1. Config::get('app.debug')がコールされる
+2. Configの実態であるIlluminate\Support\Facades\Configクラス（config/app.phpにaliasesが定義されている）のgetメソッドを呼び出す
+3. Illminate\Support\Facades\Configクラスにはgetメソッドがないため、スーパークラスの__callStaticメソッドを呼び出す
+4. __callStaticメソッドでは、getFacadeRootメソッドで操作対象のインスタンスを取得し、getメソッドを実行する（getFacadeRootメソッドでは、getFacadeAccessorメソッドで取得した文字列をresolveFacadeInstanceメソッドにより、サービスコンテナで解決し、取得したインスタンスを返す）

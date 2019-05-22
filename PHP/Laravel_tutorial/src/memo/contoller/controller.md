@@ -59,6 +59,16 @@ public function post(HelloRequest $request)
 }
 ```
 
+Laravelでは配列をリターンすると自動的にJSONに変換してくれる
+```php
+    public function index()
+    {
+        $items = Restdata::all();
+        // 配列にしてリターン（JSONにしてリターン）
+        return $items->toArray();
+    }
+```
+
 ### ヘルパ
 #### redirect
 引数ありの場合、RedirectResponseを返すもの
