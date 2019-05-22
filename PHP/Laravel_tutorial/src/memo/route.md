@@ -37,3 +37,6 @@ Route::resource('rest', 'RestappController');
 - rest/番号(PUT/PATCH)　update(番号=ID)
 - rest/番号(DELEtE)　delete(番号=ID)
 ```
+
+なお、これではRourcefulになってしまうが、このうちcreateとeditを除いた5つのメソッドRESTfulだといえる  
+(RESTfulではCRUDはすべて同じアドレスで、アクセスに使うHTTPメソッドの違いによって処理を分ける)
