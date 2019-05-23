@@ -15,6 +15,7 @@ public function index()
 }
 ```
 
+#### リクエスト
 リクエストパラメータを使用する例
 $requestの中にフォーム送信された値や、クエリストリングの値が入っている
 ```php
@@ -69,9 +70,72 @@ Laravelでは配列をリターンすると自動的にJSONに変換してくれ
     }
 ```
 
-### ヘルパ
-#### redirect
-引数ありの場合、RedirectResponseを返すもの
+#### レスポンス
+デフォルトではContent-type:text/html
+
+```php
+$response = Response::make('hello world');
+
+// ヘルパー関数を利用する場合
+$response = response('hello world');
+
+// content-typeを変更
+$response = response('hello world', Response::HTTP_OK, ['content-type' => 'text/plain']);
+```
+
+テンプレート出力
+```php
+$response = Response::view(View::make('view.file'));
+
+// 上記のメソッドと同じ結果
+$response = view('view.file');
+
+// ステータスコードを変更し、ビューを出力
+$response = response(view('view.file'), Response::HTTP_ACCEPTED);
+
+return $response;
+```
+
+JSON出力
+```php
+$response = Response::json(['status' => 'success']);
+
+// ヘルパー関数を利用する場合
+$response = response()->json(['status' => 'success']);
+```
+
+JSONP出力
+```php
+$response = Response::jsonp('callback', ['status' => 'success']);
+
+// ヘルパー関数を利用する場合
+$response = response()->jsonp('callback', ['status' => 'success']);
+```
+
+ダウンロードレスポンス
+```php
+$response = Response::download('/path/to/file.pdf');
+
+// ヘルパー関数を利用する場合
+$response = response()->download('/path/to/file.pdf');
+
+// ファイル名指定
+$response = response()->download('/path/to/file.pdf', 'filename.pdf', [
+    'content-type' => 'application/pdf',
+]);
+```
+
+リダイレクト
+引数ありの場合、RedirectResponseを返す
+
+```php
+// 以下はすべて同じ結果が得られる
+$response = Response::redirectTo('/');
+$response = response()->redirectTo('/');
+$response = redirect('/');
+```
+
+
 ```php
        if ($validator->fails()) {
             // withErrors エラー情報リダイレクト先まで引き継ぐ

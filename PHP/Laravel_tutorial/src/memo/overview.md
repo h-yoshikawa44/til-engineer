@@ -52,10 +52,102 @@ R...Respoder
 
 ・アクション（MVCでいうコントローラ）  
 ドメインとレスポンダの接続を行う。HTTPリクエストからドメインを呼び出し、HTTPレスポンスを構築するために必要なデータをレスポンダに渡す  
-コントローラクラスが複数のアクションに対応するのに対して、1つのアクションにのみ対応させてアクションクラスとして独立させ、1つのアクションとルートをたいおうさせることで、複雑化を防ぎシンプルにHTTPリクエストを扱い、レスポンダにレスポンス内容を構築を移譲する
+コントローラクラスが複数のアクションに対応するのに対して、1つのアクションにのみ対応させてアクションクラスとして独立させ、1つのアクションとルートを対応させることで、複雑化を防ぎシンプルにHTTPリクエストを扱い、レスポンダにレスポンス内容を構築を移譲する
 
 ・ドメイン（MVCでいうモデル）  
 アプリケーションのコアを形成するビジネスロジックへの入り口で、トランザクションスクリプトやドメインモデルなどを利用してビジネスロジックを解決する
 
 ・レスポンダ（MVCでいうビュー）  
-アクションから受け取ったデータからHTTPレスポンスを構築するプレゼンテーションロジックを解決する。HTTPステータスコードやヘッダー、クッキー、テンプレートを扱うHTML出力、APIなどにおけるJSON変換などを扱う
+アクションから受け取ったデータからHTTPレスポンスを構築するプレゼンテーションロジックを解決する。HTTPステータスコードやヘッダー、クッキー、テンプレートを扱うHTML出力、APIなどにおけるJSON変換などを扱う  
+ロジックをコントローラ・アクションから切り離し、コンテンツ情報だけでなく、HTTPれう本素を構築する処理を担当する
+
+### レイヤードアーキテクチャ
+複雑になりやすい実装をいくつかのレイヤに分割して設計する手法  
+
+#### モデルとコントローラの分離
+データベース処理がモデルとしての役割を担っている場合、ビジネスロジックとEloquentモデル、コントローラが強く結合する状態になる  
+これを解消するために、ビジネスロジッククラスをサービスクラスとして分離する  
+サービスクラスはコントローラクラスでコンストラクタインジェクションを用いて利用できる
+
+```php
+namespace App\Http\Controllers;
+
+class UserController
+{
+    public function __construct(UserPurchaseService $service)
+    {
+        $this->service = $service;
+    }
+
+    public function index(string $id)
+    {
+        $result = $this->service->retrievePurchase(intval($id));
+        return view('user.index', ['user' => $result]);
+    }
+}
+```
+
+#### サービスレイヤとデータベースの分離
+データベースへの依存を解決するため、データベース操作を抽象化し直接的な操作から分離するリポジトリ層を取り入れる  
+サービスクラスにリポジトリインタフェースを指定することで、サービスクラスからもデータベースへの直接的な操作を排除できる
+
+インタフェース
+```php
+namespace App\Repository
+
+interface UserRepositoryInterface
+{
+    public function find(int $id): array;
+}
+```
+
+インタフェースの実装
+```php
+namespace App\Repository;
+
+use App\User;
+
+class UserRepository implements UserrepositoryInterface
+{
+    public function find(int $id): array
+    {
+        $user = User::find($id)->toArray();
+        // 処理
+        return $user;
+    }
+}
+```
+
+サービスクラスからリポジトリクラスの利用
+```php
+namespace App\Service;
+
+use App\repository\UserRepositoryInterface;
+use App\User;
+
+class UserPurchaseService
+{
+    protected $userRepository;
+
+    public function __construct(UserRepositoryInterface $userRepository)
+    {
+        $this->userRepository = $userRepository;
+    }
+
+    public function retrievePurchase(int $identifier): User
+    {
+        // リポジトリを介してデータを取得
+        $user = $this->userRepository->find($identifier);
+        // データベースから取得した値を使った処理など
+        return $user;
+    }
+}
+```
+
+UserController
+↓　↑
+UserPurchaseService
+↓　↑
+Userrepository
+↓　↑
+User

@@ -3,6 +3,23 @@
 基底クラス：Illuminate/Foundation/Http/FormRequest(use必要)
 
 コントローラに渡されるリクエスト情報でバリデーションチェックを行うことができる。
+コントローラクラスでメソッドインジェクションで使用できる
+
+```php
+namespace App\Http\Controllers;
+
+use App\Http\Requests\UserRegistPost; // FormRequestクラスをインポート
+
+class UserController extends Controller
+{
+    public function register(UserRegistPost $request)
+    {
+        $name = $request->input('name');
+        $age = $request->input('age');
+    }
+}
+```
+
 
 ### authorize
 ファームの利用が許可されているかの定義  
