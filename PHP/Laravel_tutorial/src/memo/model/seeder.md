@@ -11,7 +11,9 @@
 ```
 
 ### runメソッド
-ここにINSERT処理を書いていく
+ここにINSERT処理を書いていく  
+for文を使ってデータを作成など、データの組み立て方は自由
+
 ``` php
     /**
      * Run the database seeds.

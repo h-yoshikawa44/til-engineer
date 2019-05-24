@@ -16,8 +16,13 @@
 オプション
 - `--resource`　コントローラでCRUDのメソッドを用意する
 
-- migrate実行  
+- マイグレーション
+  - migrate実行  
   `php artisan migrate`
+  - ロールバック  
+  `php artisan migrate:rollback`
+  - リセット  
+  `php artisan migrate:reset`
 
 - seederを実行  
   `php artisan db:seed`

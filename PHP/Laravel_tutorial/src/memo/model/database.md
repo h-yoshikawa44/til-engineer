@@ -95,7 +95,25 @@ $items = DB::table('people')->get();
 - orderBy(フィールド名, ascまたはdesc)　並び順指定
 - offset(整数)　指定した位置からレコードを取得
 - limit(整数)　指定した数だけレコードを取得
+
+最後に来るもの
 - first()　最初のレコードを返す
+- get()　レコードを返す
+- toJson()　結果をJSONに変換（モデルインスタンスもJSONに変換してくれる）
+- toSql()　発行されたSQLを返す（SQLの実行は行われない）
+
+**全てのSQLの取得**
+```php
+// SQL保存を有効化
+DB::enableQueryLog();
+
+$authors = \App\Author::find([1, 3, 5]);
+// クエリの取得
+$queries = DB::getQueryLog();
+
+// SQL保存を無効化
+DB::disableQueryLog()
+```
 
 #### INSERT
 フォーム送信後処理
