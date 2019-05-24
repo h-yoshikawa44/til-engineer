@@ -11,25 +11,139 @@ Eloquent(ORM)を用いて、データベース操作を扱いやすくなる
 取得されたデータはモデルクラスのインスタンスのコレクションとなる
 そのため、モデルクラスで定義したメソッドを使用することも可能
 
+### プロパティ
+#### テーブルとの関連付け
+テーブル名を複数形で作成し、クラス名をその単数形で作成すると、暗黙的に関連付けられる
+
+また、テーブル名にスネークケースが使用されている場合、クラス名はキャメルケースで定義で紐づけることが可能
+
+明示的に関連付ける場合はプロパティに記述する
+```php
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Author extends Model
+{
+    protected $table = 't_author';
+}
+```
+
+#### プライマリキーの指定
+デフォルトはidカラム
+
+明示的に指定する場合はプロパティに記述する
+```php
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Author extends Model
+{
+    protected $primaryKey = 'authord_id';
+}
+```
+
+#### タイムスタンプの定義
+デフォルトではcreated_at、updated_atが登録される
+
+必要ない場合はプロパティに記述
+```php
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Author extends Model
+{
+    protected $timestamps = false;
+}
+```
+
+同様に$dateFormatでタイムスタンプのフォーマットを指定可能（デフォルトはY-m-d H:i:s）
+
+#### 編集可能なカラム設定
+createメソッドやupdateメソッドで、連想配列でカラム名と値を渡すことでデータ登録ができる（Masss Assighnment）が、脆弱性もあり、デフォルトでは全てのカラムで無効になっている  
+
+使用するにはホワイトリスト形式化ブラックリスト形式化で記述する必要がある
+
+ホワイトリスト形式（編集可能なカラムを設定）
+```php
+protected $fiilable = [
+    'name',
+    'kana'
+];
+```
+
+ブラックリスト形式(編集を認めないカラムを設定)
+```php
+protected $guarded = [
+    'id',
+    'created_at',
+    'updated_at'
+];
+```
+
 ### モデルクラスによるCRUD
 
 #### SELECT
-レコード全取得
+クエリビルダについては、database.mdを参照
+
+・レコード全取得
 ```php
 $items = Person::all();
 ```
 
-findを用いた取得の例（プライマリキーでの検索）
+・findを用いた取得の例（プライマリキーでの検索）  
+findOrFailでも同様の取得ができるが、こちらは該当するレコードがない場合にIlluminate\Database\Eloquent\ModelNotFoundExceptionをスローする
 ```php
 $item = Person::find($request->input);
 ```
 
-whereを用いた取得の例
+・whereを用いた取得の例
 ```php
 $item = Person::where('name', $request->input)->first();
 ```
 
+・whereXXXを用いた取得の例  
+XXXにはカラム名が入る
+```php
+$item = Person::whereName('山田太郎')->get();
+```
+
+
+・取得したデータでの処理
+```php
+$authors = \App\Author::all();
+
+// レコード数を取得
+$count = $authors->count();
+
+// レコードの絞り込み
+$filered_authors = $authors->filter(function ($author) {
+    return $author->id > 5;
+})
+```
+
 #### INSERT
+createを使用した例
+```php
+\App\Author::create([
+    'name' => '山田太郎',
+    'kana' => 'ヤマダタロウ',
+]);
+```
+
+インスタンスを作成して、値をセットしてsaveする例
+```php
+$author = new \App\Author();
+
+$author->name = '山田太郎';
+$author->kana = 'ヤマダタロウ'
+
+$author->save();
+```
+
+フォーム送信データでの保存例
 ```php
     public function create(Request $request)
     {
@@ -42,7 +156,35 @@ $item = Person::where('name', $request->input)->first();
     }
 ```
 
+**データがない場合のみ登録**
+```php
+$author = \App\Author::firstOrCreate(['name' => '山田太郎']);
+```
+
+もしくは
+
+```php
+$author = \App\Author::firstOrNew(['name' => '山田太郎']);
+$author->save();
+```
+
 #### UPDATE
+updateメソッドの例
+```php
+$author = \App\Author::find(1)->update(['name' => '山田太郎']);
+```
+
+インスタンスを取得して、値をセットしてsaveする例
+```php
+$author = \App\Author::find(1);
+
+$author->name = '田中次郎';
+$author->kana = 'タナカジロウ';
+
+$auhtor->save();
+```
+
+フォーム送信データでの更新例
 ```php
    public function update(Request $request)
     {
@@ -56,6 +198,7 @@ $item = Person::where('name', $request->input)->first();
 ```
 
 #### DELETE
+deleteメソッドによる例
 ```php
     public function remove(Request $request)
     {
@@ -63,6 +206,29 @@ $item = Person::where('name', $request->input)->first();
         return redirect('/person');
     }
 ```
+
+destroyメソッドによる例
+```php
+// id = 1, 3, 5のレコードを削除する
+\App\Auhtor::destroy([1, 3, 5]);
+```
+
+**論理削除**
+deleteメソッドやdestroyメソッドはレコードを物理削除する  
+Eloquentではdeleted_atカラムを利用して削除処理が行われた日時を保存し、このカラムがnullでなければ削除済みデータであるとして扱うことが可能
+
+1. 対象のテーブルにdeleted_atカラムを追加する（$table->softDeletes()）
+2. EloquentのクラスにIlluminate\Database\Eloquent\SoftDeletesトレイトをuseする
+
+```php
+// 削除済みのデータも含めて取得
+$books = App\Author::withTrashed()->get();
+
+// 削除済みのレコードのみ取得
+$deleted_authors = \App\Author::onlyTrashed()->get();
+```
+
+
 
 ### スコープ  
 モデルの範囲を特定するもの
@@ -122,11 +288,46 @@ class ScopePerson implements Scope
     }
 ```
 
-### 値の保護
-IDなどのオートインクリメントの値など、DB側で値を用意するものは、入力の保護が可能
+### アクセサとミューテータ
+カラムに対して固定の編集を加えたいときに用いる
+
+#### アクセサ
+get(カラム名)Attributeの名前でメソッドを作成
+
+定義
 ```php
-// 値を用意しておかないカラム
-protected $guarded = array('id');
+    public function getKanaAttribute(string $value): string
+    {
+        // kanaカラムの値を半角カナに変換
+        return mb_convert_kana($value, "k");
+    }
+```
+
+利用
+```php
+$authors = \App\Author::all();
+foreach ($authors as $author) {
+    echo $author->kana;
+}
+```
+
+#### ミューテータ
+set(カラム名)Attributeの名前でメソッドを作成
+
+定義
+```php
+    public function setKanaAttribute(string $value): string
+    {
+        // kanaカラムの値を全角カナに変換
+        $this->attribute['kana'] = mb_convert_kana($value, "KV");
+    }
+```
+
+利用
+```php
+$author = \App\Author::find(Input::get('id'));
+$author->kana = Input::get('kana');
+$author->save();
 ```
 
 ### リレーション
@@ -147,6 +348,8 @@ Boardクラス側の例
         return $this->belongsTo('App\Person');
     }
 ```
+
+hasOne、belongsTo、hasManyともに第1引数に関連付けるテーブル、第2引数に内部キー、第3引数に外部キーを指定（省略した場合は第2引数は「モデル名_id」、第3引数は「id」となる
 
 リレーションDBのデータの有無での取得
 ```php
