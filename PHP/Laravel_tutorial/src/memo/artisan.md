@@ -26,3 +26,7 @@
 
 - seederを実行  
   `php artisan db:seed`
+
+- ルート
+  - ルート一覧表示  
+    `php artisan route:list`

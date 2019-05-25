@@ -343,7 +343,7 @@ Personクラスの例（主：Person、従：Board）
 
 Boardクラス側の例
 ```php
-   public function person()
+   public function person() // hasManyの時は複数形の名称
     {
         return $this->belongsTo('App\Person');
     }
