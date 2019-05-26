@@ -35,3 +35,9 @@ seederの例
     }
 
 ```
+
+#### Carbon
+timestampのダミーデータはCarbonクラスで対応するとよい
+```php
+'created_at' => \Carbon\Carbon::now()->toDateTimeString()
+```

@@ -25,6 +25,12 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        // UserTokenProviderの登録
+        $this->app['auth']->provider(
+            'user_token',
+            function(Application $app) {
+                return new UserTokenProvider(new UserToken($app['db']));
+            }
+        );
     }
 }

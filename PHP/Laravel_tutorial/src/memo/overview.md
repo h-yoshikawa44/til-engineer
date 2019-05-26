@@ -2,8 +2,12 @@
 - [PHPフレームワーク Laravel入門](https://www.amazon.co.jp/dp/B07CLLW4MX/ref=cm_sw_r_tw_awdb_c_x_AV43CbJQWQQE6)
 - [PHPフレームワーク Laravel](https://www.amazon.co.jp/dp/4802611846/ref=cm_sw_r_tw_awdo_c_x_Ciu4CbTTXNA8A)
 
+### Composer利用時のエラー対応
+proc_open(): fork failed - Cannot allocate memory  
+のエラーが出た時は以下の記事を参照　
+[Laravel で Cannot allocate memory がでたときの対策](https://qiita.com/ekzemplaro/items/7a855971ab5463580ef3)
 
-## Webページ表示の流れ
+### Webページ表示の流れ
 HTTPリクエスト
 ↓　↑
 エントリポイント

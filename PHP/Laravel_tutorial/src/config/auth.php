@@ -41,8 +41,16 @@ return [
             'provider' => 'users',
         ],
 
+        // トークン認証
+        // 'api' => [
+        //     'driver' => 'token',
+        //     'provider' => 'user_tokens',
+        //     'hash' => false,
+        // ],
+
+        // JWT認証
         'api' => [
-            'driver' => 'token',
+            'driver' => 'jwt',
             'provider' => 'users',
             'hash' => false,
         ],
@@ -75,6 +83,10 @@ return [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
+
+        'user_token' => [
+            'driver' => 'user_tokens'
+        ]
     ],
 
     /*
