@@ -30,6 +30,6 @@ final class LoginAction extends Controller
         return $responder(
             $token,
             $guard->factory()->getTTL() * 60
-        )
+        );
     }
 }

@@ -25,7 +25,7 @@ Route::get('/users', 'UserAction');
 // JWT認証
 Route::group(['middleware' => 'api'], function ($router) {
     // ログインを行い、アクセストークンを発行する
-    Route:post('/users/login', 'User\\LoginAction');
+    Route::post('/users/login', 'User\\LoginAction');
     // アクセストークンを用いて、認証ユーザの情報を取得するルート
     Route::post('/users/', 'User\\RetrieveAction')->middleware('auth:api');
 });
