@@ -1,4 +1,7 @@
 ## artisan（アーティザン）コマンド
+- コマンドリスト  
+  `php artisan list`
+
 - 各ファイル作成  
   `php artisan make:(ファイル種類)　ファイル名`  
   例 `php artisan make:controller HelloController`
@@ -12,9 +15,10 @@
   - model(app)
   - test(app/tests/Feature)
   - factory(app/database/factories)
-  - event(app\Events)
-  - listener(app\listeners)
-  - job(app\Jobs)
+  - event(app/Events)
+  - listener(app/listeners)
+  - job(app/Jobs)
+  - command(app/Console/Commands)
 
 オプション
 - `--resource`　コントローラでCRUDのメソッドを用意する
