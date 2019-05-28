@@ -12,6 +12,9 @@
   - model(app)
   - test(app/tests/Feature)
   - factory(app/database/factories)
+  - event(app\Events)
+  - listener(app\listeners)
+  - job(app\Jobs)
 
 オプション
 - `--resource`　コントローラでCRUDのメソッドを用意する
