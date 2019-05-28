@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Listerners;
+namespace App\Listeners;
 
-use App\Events\Event;
+use App\Events\PublishProcesssor;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class EventListener
+class MessageSubscriber
 {
     /**
      * Create the event listener.
@@ -21,11 +21,11 @@ class EventListener
     /**
      * Handle the event.
      *
-     * @param  Event  $event
+     * @param  PublishProcesssor  $event
      * @return void
      */
-    public function handle(Event $event)
+    public function handle(PublishProcesssor $event)
     {
-        //
+        var_dump($event->getInt());
     }
 }

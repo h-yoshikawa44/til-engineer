@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Listerners;
+namespace App\Listeners;
 
 use App\User;
 use Illuminate\Auth\Events\Registered;
