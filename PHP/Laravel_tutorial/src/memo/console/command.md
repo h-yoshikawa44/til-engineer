@@ -106,7 +106,7 @@ Route::get('/with_args', function() {
 });
 ```
 
-Arisanファザードを利用しない場合
+Artisanファザードを利用しない場合
 ```php
 use Illuminate\Contracts\Console\Kernel;
 
@@ -126,3 +126,18 @@ public function handle()
 ### コマンドエラーのスタックトレース
 artisanの各コマンド実行では、処理中に例外が発生しても、例外のメッセージと送出されたファイルおよび行番号しか出力されない  
 -vなどのオプションをつけることでスタックトレースも出力可能
+
+### ファイルを分けて処理を分ける
+各々の役割が明確で独立したクラスは再利用性が高まるので、別の個所から利用することが容易になる
+また、テストコードの記述も容易になる
+
+例
+コマンド受付
+↓　↑
+ExportOrdersCommandクラス
+↓　↑
+ExportOrdersUseCaseクラス
+(ジェネレータをforeachで回し、値をTSV形式に設定)
+↓　↑
+ExportOrdersServiceクラス  
+(DB接続、ジェネレータ取得)

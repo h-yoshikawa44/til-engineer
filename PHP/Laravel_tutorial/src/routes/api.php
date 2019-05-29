@@ -29,3 +29,10 @@ Route::group(['middleware' => 'api'], function ($router) {
     // アクセストークンを用いて、認証ユーザの情報を取得するルート
     Route::post('/users/', 'User\\RetrieveAction')->middleware('auth:api');
 });
+
+Route::post('/import-orders', function(Request $request) {
+    $json = $request->getContent();
+    file_put_contents('/tmp/orders', $json);
+
+    return response('ok');
+});

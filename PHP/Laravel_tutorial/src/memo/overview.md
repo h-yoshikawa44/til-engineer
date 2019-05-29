@@ -1,6 +1,7 @@
 ## 教材・参考
 - [PHPフレームワーク Laravel入門](https://www.amazon.co.jp/dp/B07CLLW4MX/ref=cm_sw_r_tw_awdb_c_x_AV43CbJQWQQE6)
-- [PHPフレームワーク Laravel](https://www.amazon.co.jp/dp/4802611846/ref=cm_sw_r_tw_awdo_c_x_Ciu4CbTTXNA8A)
+- [PHPフレームワーク Laravel Webアプリケーション開発](https://www.amazon.co.jp/dp/4802611846/ref=cm_sw_r_tw_awdo_c_x_Ciu4CbTTXNA8A)
+  - [GitHub](https://github.com/laravel-socym)
 
 ### Composer利用時のエラー対応
 proc_open(): fork failed - Cannot allocate memory  
@@ -155,3 +156,43 @@ UserPurchaseService
 Userrepository
 ↓　↑
 User
+
+### 環境変数の取得
+config配下のファイルの変数の値を取得できる
+
+config/batch.php
+```php
+return [
+    'import-orders-url' => env('API_IMPORT_ORDERS_URL'),
+];
+```
+
+使用
+```php
+$url = config('batch.import-orders-url');
+```
+
+### HTTPリクエスト
+Guzzleを利用してリクエストできる  
+`composer require guzzlehtp/guzzle`
+
+```php
+use GuzzleHttp\Client;
+
+private $guzzle;
+
+    public function __construct(Client $guzzle)
+    {
+        $this->guzzle = $guzzle;
+    }
+
+    public function run(Carbon $targetDate): int
+    {
+        ※省略
+
+        $url = config('batch.import-orders-url');
+        $this->guzzle->post($url, [
+            'json' => $json
+        ]);
+    }
+```

@@ -4,15 +4,17 @@ IoT等にも利用されている認証方式でトークン認証よりもセ�
 
 JWT認証の利用はユーザ情報を特定するため、Illuminate\Contracts\Auth\Authenticatableインタフェースと。Tymon\JWTAuth\COntracts\JWTSubjectインタフェースを実装しておく必要がある
 
-- tymon/jwt-authのインストール
+- tymon/jwt-authのインストール  
   ※https://packagist.org/packages/tymon/jwt-authでバージョン確認
   `composer require tymon/jwt-auth 1.0.0-rc4.1`
 
-- パッケージの設定ファイルをconfig配下に追加
+- パッケージの設定ファイルをconfig配下に追加  
   `php artisan vendor:publish --provider="Tymon\JWTAuth\Providers\LaravelServiceProvider"`
 
-- JWT認証で利用する秘密鍵生成コマンド
-  `php artisan jwt:secret`
+- JWT認証で利用する秘密鍵生成コマンド  
+  `php artisan jwt:secret`  
+  .envに書き込まれる
+
 
 実装例
 - App\UserでTymon\JWTAuth\COntracts\JWTSubjectインタフェースを実装
