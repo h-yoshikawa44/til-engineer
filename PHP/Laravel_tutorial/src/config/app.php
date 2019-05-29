@@ -176,6 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\HelloServiceProvider::Class,
         App\Providers\ValidateServiceProvider::Class,
+        App\Providers\BatchServiceProvider::class,
     ],
 
     /*
