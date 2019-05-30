@@ -14,6 +14,7 @@
   - seeder(database/seeds)
   - model(app)
   - test(app/tests/Feature)
+    ※--unitをつけるとapp/tests/unitになる
   - factory(app/database/factories)
   - event(app/Events)
   - listener(app/listeners)
