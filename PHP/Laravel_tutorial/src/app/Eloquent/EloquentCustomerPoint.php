@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property int $customer_id
  * @property int $point
  */
-final class EloquentCustomerPoint extends Model
+class EloquentCustomerPoint extends Model
 {
     protected $table = 'customer_points';
     // 自動設定されるタイムスタンプは不要
@@ -27,5 +27,15 @@ final class EloquentCustomerPoint extends Model
                     'customer_id' => $customerId,
                 ]
             ) === 1;
+    }
+
+    /**
+     * @param int $customerId
+     * @return int
+     */
+    public function findPoint(int $customerId): int
+    {
+        $customerPoint = $this->where('customer_id', $customerId)->firstOrFail();
+        return $customerPoint->point;
     }
 }
