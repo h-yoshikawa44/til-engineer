@@ -9,35 +9,35 @@ proc_open(): fork failed - Cannot allocate memory
 [Laravel で Cannot allocate memory がでたときの対策](https://qiita.com/ekzemplaro/items/7a855971ab5463580ef3)
 
 ### Webページ表示の流れ
-HTTPリクエスト
-↓　↑
-エントリポイント
-(public/index.php)
-行きはHTTPリクエストを受けてIlluminate\Http\Requestを生成
-戻りはIlluminate\Http\ResponseもしくはIlluminate\Http\JsonResponseをうけてHTTP Responseとして出力
-↓　↑
-HTTPカーネル
-(app/Http/Kernel.php)
-↓　↑
-ルーティング（routes/web.php）
+HTTPリクエスト  
+↓　↑  
+エントリポイント  
+(public/index.php)  
+行きはHTTPリクエストを受けてIlluminate\Http\Requestを生成  
+戻りはIlluminate\Http\ResponseもしくはIlluminate\Http\JsonResponseをうけてHTTP Responseとして出力  
+↓　↑  
+HTTPカーネル  
+(app/Http/Kernel.php)  
+↓　↑  
+ルーティング（routes/web.php）  
 ```php
 Route::get('hello', 'HelloController@index');
 ```
-※リクエスト情報＋フォームリクエスト（バリデーション）
-↓　↑
-ミドルウェア（アクション前、アクション後）
-（$next実行。複数ミドルウェアがある場合は次のミドルウェアに。
-　ない場合は、コントローラーのアクションへ）
-↓　↑
-コントローラ　⇔　モデル
-（app/Http/Controllers/各コントローラ）
+※リクエスト情報＋フォームリクエスト（バリデーション）  
+↓　↑  
+ミドルウェア（アクション前、アクション後）  
+（$next実行。複数ミドルウェアがある場合は次のミドルウェアに。  
+　ない場合は、コントローラーのアクションへ）  
+↓　↑  
+コントローラ　⇔　モデル  
+（app/Http/Controllers/各コントローラ）  
 Illuminate\Http\ResponseもしくはIlluminate\Http\JsonResponseを返す
 ```php
 return view('hello.index', $data);
 ```
-レンダリング（＋ビューコンポーザ）
-↓　↑
-ビュー（resources/views/各ビューフォルダ/各ビューファイル）
+レンダリング（＋ビューコンポーザ）  
+↓　↑  
+ビュー（resources/views/各ビューフォルダ/各ビューファイル）  
 
 ### MVC
 M...Model
@@ -123,6 +123,18 @@ class UserRepository implements UserrepositoryInterface
 }
 ```
 
+サービスプロバイダでバインド
+```php
+    public function register()
+    {
+        $this->app->bind(
+            App\Repository\UserRepositoryInterface,
+            App\Repository\UserRepository
+        );
+    }
+
+```
+
 サービスクラスからリポジトリクラスの利用
 ```php
 namespace App\Service;
@@ -149,13 +161,13 @@ class UserPurchaseService
 }
 ```
 
-UserController
-↓　↑
-UserPurchaseService
-↓　↑
-Userrepository
-↓　↑
-User
+UserController  
+↓　↑  
+UserPurchaseService  
+↓　↑  
+Userrepository  
+↓　↑  
+User  
 
 ### 環境変数の取得
 config配下のファイルの変数の値を取得できる

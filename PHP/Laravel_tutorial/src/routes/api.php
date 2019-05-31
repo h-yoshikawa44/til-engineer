@@ -36,3 +36,9 @@ Route::post('/import-orders', function(Request $request) {
 
     return response('ok');
 });
+
+Route::get('/ping', function() {
+    return response()->json(['message' => 'pong']);
+});
+
+Route::put('/customers/add_point', AddPointAction::class);

@@ -81,8 +81,44 @@ setUpとtearDownに関しては、戻り値の型を指定しないと「must be
 - assertArrayHasKey　値が配列の場合、指定したキーが存在するか
 - assertFileEquals　ファイルの内容が一致するかどうか
 - assertJsonFileEqualsJsonFile　JSONファイルの内容が一致するかどうか
+
+・DB関連
 - assertDatabaseHas(テーブル名, [フィールド名 => 値])　テーブルに指定したレコードが存在するか
 - assertDatabaseMissing(テーブル名, [フィールド名 => 値])　テーブルに指定したレコードが存在しないか
+
+・HTTPリクエスト関連
+- assertStatus(ステータス)　HTTPステータスコードが一致しているか
+- assertSuccessful()　HTTPステータスコードが2xxなら成功
+- assertRedirect(URI=null)　HTTPステータスコードが201, 301, 302, 303, 307, 308のいずれかで、かつLocationヘッダの値がapp('url')->to($url)の値と一致すれば成功
+- assertHeaders(ヘッダ名, 値=null)　レスポンスヘッダが存在(値がにnull指定の場合）、もしくは該当ヘッダの値が一致すれば成功
+- assertHeaderMissing(ヘッダ名)　指定したレスポンスヘッダが存在しなければ成功
+- assertExactJson(配列, strict=false)　レスポンスボディのJSONをでコードした配列が一致すれば成功
+- assertJson(配列, strict=false)　レスポンスボディのJSONをデコードした配列に含まれていれば成功
+
+#### モック
+モック生成には、PHPUnitのモック（createMockやgetMockBuilderメソッドなど）やMockeryなどの木琴ぐライブラリを使用する方法がある  
+単純なモックであれば無名クラスで対応可能
+
+```php
+    // Eloquentクラスのモック化
+    $this->customerPointEventMock = new class extends EloquentCustomerPointEvent
+    {
+        /** @var PointEvent */
+        public $pointEvent;
+
+        public function register(Pointevent $event)
+        {
+            $this->pointEvent = $event;
+        }
+    };
+```
+
+コンポーネントのモック  
+フレームワークが提供するMail、Event、Notification、Bus、Queue、Storageにはそれぞれコンポーネントと同じAPIを持つモッククラスが用意されている。またモッククラスにはアサーションメソッドも備わっているので、送信された内容も検証できる
+
+#### Carbonクラス
+日時のデータを作成するのに使用するクラス
+- Carbon::now()　現在日時
 
 ### フィーチャーテスト
 #### webページへのアクセスのテスト
@@ -98,30 +134,53 @@ setUpとtearDownに関しては、戻り値の型を指定しないと「must be
     $response->assertStatus(200);
 ```
 
-#### データベースのテスト
-`use RefreshDatabase;`で自動的にマイグレーションなどのセットアップが実行される（内部的にはartisan migrate:refresshコマンドを実行して、現在のDBを全てクリアにしてからサイドマイグレーションを実行する）また、トランザクションも実行される
-
-そのほか
-- Illuminate\Foundation\Testing\DatabaseMigration  
-  テストメソッド実行ごとにマイグレーションのリセット・実行・ロールバックを繰り返す
-- Illuminate\Foundation\Testing\DatabaseTransactions  
-  テストメソッド実行前に自動でトランザクションを実行する
+・callメソッドでHTTPリクエスト再現
+public function call(
+    $method,  // HTTPメソッド
+    $uri,  // URI
+    $parameters = [], // 送信パラメータ
+    $cookies = [],  // cookie
+    $files = [],  // アップロードファイル
+    $server = [],  // サーバパラメータ
+    $content = null  // RAWリクエストボディ
+)
 
 ```php
-        // ダミーで利用するデータ
-        // 明示的にテストデータを上書きして指定
-        factory(User::class)->create([
-            'name' => 'AAA',
-            'email' => 'BBB@CCC.COM',
-            'password' => 'ABCABC',
-        ]);
-        factory(User::class, 10)->create();
+$response = $this->call('GET', '/api/get?class=motogp&no=99');
 
-        $this->assertDatabaseHas('users', [
-            'name' => 'AAA',
-            'email' => 'BBB@CCC.COM',
-            'password' => 'ABCABC',
-        ]);
+$response = $this->call('GET', '/api/get', [
+    'class' => 'motogp',
+    'no' => '99'
+]);
+```
+
+・jsonメソッドでJSONリクエスト再現
+public function json($method, $uri, array $data = [], array $headers = [])
+
+jsonメソッドではリクエストヘッダが自動的に設定される
+- Content-Length　JSONデータサイズ（byte)
+- Content-Type　application/json
+- Accept　aplication/json
+
+・callメソッドやjsonメソッドをラップしたメソッド
+- get($uri, $headers = [])　GETリクエスト
+- getJson($uri, $headers = [])　GETリクエスト（JSON）
+- post($uri, $data = [], $headers = [])　POSTリクエスト
+- postJson($uri, $data = [], $headers = [])　POSTリクエスト（JSON)
+- put($uri, $data = [], $headers = [])　PUTリクエスト
+- putJson($uri, $data = [], $headers = [])　PUTリクエスト（JSON)
+- patch($uri, $data = [], $headers = [])　PATCHリクエスト
+- patchJson($uri, $data = [], $headers = [])　PATCHリクエスト（JSON)
+- delete($uri, $data = [], $headers = [])　DELETEリクエスト
+- deleteJson($uri, $data = [], $headers = [])　DELETEリクエスト（JSON）
+
+・ミドルウェアの無効化
+withoutMiddlewareメソッドを使用する
+引数を指定しないと、全ミドルウェアを無効にする（use withoutMiddlewareを使用しても同様）
+```php
+$response = $this->withoutMiddlewarer(TeaPotMiddleware::class)
+                ->getJson('/api/live');
+$response->assertStatus(200);
 ```
 
 ### ユニットテスト
@@ -154,6 +213,32 @@ public function calcPoint(int $expcted, int $amount)
 
     $this->assertSame($expcted, $result);
 }
+```
+
+#### データベースのテスト
+`use RefreshDatabase;`で自動的にマイグレーションなどのセットアップが実行される（内部的にはartisan migrate:refresshコマンドを実行して、現在のDBを全てクリアにしてからサイドマイグレーションを実行する）また、トランザクションも実行される
+
+そのほか
+- Illuminate\Foundation\Testing\DatabaseMigration  
+  テストメソッド実行ごとにマイグレーションのリセット・実行・ロールバックを繰り返す
+- Illuminate\Foundation\Testing\DatabaseTransactions  
+  テストメソッド実行前に自動でトランザクションを実行する
+
+```php
+        // ダミーで利用するデータ
+        // 明示的にテストデータを上書きして指定
+        factory(User::class)->create([
+            'name' => 'AAA',
+            'email' => 'BBB@CCC.COM',
+            'password' => 'ABCABC',
+        ]);
+        factory(User::class, 10)->create();
+
+        $this->assertDatabaseHas('users', [
+            'name' => 'AAA',
+            'email' => 'BBB@CCC.COM',
+            'password' => 'ABCABC',
+        ]);
 ```
 
 #### 例外発生時のテスト
