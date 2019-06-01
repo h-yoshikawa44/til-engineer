@@ -2,6 +2,7 @@
 
 namespace App\Exceptions;
 
+use Fluent\Logger\FluentLogger;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Symfony\Component\HttpFoundation\Response as Res;
@@ -35,7 +36,10 @@ class Handler extends ExceptionHandler
      */
     public function report(Exception $exception)
     {
+        // Illuminate\FOundation\Exceptions\Handlerクラスのreportメソッドを実行
         parent::report($exception);
+        $fluentLogger = $this->container->make(FluentLogger::class);
+        $fluentLogger->post('report', ['error' => $exception->getMessage()]);
     }
 
     /**
