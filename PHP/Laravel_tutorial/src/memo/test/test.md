@@ -87,13 +87,15 @@ setUpとtearDownに関しては、戻り値の型を指定しないと「must be
 - assertDatabaseMissing(テーブル名, [フィールド名 => 値])　テーブルに指定したレコードが存在しないか
 
 ・HTTPリクエスト関連
-- assertStatus(ステータス)　HTTPステータスコードが一致しているか
+- assertStatus(ステータス)　HTTPステータスコードが一致しているか  
+  - \Illuminate\Http\Response::HTTP_UNPROCESSABLE_ENTITY　422
 - assertSuccessful()　HTTPステータスコードが2xxなら成功
 - assertRedirect(URI=null)　HTTPステータスコードが201, 301, 302, 303, 307, 308のいずれかで、かつLocationヘッダの値がapp('url')->to($url)の値と一致すれば成功
 - assertHeaders(ヘッダ名, 値=null)　レスポンスヘッダが存在(値がにnull指定の場合）、もしくは該当ヘッダの値が一致すれば成功
 - assertHeaderMissing(ヘッダ名)　指定したレスポンスヘッダが存在しなければ成功
 - assertExactJson(配列, strict=false)　レスポンスボディのJSONをでコードした配列が一致すれば成功
 - assertJson(配列, strict=false)　レスポンスボディのJSONをデコードした配列に含まれていれば成功
+- assertJsonCount(値)　JSONデータの数が一致するか
 
 #### モック
 モック生成には、PHPUnitのモック（createMockやgetMockBuilderメソッドなど）やMockeryなどの木琴ぐライブラリを使用する方法がある  
@@ -240,6 +242,12 @@ public function calcPoint(int $expcted, int $amount)
             'password' => 'ABCABC',
         ]);
 ```
+
+Seederで初期データを投入する際はsetUp()に以下のように記述
+```php
+$this->artisan('db:seed', ['--class' => 'TestDataSeeder']);
+```
+
 
 #### 例外発生時のテスト
 ・try~catchを利用する例
