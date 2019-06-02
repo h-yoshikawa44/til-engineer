@@ -12,9 +12,9 @@ Laravelでは標準で搭載されている
 - address　住所
 - phoneNumber　電話番号
 - company　企業名
-- realText　テキスト
+- realText()　テキスト
 - isbn13
-- date(フォーマット, どの日までか)
+- date(フォーマット, どの日までか) ※引数は省略可能
 - randomNumber(桁数)
 
 seederの例
@@ -40,4 +40,21 @@ seederの例
 timestampのダミーデータはCarbonクラスで対応するとよい
 ```php
 'created_at' => \Carbon\Carbon::now()->toDateTimeString()
+```
+
+#### リレーションのあるテーブルでの書き方
+親：Customer、子：Report
+```php
+    public function run()
+    {
+        factory(\App\Customer::class, 2)
+        ->create()
+        ->each(function ($customer) {
+            factory(\App\Report::class, 2)
+                ->make()
+                ->each(function ($report) use ($customer) {
+                    $customer->reports()->save($report);
+                });
+        });
+    }
 ```

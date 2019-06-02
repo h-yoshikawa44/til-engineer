@@ -90,6 +90,13 @@ $table->string('name', 50)->nullable();
 - dropUnique(ユニークキー名)　ユニークキーを削除する
 - dropIndex(インデックス名)　通常のインデックスを削除する
 
+外部キー
+
+```php
+// foreign(自テーブルのキー)->references(相手テーブルのキー)->on(相手テーブル)
+$table->foreign('customer_id')->references('id')->on('customers');
+```
+
 
 ### downメソッド
 ```php
