@@ -27,7 +27,6 @@
 
 - プロジェクトフォルダの中でLaradockをサブモジュールとして登録  
 `$ git submodule add https://github.com/Laradock/laradock.git (※Laradock用のフォルダ名)`  
-**注意点：ここで指定したLaradock用のフォルダ名が、後に作成するdockerのimage名のprefixになるので、プロジェクトごとの名前になるようにした方が良い。**(複数のプロジェクトでデフォルトの`laradock`とした場合、同じimageを共有するような形になってしまうため)
 
 この時点のフォルダ構成
 ```
