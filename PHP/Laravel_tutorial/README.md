@@ -73,22 +73,23 @@ cd $SCRIPT_DIR
 cp -f conf/.laradock-env ../(Laradockフォルダ)/.env
 ```
 
-- setup.shを実行して.envを作成
-`$ sh .sh/setup.sh`
-
 - Laradockのmysql/my.cnfに設定を追記
 mysql 8 の対応として以下を追記する
 ```
 innodb_use_native_aio=0
 default_authentication_plugin=mysql_native_password
 ```
+※innodb_use_native_aio=0については、他のバージョンでも必要かもしれない
 
 - .sh/conf以下にmysql.cnfを作成（Laradockのmysql/my.cnfをコピー）
 
 - .sh/setup.shに以下を追加
 ```
-cp -f conf/mysql.cnf ../（Laradockフォルダ）/mysql/my.cnf
+cp -f conf/mysql.cnf ../(Laradockフォルダ)/mysql/my.cnf
 ```
+
+- setup.shを実行して.envを作成 + MySQL設定反映
+`$ sh .sh/setup.sh`
 
 #### dockerの起動
 - イメージの作成と起動  
@@ -140,7 +141,7 @@ workspaceコンテナで`$ php artisan migrate`
 ちゃんとテーブルが作成されていればOK
 
 #### Laravelのenvファイル準備
-- `(gitプロジェクト)/.sh/conf`に`.laravel-env`を作成
+- `.sh/conf`に`.laravel-env`を作成
   (Laravelプロジェクトの`.env`をコピー)
 
 - setup.shを更新
@@ -157,7 +158,7 @@ cp -f conf/.**laravel**-env ../(Laravelプロジェクトフォルダ）/.env
 `$ sh .sh/setup.sh`
 
 - dockerのイメージ作成と起動  
-`$ docker-compose ip --build -d nginx mysql`  
+`$ docker-compose up --build -d nginx mysql`  
 ※作成するコンテナは必要に応じて  
 **初回は作成に少し時間がかかる**
 
