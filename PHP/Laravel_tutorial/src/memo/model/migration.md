@@ -11,6 +11,8 @@
 例
 `php artisan make:migration create_XXX_table`
 
+`php artisan make:migration add_カラム名_to_テーブル名_table`
+
 オプション
 - --create=(テーブル名)　新規テーブル作成のためのコードが付与される
 - --table=(テーブル名)　指定されたテーブルを操作するためのコードが付与される（テーブル設定の変更などで使用）
@@ -25,6 +27,9 @@
 
 リセット(全てのマイグレーションを元に戻す)  
 `php artisan migrate:reset`
+
+全てロールバックした後、マイグレーション
+`php artisan migrate:refresh`
 
 ### ファイル名
 - テーブル新規作成　YYYY_MM_dd_XXXXXX_create_XXX_table
@@ -96,6 +101,8 @@ $table->string('name', 50)->nullable();
 // foreign(自テーブルのキー)->references(相手テーブルのキー)->on(相手テーブル)
 $table->foreign('customer_id')->references('id')->on('customers');
 ```
+**注意点**
+外部キーを設定する際は、カラムの型やオプションを合わせる必要がある。bigIncrementsの場合は、BigInteger + unsigned
 
 
 ### downメソッド
