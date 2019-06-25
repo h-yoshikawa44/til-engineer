@@ -29,6 +29,10 @@ class Author extends Model
 }
 ```
 
+多対多の場合の参考  
+[Laravel5.2で多対多(BelongsToMany)のリレーション](https://www.willstyle.co.jp/blog/353/)
+
+
 #### プライマリキーの指定
 デフォルトはidカラム
 
