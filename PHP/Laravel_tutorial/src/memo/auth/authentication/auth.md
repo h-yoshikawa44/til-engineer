@@ -114,6 +114,8 @@ useしている`AuthenticatesUsers`トレイトにログイン画面の実装が
 コントローラ側  
 ユーザ情報を取得してビューに渡す
 ```php
+use Illuminate\Support\Facades\Auth;
+
 $user = Auth::user();
 // $userをビューに渡す
 ```
@@ -131,6 +133,13 @@ Auth::checkでログインしているかどうかを確認
 #### ログイン必須のページにする場合
 ```php
 Route::get('hello', 'HelloController@index')->middleware('auth')
+```
+
+複数のルートをまとめて定義する場合
+```php
+Route::group(['middleware' => 'auth', function(){
+    // 各ルートを定義
+});
 ```
 
 #### 独自のログインページを作成して使用する場合
