@@ -97,6 +97,11 @@ setUpとtearDownに関しては、戻り値の型を指定しないと「must be
 - assertJson(配列, strict=false)　レスポンスボディのJSONをデコードした配列に含まれていれば成功
 - assertJsonCount(値)　JSONデータの数が一致するか
 
+・Exception
+- expectException(例外クラス)　指定した例外クラスがスローされているか
+- expectExceptionCode(例外コード)　スローされた例外のコードを検証
+- expectExceptionMessage(例外メッセージ)　スローされた例外のメッセージを検証
+
 #### モック
 モック生成には、PHPUnitのモック（createMockやgetMockBuilderメソッドなど）やMockeryなどの木琴ぐライブラリを使用する方法がある  
 単純なモックであれば無名クラスで対応可能
