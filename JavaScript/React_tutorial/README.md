@@ -1,13 +1,6 @@
 ### Docker環境作成参考
 - [Docker環境内でcreate-react-app](https://qiita.com/mii288/items/aac597bc02575831ea90)
 
-### コマンド
-- dockerコンテナに入る
-`$ docker-compose exec node sh`
-
-- Reactプロジェクトを作成
-`$ create-react-app (プロジェクトフォルダパス)`
-
 ### Docker環境作成手順
 - Dockerfile作成
 ```dockerfile
@@ -37,7 +30,8 @@ services:
 - dockerのビルド  
 `$ docker-compose build`
 
-- コンテナに入る
+- コンテナに入る  
+`$ docker-compose exec node sh`
 
 - Reactプロジェクト作成  
 `$ create-react-app (プロジェクトフォルダパス)"`

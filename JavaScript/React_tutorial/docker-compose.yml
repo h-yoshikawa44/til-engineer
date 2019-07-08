@@ -5,7 +5,7 @@ services:
     environment:
       - NODE_ENV=development
     volumes:
-      - ./src/:/usr/src/
+      - ./app/:/usr/src/app
     tty: true
     stdin_open: true
     ports:
