@@ -6,7 +6,7 @@
 ```dockerfile
 FROM "node:10-alpine"
 
-WORKDIR /usr/src/
+WORKDIR /usr/src/app/
 
 RUN npm i -g create-react-app
 ```
@@ -20,7 +20,7 @@ services:
     environment:
       - NODE_ENV=development
     volumes:
-      - ./src/:/usr/src/
+      - ./app/:/usr/src/app
     tty: true
     stdin_open: true
     ports:
