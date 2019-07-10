@@ -1,6 +1,3 @@
-### 教材
-- [公式 チュートリアル](https://ja.reactjs.org/tutorial/tutorial.html)
-
 ### 開発支援
 - [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi/related?hl=ja)
 

@@ -1,5 +1,12 @@
+### 教材・参考
+- [Railsチュートリアル](https://railstutorial.jp/)
+
 ### docker環境参考
 [公式](https://docs.docker.com/compose/rails/)
+
+#### バージョン
+- Ruby：2.5.5
+- Rails：5.2.3
 
 #### エラー対応参考
 - ADDする際に、Dockerfileがある場所の親ディレクトリのファイルを指定したいときに  
