@@ -1,4 +1,13 @@
+## 教材・参考
+- [PHPフレームワーク Laravel入門](https://www.amazon.co.jp/dp/B07CLLW4MX/ref=cm_sw_r_tw_awdb_c_x_AV43CbJQWQQE6)
+- [PHPフレームワーク Laravel Webアプリケーション開発](https://www.amazon.co.jp/dp/4802611846/ref=cm_sw_r_tw_awdo_c_x_Ciu4CbTTXNA8A)
+  - [GitHub](https://github.com/laravel-socym)
+
 ## LaradockによるLaravel環境作成
+
+### バージョン
+- PHP：7.2
+- Laravel：5.8.2
 
 ### 参考
 - 手順  

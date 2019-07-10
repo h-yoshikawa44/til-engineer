@@ -59,7 +59,9 @@ CMD ["mysqld"]
 
 CMD ["client"]
 ```
-- [DockerでLAMP環境を作るときにハマったこと](https://qiita.com/uutarou10/items/94913e6e7536b713a574)
+[DockerでLAMP環境を作るときにハマったこと](https://qiita.com/uutarou10/items/94913e6e7536b713a574)
+
+---
 
 - PHPMyAdminのコンテナで各種環境変数を追加
 ```yml
@@ -70,3 +72,6 @@ CMD ["client"]
       - PMA_PASSWORD=secret
 ```
   [phpMyAdmin on docker が便利すぎる](https://qiita.com/furu8ma/items/50718efebee20fd24517)
+
+ERROR: yaml.reader.ReaderError: unacceptable character #x0080: special characters are not allowed
+  in ".\docker-compose.yml", position 387
