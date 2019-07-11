@@ -4,6 +4,10 @@
 ### Docker環境作成参考
 - [Docker環境内でcreate-react-app](https://qiita.com/mii288/items/aac597bc02575831ea90)
 
+#### バージョン
+- Node：10.16.0
+- React：16.8.6
+
 ### Docker環境作成手順
 - Dockerfile作成
 ```dockerfile
