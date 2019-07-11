@@ -2,7 +2,45 @@
 - [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi/related?hl=ja)
 
 ### 概要
-index.jsがデフォルトで読み込まれる
+index.jsから読み込まれる  
+
+Reactだけで構築されたアプリケーションは、通常ルートDOMノードを一つだけ持つ  
+既存アプリにReactを統合しようとしている場合は、独立したDOMノードを好きなだけ持つことができる
+React 要素をルート DOM ノードにレンダリングするには、その 2 つを ReactDOM.render() に渡す
+
+単純なHTMLを描画する例
+```js
+ReactDOM.render(
+  <h1>Hello, world!</h1>,
+  document.getElementById('root')
+);
+```
+
+コンポーネントを描画する例
+```js
+ReactDOM.render(
+  <Game />,
+  document.getElementById('root')
+);
+```
+
+### JSX
+JavaScrirtとHTMLが合わさったような構文  
+命名規則はキャメルケース
+
+デフォルトでは、React DOM は JSX に埋め込まれた値をレンダリングされる前にエスケープするため、XSSなどインジェクション攻撃を防ぐことができる
+
+```js
+const name = 'Josh Perez';
+const element = <h1>Hello, {name}</h1>;
+
+ReactDOM.render(
+  element,
+  document.getElementById('root')
+);
+```
+
+BabelはJSXをReact.createElement()の呼び出しにコンパイルする
 
 ### コンポーネント
 UIをコンポーネントと呼ばれる部品から組み立てることができる  
@@ -141,3 +179,33 @@ class Board extends React.Component {
 ### 関数コンポーネント
 renderメソッドだけを持ち、自分のstateを持たないコンポーネントをシンプルに書くための方法  
 React.Componentを継承するクラスを定義する代わりに、propsを入力として受け取り表示すべき内容を返す関数を定義する
+
+```js
+function Square(props) {
+return (
+    // クリックで関数を通してBoardのstateに値をセットする
+    <button className="square" onClick={props.onClick}>
+    {props.value}
+    </button>
+  );
+}
+```
+
+### key
+リストをレンダーする際、リストの項目それぞれについて、Reactはとある情報を保持する。  
+リストが変更になった場合、Reactはどのアイテムが変更になったのかを知る必要がある。  
+
+Reactはリストの項目それぞれに対してkeyプロパティを与えることで、兄弟要素の中でそのアイテムを区別できるようにする必要がある。  
+```js
+<li key={user.id}>{user.name}: {user.taskCount} tasks left</li>
+```
+
+リストが再レンダーされる際、Reactはそれぞれのリスト項目のkeyについて、前回のリスト項目内に同じkeyを持つものがないか探す。  
+もし以前になかったkeyがリストに含まれていれば、Reactはコンポーネントを作成する。もし以前のリストのあったkeyが新しいリストに含まれていなければ、Reactは以前のコンポーネントを破棄する。もし二つのkeyがマッチした場合、対応するコンポーネントは移動される。  
+keyはそれぞれのコンポーネントの同一性に関する情報をReactに与え、それによりReactは再レンダー間でstateを保持できるようになる。もしコンポーネントの key が変化していれば、コンポーネントは破棄されて新しい state で再作成される。
+
+keyはpropsの一部のようにも見えるが、`this.props.key`で参照することはできない
+
+**動的なリストを構築する場合は正しい key を割り当てることが強く推奨される**
+
+keyはグローバルに一意である必要はなく、コンポーネントとその兄弟の間で一意であれば十分
