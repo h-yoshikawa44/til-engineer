@@ -20,8 +20,9 @@
 - `rails routes`  
   ルーティングの確認
 
-- `rails console`  
-  コンソールの起動
+- `rails console`(`rails c`)  
+  コンソールの起動（irbを拡張したもの）  
+  デフォルトではdevelopment環境で起動する
 
 - `rails test`(`rails t`)  
   テストの実行
