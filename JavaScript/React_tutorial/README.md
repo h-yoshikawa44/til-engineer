@@ -44,7 +44,10 @@ services:
 `$ create-react-app (プロジェクトフォルダパス)"`
 
 - npm インストール  
-`$ npm install`
+`$ npm install`  
+※Windowsの場合は`npm install --no-bin-links`  
+参考：[LaravelのHomestead上のnpm installでMaximum call stack size exceededが発生する場合](https://qiita.com/asuzuki2008/items/acc963569526ff941619)
+
 
 - サーバ立ち上げ  
 `$ npm start`
