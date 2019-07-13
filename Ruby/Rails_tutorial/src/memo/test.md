@@ -52,6 +52,37 @@ static_pages/homeのリクエストURLのテスト
   end
 ```
 
+#### リンクのテスト
+例　root_pathでのページにあるリンクのテスト
+```ruby
+  test "layout links" do
+    get root_path
+    assert_template 'static_pages/home'
+    assert_select "a[href=?]", root_path, count: 2
+    assert_select "a[href=?]", help_path
+    assert_select "a[href=?]", about_path
+    assert_select "a[href=?]", contact_path
+  end
+```
+
+### ヘルパーのテスト
+test/test_helper.rbでincludeする
+```ruby
+include ApplicationHelper
+```
+
+test/helpers/にテストファイルを作成
+```ruby
+require 'test_helper'
+
+class ApplicationHelperTest < ActionView::TestCase
+  test "full title helper" do
+    assert_equal full_title,         "Ruby on Rails Tutorial Sample App"
+    assert_equal full_title("Help"), "Help | Ruby on Rails Tutorial Sample App"
+  end
+end
+```
+
 ### guardによる自動テスト
 - Gemfileに`guard`を追加して、bundle install
 

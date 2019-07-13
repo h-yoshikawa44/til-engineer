@@ -24,3 +24,11 @@ end
 ```ruby
 <title><%= full_title(yield(:title)) %></title>
 ```
+
+### 組み込みヘルパー
+- image_tag
+app/assets/imagesディレクトリの中から指定画像を探す
+例
+```ruby
+image_tag("rails.png", alt: "Rails logo")
+```
