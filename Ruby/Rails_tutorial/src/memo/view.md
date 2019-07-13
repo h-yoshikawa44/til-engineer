@@ -6,6 +6,7 @@ HTMLのなかにRubyのコードを書くには`<% %>`や出力を意味する`<
 
 ### link_to
 リンクを作成する
+第2引数には名前付きルートで指定できる（名前付きルートは`rails route`で確認）
 
 ```ruby
 <td><%= link_to 'Show', user %></td>
