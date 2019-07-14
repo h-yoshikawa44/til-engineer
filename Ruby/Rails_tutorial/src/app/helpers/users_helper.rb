@@ -1,2 +1,2 @@
-module UsersHelper
+module Users2Helper
 end
