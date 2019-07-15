@@ -2,16 +2,7 @@
 パス：app/models/モデルファイル
 
 ### バリデーション
-validates カラム名, バリデーション内容
-
-```ruby
-class Micropost < ApplicationRecord
-  validates :content, length: { maximum: 140 }
-end
-```
-
-- length: { maximum: 140}　最大文字数
-- presence: true　必須
+validation.mdを参照
 
 ### リレーション
 - hasmany モデル名(複数形)  
@@ -81,6 +72,23 @@ true
 >> User.create(name: "A Nother", email: "another@example.org")
 #<User id: 2, name: "A Nother", email: "another@example.org", created_at:
 "2016-05-23 19:18:46", updated_at: "2016-05-23 19:18:46">
+```
+
+#### 複製
+`dup`メソッドを使用
+同じ属性もつデータを複製する
+
+ユニークのテストを行うときなどに使用する
+```ruby
+  def setup
+    @user = User.new(name: "Example User", email: "user@example.com")
+  end
+
+  test "email addresses should be unique" do
+    duplicate_user = @user.dup
+    @user.save
+    assert_not duplicate_user.valid?
+  end
 ```
 
 #### 削除
@@ -170,4 +178,42 @@ true
 => true
 >> user.name
 => "El Duderino"
+```
+
+### データベースレベルでの一意性
+同じ内容のリクエストを連続して送信した場合、二つとも保存されてしまう（一意性の検証が行われているとしても、同じ値を持つレコードが作成されてしまう）  
+これはトラフィックが多い沖に発生する可能性がある  
+この場合、データベースレベルでも一意性を強制することで解決する  
+具体的にはカラムにインデックスを追加する
+
+インデックス自体は一意性を強制しないが、オプション`unique: true`を指定することで強制できるようになる
+```ruby
+class AddIndexToUsersEmail < ActiveRecord::Migration[5.0]
+  def change
+    add_index :users, :email, unique: true
+  end
+end
+```
+
+### ハッシュ化されたパスワード
+モデルクラスに`has_secure_password`を追加するだけで機能が使えるようになる  
+(使用条件としては、モデル内に`password_digest`という属性が含まれていること、`bcrypt`gemが必要)
+
+- セキュアにハッシュ化したパスワードを、データベース内のpassword_digestという属性に保存できるようになる
+- 2つのペアの仮想的な属性 (passwordとpassword_confirmation) が使えるようになる。また、存在性と値が一致するかどうかのバリデーションも追加される
+- `authenticate`メソッドが使えるようになる (引数の文字列がパスワードと一致するとUserオブジェクトを、間違っているとfalseを返すメソッド)
+
+なお、`has_secure_password`を追加すると、仮想的な`password`属性と`password_confirmation`属性に対してバリデーションが追加される  
+ただしレコードの新規作成の時のみのため、空文字で更新しようとすると更新できてしまう
+
+そのため、バリデーションを別途追加する
+```ruby
+validates :password, presence: true, length: { minimum: 6 }
+```
+
+`authenticate`メソッドでログイン処理が実装できる
+パスワードが一致する場合、オブジェクトを返すが`!!`で論理値に変換することでtrue、falseにできる
+```ruby
+>> !!user.authenticate("foobar")
+=> true
 ```
