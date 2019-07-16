@@ -43,8 +43,11 @@ services:
 - Reactプロジェクト作成  
 `$ create-react-app (プロジェクトフォルダパス)"`
 
-- npm インストール  
+- yarn インストール  
 `$ yarn install`
+
+※Windowsでnpm installする場合は`npm install --no-bin-links`  
+参考：[LaravelのHomestead上のnpm installでMaximum call stack size exceededが発生する場合](https://qiita.com/asuzuki2008/items/acc963569526ff941619)s
 
 - サーバ立ち上げ  
 `$ yarn start`
