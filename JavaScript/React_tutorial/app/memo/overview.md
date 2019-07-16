@@ -2,7 +2,21 @@
 - [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi/related?hl=ja)
 
 ### 概要
-index.jsから読み込まれる  
+index.jsから読み込まれ、最終的にindex.htmlに変換して描画する  
+
+基本的なApp.js構成例
+```js
+import React from 'react';  // Reactをimport
+class App extends React.Component {  // React.componentを継承するクラスの定義
+  render() {  // JSXを戻り値とするrenderメソッドを定義
+    return (
+      <h1>Hello World</h1>
+    );
+  }
+}
+
+export default App;  // クラスをexport
+```
 
 Reactだけで構築されたアプリケーションは、通常ルートDOMノードを一つだけ持つ  
 既存アプリにReactを統合しようとしている場合は、独立したDOMノードを好きなだけ持つことができる
@@ -12,11 +26,11 @@ React 要素をルート DOM ノードにレンダリングするには、その
 ```js
 ReactDOM.render(
   <h1>Hello, world!</h1>,
-  document.getElementById('root')
+  document.getElementById('root')  // index.htmlのidがrootの箇所にレンダリング
 );
 ```
 
-コンポーネントを描画する例
+コンポーネントを描画する例(index.js)
 ```js
 ReactDOM.render(
   <Game />,
@@ -26,7 +40,9 @@ ReactDOM.render(
 
 ### JSX
 JavaScrirtとHTMLが合わさったような構文  
-命名規則はキャメルケース
+命名規則はキャメルケース  
+imgタグのようなHTMLでは閉じタグが必要なかったものは、末尾に/をつける
+例 <img src='画像URL' />
 
 デフォルトでは、React DOM は JSX に埋め込まれた値をレンダリングされる前にエスケープするため、XSSなどインジェクション攻撃を防ぐことができる
 
@@ -42,9 +58,47 @@ ReactDOM.render(
 
 BabelはJSXをReact.createElement()の呼び出しにコンパイルする
 
+JSXではreturn内に複数の要素があるとエラーになる
+ダメな例
+```js
+render() {
+  return (
+    <h1>H1です</h1>
+    <h2>h2です</h2>
+    <p>pです</p>
+  )
+}
+```
+OKな例
+```js
+render() {
+  return (
+    <div>
+      <h1>H1です</h1>
+      <h2>h2です</h2>
+      <p>pです</p>
+    </div>
+  );
+}
+```
+
+JSXにJSを埋め込む時は{}で囲う
+```js
+render() {
+  const text = 'Hello World';
+  return (
+    <div>{text}</div>
+  );
+}
+```
+
+クラス名を記述する際は`className`を使う
+例 <h1 className='title'>Hello World</h1>
+
+
 ### コンポーネント
 UIをコンポーネントと呼ばれる部品から組み立てることができる  
-コンポーネントはReactに何を描画したいかを伝える  
+コンポーネントはReactに何を描画したいかを伝える(renderメソッド)  
 データが変更されると、Reactはコンポーネントを効率よく更新して再レンダーする
 
 React.Componentのサブクラス(JSX)
@@ -80,6 +134,24 @@ React.createElement("div", {
 );
 ```
 
+コンポーネント呼び出し側
+```js
+import ShoppingList from './ShoppingList;
+
+class App extends React.Component {
+  render() {
+    return (
+      <ShoppingList />
+    )
+  }
+}
+```
+なお、同じコンポーネントを複数表示する場合は、mapメソッドを利用すると便利
+
+### イベント
+タグ内に`イベント名 = {() => {処理}}`で書ける
+例　<button onClick={() => {console.log('Hello World')}}>こんにちは</button>
+
 ### props
 propertiesの略  
 プロパティの値にアクセスする  
@@ -107,7 +179,7 @@ class Square extends React.Component {
 ```
 
 ### state
-コンポーネントのコンストラクタに`this.state`を設定することで、状態を持つことができるようになる  
+コンポーネントのコンストラクタにオブジェクトとして`this.state`を設定することで、状態を持つことができるようになる  
 
 設定するには、まずクラスにコンストラクタを追加してstateを初期化する  
 (JavaScript のクラスでは、サブクラスのコンストラクタを定義する際は常に super を呼ぶ必要がある)
