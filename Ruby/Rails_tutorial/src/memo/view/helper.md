@@ -32,3 +32,17 @@ app/assets/imagesディレクトリの中から指定画像を探す
 ```ruby
 image_tag("rails.png", alt: "Rails logo")
 ```
+
+- pluralize
+最初の引数に整数が与えられると、それに基づいて2番目の引数の英単語を複数形に変更したものを返す
+
+```ruby
+>> helper.pluralize(1, "error")
+=> "1 error"
+>> helper.pluralize(5, "error")
+=> "5 errors"
+>> helper.pluralize(2, "woman")
+=> "2 women"
+>> helper.pluralize(3, "erratum")
+=> "3 errata
+```

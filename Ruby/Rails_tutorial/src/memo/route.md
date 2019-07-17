@@ -30,12 +30,14 @@ get 'static_pages/help', to: 'static_pages#help' as: 'helf'
 例
 resources :users
 
-- /users　　　　　　GET　　index　　ユーザ一覧
-  　　　　　　　　　POST　　create　ユーザ作成アクション
-- /users/new　　　　GET　　new　　　新規ユーザーを作成ページ
-- /users/:id/edit　GET　　edit　　idのユーザーを編集ページ
-- /users/:id　　　　GET　　show　 idのユーザーを表示ページ
-  　　　　　　　　　PATCH　update　idのユーザを更新アクション
-  　　　　　　　　　PUT　　update　idのユーザを更新アクション
-　　　　　　　　　　DELETE destroy idのユーザを削除アクション
+|URL|メソッド|アクション|用途|名前付きルート|
+|---|---|---|---|---|
+|/users|GET|index|ユーザ一覧|user_path|
+|/users|POST|create|ユーザ作成アクション|user_path|
+|/users/new|GET|new|新規ユーザーを作成ページ|new_user_path|
+|/users/:id/edit|GET|edit|idのユーザーを編集ページ|edit_user_path(user)|
+|/users/:id|GET|show|idのユーザーを表示ページ|user_path(user)|
+|/users/:id|PATCH|update|idのユーザを更新アクション|user_path(user)|
+|/users/:id|PUT|update|idのユーザを更新アクション|user_path(user)|
+|/users/:id|DELETE|destroy|idのユーザを削除アクション|user_path(user)|
 

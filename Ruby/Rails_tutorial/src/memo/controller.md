@@ -21,3 +21,11 @@ end
 ```
 
 コントローラ内で宣言した、@記号で始まるインスタンス変数はビューでも使うことができる
+
+### パス変数
+paramsで使用できる
+```ruby
+  def show
+    @user = User.find(params[:id])
+  end
+```
