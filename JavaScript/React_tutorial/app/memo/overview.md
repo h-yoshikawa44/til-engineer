@@ -148,9 +148,34 @@ class App extends React.Component {
 ```
 なお、同じコンポーネントを複数表示する場合は、mapメソッドを利用すると便利
 
+```js
+  const lessonList = [
+      {
+        name: 'HTML & CSS',
+        image: 'imageのURL',
+      },
+      .
+      .
+      .
+
+ {lessonList.map((lessonItem) => {
+      return(
+        <Lesson
+          name={lessonItem.name}
+          image={lessonItem.image}
+        />
+      );
+  })}
+```
+
 ### イベント
 タグ内に`イベント名 = {() => {処理}}`で書ける
 例　<button onClick={() => {console.log('Hello World')}}>こんにちは</button>
+
+- onClick　クリックされた時、buttonタグなど
+- onSubmit　送信された時、formタグなど
+- onChange　入力や削除が行われた時、inputタグなど
+  例　<input onChange={(event) => {console.log(event.target.value)}} />
 
 ### props
 propertiesの略  
@@ -198,6 +223,7 @@ class Square extends React.Component {
 
 #### stateの値のセット  
 setState をコンポーネント内で呼び出すと、React はその内部の子コンポーネントも自動的に更新する
+また、setStateは一度に複数のstateの値を変更することもできる
 ```js
 class Square extends React.Component {
     ※一部省略
