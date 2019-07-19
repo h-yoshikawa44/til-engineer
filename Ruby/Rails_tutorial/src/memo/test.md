@@ -106,3 +106,35 @@ Guard使用時のSpringとGitの競合を防ぐには、.gitignoreファイル�
 Springサーバーは若干不安定な点が残っていて、Springのプロセスが起動したまま多数残留すると、テストのパフォーマンスが低下してしまうことがある  
 テストの実行が異常に遅くなってきたと感じたら、プロセスをチェックし、必要に応じてSpringをkillするとよい
 (`$ ps aux | grep spring`で確認)
+
+
+### ユーザログインのテスト
+有効なユーザを表すfixtureを作成する場合
+フィクスチャ
+```yml
+michael:
+  name: Michael Example
+  email: michael@example.com
+  password_digest: <%= User.digest('password') %>
+```
+ユーザクラス
+```ruby
+ def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
+```
+フィクスチャのデータを利用する
+```ruby
+user = users(:michael)
+```
+
+ログインしているかの確認
+test_helperにメソッド作成してテストで使用
+```ruby
+  # テストユーザーがログイン中の場合にtrueを返す
+  def is_logged_in?
+    !session[:user_id].nil?
+  end
+```
