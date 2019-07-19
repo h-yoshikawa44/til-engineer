@@ -25,6 +25,7 @@ HTMLのなかにRubyのコードを書くには`<% %>`や出力を意味する`<
 ```
 
 ビュー
+form_for(@user)とすることで、フォームのactionは`/users`というURLへのPOSTであると自動的に判定する
 ```ruby
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -46,6 +47,8 @@ HTMLのなかにRubyのコードを書くには`<% %>`や出力を意味する`<
   </div>
 </div>
 ```
+※なお、モデルオブジェクトと紐づかない場合は、form_for(:sesstion, usl: login_path) などとすることで、params[:session][:email]といったようになる
+
 
 展開されるHTML
 ```html
@@ -114,3 +117,5 @@ flashのクラス用のスタイルはsuccess、info、warning、dangerの４つ
     <div class="alert alert-<%= message_type %>"><%= message %></div>
   <% end %>
 ```
+
+なお、renderメソッドで再レンダリングした場合、リクエストとみなされないため、リクエストのメッセージが消えない。その場合は、`flash`を`flash.now`に置き換えることで、`flash.now`のメッセージはその後リクエストが発生した時に消滅する
