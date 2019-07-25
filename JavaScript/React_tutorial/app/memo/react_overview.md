@@ -2,7 +2,7 @@
 - [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi/related?hl=ja)
 
 ### 概要
-index.jsから読み込まれ、最終的にindex.htmlに変換して描画する  
+index.jsから読み込まれ、最終的にindex.htmlに変換して描画する（※react-scriptsを使用した場合）  
 
 基本的なApp.js構成例
 ```js
@@ -27,6 +27,13 @@ React 要素をルート DOM ノードにレンダリングするには、その
 ReactDOM.render(
   <h1>Hello, world!</h1>,
   document.getElementById('root')  // index.htmlのidがrootの箇所にレンダリング
+);
+```
+
+```js
+ReactDOM.render(
+  <h1>Hello, world!</h1>,
+  document.querySelector('.container')  // index.htmlのクラスががcontainerの箇所にレンダリング
 );
 ```
 
@@ -101,6 +108,7 @@ UIをコンポーネントと呼ばれる部品から組み立てることがで
 コンポーネントはReactに何を描画したいかを伝える(renderメソッド)  
 データが変更されると、Reactはコンポーネントを効率よく更新して再レンダーする
 
+#### クラスコンポーネント
 React.Componentのサブクラス(JSX)
 ```js
 class ShoppingList extends React.Component {
@@ -118,7 +126,6 @@ class ShoppingList extends React.Component {
   }
 }
 
-// Example usage: <ShoppingList name="Mark" />
 ```
 上記のコードは以下と同じである
 ```js
@@ -146,7 +153,25 @@ class App extends React.Component {
   }
 }
 ```
-なお、同じコンポーネントを複数表示する場合は、mapメソッドを利用すると便利
+
+なお、トップレベルのコンポーネントをレンダリングする際は、一つしか指定できない  
+そのため、複数のコンポーネントを表示する際は、<div>で囲うなどする
+```js
+import ShoppingList from './ShoppingList;
+
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <ShoppingList />
+        <ShoppingList />
+      </div>
+    )
+  }
+}
+```
+
+また、同じコンポーネントを複数表示する場合は、mapメソッドを利用すると便利
 
 ```js
   const lessonList = [
@@ -168,6 +193,18 @@ class App extends React.Component {
   })}
 ```
 
+#### ファンクショナルコンポーネント
+renderメソッドしか持たないコンポーネントはこちらで作成する
+```js
+function App() {
+  return (
+    <div className="App">
+      <Menu/>
+    </div>
+  );
+}
+```
+
 ### イベント
 タグ内に`イベント名 = {() => {処理}}`で書ける
 例　<button onClick={() => {console.log('Hello World')}}>こんにちは</button>
@@ -176,6 +213,8 @@ class App extends React.Component {
 - onSubmit　送信された時、formタグなど
 - onChange　入力や削除が行われた時、inputタグなど
   例　<input onChange={(event) => {console.log(event.target.value)}} />
+- onMouseOver　マウスが上に置かれた時
+- onMouseOut　マウスが外れた時
 
 ### props
 propertiesの略  
@@ -203,6 +242,41 @@ class Square extends React.Component {
     }
 ```
 
+#### propsTypes
+propの値のチェック
+型のチェックや、どんな値であるか、必須であるなど設定できる
+```js
+import React from 'react';
+import PropTypes from 'prop-types';
+
+function Greeting(prop) {
+  return (<div>Hi {prop.name}</div>);
+}
+
+Greeting.propTypes = {
+  name: PropTypes.string.isRequired,
+};
+
+export defalut Greeting;
+```
+
+なお、isRequiredにしていないpropsはデフォルト値を設定する必要がある
+```js
+GeocodeResult.propTypes = {
+    address: PropTypes.string,
+    lat: PropTypes.number,
+    lng: PropTypes.number,
+};
+
+GeocodeResult.defalutProps = {
+    address: '',
+    lat: 0,
+    lng: 0,
+};
+```
+
+
+
 ### state
 コンポーネントのコンストラクタにオブジェクトとして`this.state`を設定することで、状態を持つことができるようになる  
 
@@ -214,7 +288,7 @@ class Square extends React.Component {
         super(props);
         this.state = {
             value: null,
-        }
+        }；
     }
 
     ※以下省略
