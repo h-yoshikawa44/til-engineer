@@ -25,7 +25,7 @@ HTMLのなかにRubyのコードを書くには`<% %>`や出力を意味する`<
 ```
 
 ビュー
-form_for(@user)とすることで、フォームのactionは`/users`というURLへのPOSTであると自動的に判定する
+form_for(@user)とすることで、フォームのactionは`/users`というURLへのPOSTであると自動的に判定する  
 ```ruby
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
@@ -48,6 +48,8 @@ form_for(@user)とすることで、フォームのactionは`/users`というURL
 </div>
 ```
 ※なお、モデルオブジェクトと紐づかない場合は、form_for(:sesstion, usl: login_path) などとすることで、params[:session][:email]といったようになる
+
+また、Railsでは新規作成のPOSTと編集用のPATCHを区別するために`モデルインスタンス.new_record?`で判断する
 
 
 展開されるHTML
