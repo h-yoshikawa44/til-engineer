@@ -45,6 +45,14 @@ ReactDOM.render(
 );
 ```
 
+### 環境変数
+参考：[create-react-appで独自の環境変数を読み込む](https://qiita.com/zgmf_mbfp03/items/008436c5749d65f96e55)
+
+create-react-appで作成したプロジェクトでは、プロジェクト直下にある`.env`を環境変数ファイルとして認識してくれる
+ただし、環境変数の接頭辞に`REACT_APP`をつける必要がある
+
+呼び出しは`process.env.REACT_APP_TEST_API_KEY`といったように書けば良い
+
 ### JSX
 JavaScrirtとHTMLが合わさったような構文  
 命名規則はキャメルケース  
