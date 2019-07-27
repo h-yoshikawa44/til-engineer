@@ -224,3 +224,135 @@ class User < ApplicationRecord
   </div>
 </div>
 ```
+
+### パスワードが空のままでも更新できるようにする
+validateに`allow_nil: true`をつける
+例
+```ruby
+has_secure_password
+validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
+```
+
+新規ユーザ登録時に空のパスワードが有効になってしまうように見えるが、`has_secure_password`をつけている場合、バリデーションとは別にオブジェクト生成時に存在性を検証するようになっているため、空のパスワードが新規ユーザ登録時に有効になることはない
+
+### ログインを要求するページ
+コントローラで`before_action`を使用して、ログインチェックを行うとよい
+
+```ruby
+class UsersController < ApplicationController
+  before_action :logged_in_user, only: [:edit, :update]
+  .
+  .
+  .
+  private
+
+    def user_params
+      params.require(:user).permit(:name, :email, :password,
+                                   :password_confirmation)
+    end
+
+    # beforeアクション
+
+    # ログイン済みユーザーかどうか確認
+    def logged_in_user
+      unless logged_in? # logged_in?はログインしているかチェックするヘルパーメソッド
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end
+end
+```
+
+### 他ユーザのアクセスから保護
+URLパスのユーザIDから取得したユーザとログインユーザが一致するかチェックする
+```ruby
+class UsersController < ApplicationController
+  before_action :logged_in_user, only: [:edit, :update]
+  before_action :correct_user,   only: [:edit, :update]
+  .
+  .
+  .
+  def edit
+  end
+
+  def update
+    if @user.update_attributes(user_params)
+      flash[:success] = "Profile updated"
+      redirect_to @user
+    else
+      render 'edit'
+    end
+  end
+  .
+  .
+  .
+  private
+
+    def user_params
+      params.require(:user).permit(:name, :email, :password,
+                                   :password_confirmation)
+    end
+
+    # beforeアクション
+
+    # ログイン済みユーザーかどうか確認
+    def logged_in_user
+      unless logged_in?
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end
+
+    # 正しいユーザーかどうか確認
+    def correct_user
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless @user == current_user # current_userはトークンから現在のログインユーザを取得するヘルパーメソッド
+    end
+end
+```
+
+### フレンドリーフォワーディング
+要求するページがログインを要求するページだった場合、ログインした後に元々要求していたページにリダイレクトするようにすること
+
+ログインページにリダイレクトする前に、リクエストしていたURLをセッションに記憶しておき、ログイン後に記憶したURLへリダイレクトする
+
+ヘルパー
+```ruby
+# 記憶したURL (もしくはデフォルト値) にリダイレクト
+  def redirect_back_or(default)
+    redirect_to(session[:forwarding_url] || default)
+    session.delete(:forwarding_url)
+  end
+
+  # アクセスしようとしたURLを覚えておく
+  def store_location
+    session[:forwarding_url] = request.original_url if request.get?
+  end
+```
+
+コントローラ
+```ruby
+# ログイン済みユーザーかどうか確認
+ def logged_in_user
+   unless logged_in?
+     store_location # アクセスしようとしたURLを覚えておく
+     flash[:danger] = "Please log in."
+     redirect_to login_url
+   end
+ end
+```
+
+セッションコントローラ
+```ruby
+def create
+    user = User.find_by(email: params[:session][:email].downcase)
+    if user && user.authenticate(params[:session][:password])
+      log_in user
+      params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+      redirect_back_or user # 記憶したURL (もしくはデフォルト値) にリダイレクト
+    else
+      flash.now[:danger] = 'Invalid email/password combination'
+      render 'new'
+    end
+  end
+```

@@ -121,3 +121,40 @@ flashのクラス用のスタイルはsuccess、info、warning、dangerの４つ
 ```
 
 なお、renderメソッドで再レンダリングした場合、リクエストとみなされないため、リクエストのメッセージが消えない。その場合は、`flash`を`flash.now`に置き換えることで、`flash.now`のメッセージはその後リクエストが発生した時に消滅する
+
+### ページネーション
+will_paginateメソッドを使用する場合
+
+[[Rails]will_paginateで表示件数を選択できるページネーションを実装する](https://qiita.com/chocode/items/57852db2eb6a1ed5e973)
+
+Gemfileに`will_paginate`と`bootstrap-will_paginate`を追加
+
+コントローラ  
+モデルオブジェクト.paginateでは、:pageパラメータに基づいて、データベースから一塊のデータ（デフォルトは30）を取り出す
+:pageは自動的に設定される  
+:per_pageで１ページに表示する件数を指定
+```ruby
+def index
+  @users = User.paginate(page: params[:page])
+end
+```
+
+ビュー  
+will_paginateの個所にページネーションが表示される
+```ruby
+<% provide(:title, 'All users') %>
+<h1>All users</h1>
+
+<%= will_paginate %>
+
+<ul class="users">
+  <% @users.each do |user| %>
+    <li>
+      <%= gravatar_for user, size: 50 %>
+      <%= link_to user.name, user %>
+    </li>
+  <% end %>
+</ul>
+
+<%= will_paginate %>
+```
