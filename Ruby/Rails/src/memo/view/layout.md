@@ -57,3 +57,27 @@ provideメソッドを使用して埋め込みをしている例
 <%= render 'layouts/shim' %>
 ```
 とすると、`app/views/layouts/_shim.html.erb`のファイルを探して、その内容をビューに挿入する
+
+#### コレクションオブジェクトの描画
+_user.html.erb
+```ruby
+<li>
+  <%= gravatar_for user, size: 50 %>
+  <%= link_to user.name, user %>
+</li>
+```
+
+index.html.erb
+`render @users`とすると、Userオブジェクトのリストであると認識、さらにユーザのコレクションを与えて呼び出すと、自動的にユーザのコレクションを列挙し、`_user.html.erb`パーシャルで出力する
+```ruby
+<% provide(:title, 'All users') %>
+<h1>All users</h1>
+
+<%= will_paginate %>
+
+<ul class="users">
+  <%= render @users %>
+</ul>
+
+<%= will_paginate %>
+```
