@@ -1,0 +1,8 @@
+172.19.0.1 - - [29/Jul/2019:16:33:13 +0900] "GET / HTTP/1.1" 200 2372 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36" "-"
+172.19.0.1 - - [29/Jul/2019:16:33:13 +0900] "GET /robots.txt HTTP/1.1" 404 1564 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36" "-"
+172.19.0.1 - - [29/Jul/2019:16:33:13 +0900] "GET /favicon.ico HTTP/1.1" 404 1564 "http://localhost:10080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36" "-"
+172.19.0.1 - - [29/Jul/2019:16:43:36 +0900] "GET /robots.txt HTTP/1.1" 200 24 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36" "-"
+172.19.0.1 - - [29/Jul/2019:16:43:38 +0900] "GET / HTTP/1.1" 200 2372 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36" "-"
+172.19.0.1 - - [29/Jul/2019:16:43:38 +0900] "GET /favicon.ico HTTP/1.1" 200 0 "http://127.0.0.1:10080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36" "-"
+172.19.0.1 - - [29/Jul/2019:18:05:29 +0900] "GET / HTTP/1.1" 200 2372 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36" "-"
+172.19.0.1 - - [29/Jul/2019:18:05:30 +0900] "GET /favicon.ico HTTP/1.1" 304 0 "http://127.0.0.1:10080/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.142 Safari/537.36" "-"

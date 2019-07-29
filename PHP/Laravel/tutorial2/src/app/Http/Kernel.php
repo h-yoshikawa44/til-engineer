@@ -42,9 +42,6 @@ class Kernel extends HttpKernel
             'bindings',
         ],
 
-        'hello' => [
-            \App\Http\Middleware\Hello2Middleware::class,
-        ]
     ];
 
     /**
