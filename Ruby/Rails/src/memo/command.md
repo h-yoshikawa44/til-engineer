@@ -13,9 +13,11 @@
   - `rails generate scaffold モデル名(単数形) カラム名:データ型...`
     例　rails generate scaffold User name:string email:string  
     scaffoldでのファイル生成（マイグレーション、モデル、各種テスト、フィクスチャ、コントローラ、各種ビュー、CSS、SCSS）、ルーティングに書き込み）
-  - `rails generate integration_test ファイル名
+  - `rails generate integration_test ファイル名`
     例　rails generate integration_test site_layout  
     総合テストファイルを作成（ファイル名末尾に`_testが`がつく）
+  - `rails generate mailer メーラー名 メソッド名...`
+    メーラーのテンプレート作成（ビュー、テスト）
 
 - `rails db:migrate`  
   マイグレーション実行
