@@ -68,7 +68,7 @@ _user.html.erb
 ```
 
 index.html.erb
-`render @users`とすると、Userオブジェクトのリストであると認識、さらにユーザのコレクションを与えて呼び出すと、自動的にユーザのコレクションを列挙し、`_user.html.erb`パーシャルで出力する
+`render @users`とすると、Userオブジェクトのリストであると認識し、さらにユーザのコレクションを与えて呼び出すと、自動的にユーザのコレクションを列挙し、`_user.html.erb`パーシャルで出力する
 ```ruby
 <% provide(:title, 'All users') %>
 <h1>All users</h1>
