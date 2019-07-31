@@ -48,8 +48,9 @@ ReactDOM.render(
 ### 環境変数
 参考：[create-react-appで独自の環境変数を読み込む](https://qiita.com/zgmf_mbfp03/items/008436c5749d65f96e55)
 
-create-react-appで作成したプロジェクトでは、プロジェクト直下にある`.env`を環境変数ファイルとして認識してくれる
-ただし、環境変数の接頭辞に`REACT_APP`をつける必要がある
+create-react-appで作成したプロジェクトでは、プロジェクト直下にある`.env`を環境変数ファイルとして認識してくれる  
+ただし、環境変数の接頭辞に`REACT_APP`をつける必要がある  
+また、環境変数はサーバ起動時に読み込むようなので、.envに追記後はサーバを再起動すること
 
 呼び出しは`process.env.REACT_APP_TEST_API_KEY`といったように書けば良い
 
@@ -110,6 +111,13 @@ render() {
 クラス名を記述する際は`className`を使う
 例 <h1 className='title'>Hello World</h1>
 
+### ショートハンド
+以下のような書き方の際に、短縮形が利用できる
+```js
+marker={{ position: position }}
+↓
+marker={{ position }}
+```
 
 ### コンポーネント
 UIをコンポーネントと呼ばれる部品から組み立てることができる  
