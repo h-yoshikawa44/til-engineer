@@ -261,6 +261,8 @@ class Square extends React.Component {
 #### propsTypes
 propの値のチェック
 型のチェックや、どんな値であるか、必須であるなど設定できる
+※パッケージがない場合はyarnでインストールする
+
 ```js
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -276,7 +278,7 @@ Greeting.propTypes = {
 export defalut Greeting;
 ```
 
-なお、isRequiredにしていないpropsはデフォルト値を設定する必要がある
+なお、isRequiredにしているpropsはデフォルト値を設定する必要がある
 ```js
 GeocodeResult.propTypes = {
     address: PropTypes.string,

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../css/GeocodeResult.css';
 
 const GeocodeResult = ({address, location}) => ( // propsのaddress、lat、lngを取得
   <ul>
