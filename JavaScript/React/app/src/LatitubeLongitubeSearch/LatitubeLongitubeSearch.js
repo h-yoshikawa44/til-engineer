@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
-import axios from 'axios';
+import './css/LatitubeLongitubeSearch.css';
 import SearchForm from './components/SearchForm';
 import GeocodeResult from './components/GeocodeResult';
 import Map from './components/Map';
-
-const GEOCODE_ENDPOINT = 'https://maps.googleapis.com/maps/api/geocode/json';
+import { geocode } from './domain/Geocoder';
+import HotelsTable from './components/HotelsTable';
 
 class LatitubeLongitubeSearch extends Component {
   constructor(props) {
@@ -14,6 +14,10 @@ class LatitubeLongitubeSearch extends Component {
         lat: 35.6585805,
         lng: 139.7454329
       },
+      hotels: [
+        { id: 111, name: 'ホテルオークラ', url: 'https://google.com'},
+        { id: 222, name: 'アパホテル', url: 'https:yahoo.co.jps' }
+      ]
     };
   }
 
@@ -28,43 +32,44 @@ class LatitubeLongitubeSearch extends Component {
   }
 
   handlePlaceSubmit(place) {
-    axios.get(GEOCODE_ENDPOINT, { params: { address: place, key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY}})
-          .then((results) => {
-            console.log(results);
-            const data = results.data
-            const result = data.results[0];
-            switch (data.status) {
-              case 'OK': {
-                this.setState({
-                  address: result.formatted_address,
-                  location: result.geometry.location,
-                });
-                break;
-              }
-              case 'ZERO_RESULTS': {
-                this.setErrorMessae('結果が見つかりませんでした');
-                break;
-              }
-              default: {
-                this.setErrorMessae('エラーが発生しました');
-              }
-            }
-          })
-          .catch((error) => {
-            this.setErrorMessae('通信に失敗しました');
-          })
+    geocode(place)
+      .then(({ status, address, location }) => {
+        switch (status) {
+          case 'OK': {
+            this.setState({ address, location });
+            break;
+          }
+          case 'ZERO_RESULTS': {
+            this.setErrorMessae('結果が見つかりませんでした');
+            break;
+          }
+          default: {
+            this.setErrorMessae('エラーが発生しました');
+          }
+        }
+      })
+      .catch((error) => {
+        this.setErrorMessae('通信に失敗しました');
+      })
   }
 
   render() {
     return (
-      <div>
-        <h1>緯度経度検索</h1>
+      <div className="app">
+        <h1 className="app-title">ホテル検索</h1>
         <SearchForm onSubmit={place => this.handlePlaceSubmit(place)}/>
-        <GeocodeResult
-          address={this.state.address}
-          location={this.state.location}
-        />
-        <Map location={this.state.location} />
+        <div className="result-area">
+          <Map location={this.state.location} />
+          <div className="result-right">
+            <GeocodeResult
+              className="geocode-result"
+              address={this.state.address}
+              location={this.state.location}
+            />
+            <h2>ホテル検索結果</h2>
+            <HotelsTable hotels={this.state.hotels} />
+          </div>
+        </div>
       </div>
     );
   }
