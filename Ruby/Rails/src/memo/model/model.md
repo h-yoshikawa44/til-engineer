@@ -8,6 +8,8 @@ validation.mdを参照
 - hasmany モデル名(複数形)  
 例　`has_many :microposts`
 
+`dependent: :destroy`をつけると、親が削除されたときに子レコードも削除されるようになる
+
 - belongs_to モデル名(単数形)  
 例　`belongs_to :user`
 

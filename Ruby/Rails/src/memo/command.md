@@ -9,7 +9,7 @@
     例　rails generate controller Users new
     コントローラの作成（アクションメソッドとそれに応じたビュー、ルーティングも追加される）、テスト、ヘルパー、Coffee、SCSSも作成
   - `rails generate model モデル名(単数形) カラム名:データ型...`
-    モデルの作成、マイグレーション、テスト、フィクスチャも作成
+    モデルの作成、マイグレーション、テスト、フィクスチャも作成(`user:references`とつけると、userテーブルのように相手テーブルとの関係性を定義する)
   - `rails generate scaffold モデル名(単数形) カラム名:データ型...`
     例　rails generate scaffold User name:string email:string  
     scaffoldでのファイル生成（マイグレーション、モデル、各種テスト、フィクスチャ、コントローラ、各種ビュー、CSS、SCSS）、ルーティングに書き込み）
