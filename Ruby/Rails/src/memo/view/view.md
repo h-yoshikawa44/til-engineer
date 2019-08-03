@@ -158,3 +158,8 @@ will_paginateの個所にページネーションが表示される
 
 <%= will_paginate %>
 ```
+
+### 「〇分前に投稿」表示のやり方
+time_ago_in_wordsを使うことで可能
+
+例　`Posted <%= time_ago_in_words(micropost.created_at) %> ago.`
