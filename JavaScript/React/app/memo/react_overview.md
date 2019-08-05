@@ -1,6 +1,9 @@
 ### 開発支援
 - [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi/related?hl=ja)
 
+VSCode拡張
+- [Full React/React Native/React Router/Redux/GraphQL/ES7/Testing/PropTypes snippets](https://marketplace.visualstudio.com/items?itemName=walter-ribeiro.full-react-snippets)
+
 ### 概要
 index.jsから読み込まれ、最終的にindex.htmlに変換して描画する（※react-scriptsを使用した場合）  
 
@@ -220,6 +223,23 @@ function App() {
   );
 }
 ```
+
+#### ライフサイクル
+　　　　　　　　　　　　　　　componentWillUncount()
+　　　　　　　　　　　　　　　　↑
+　　　　　　　　　　　　　　　setState()　　　←　　　　　←　　　←
+　　　　　　　　　　　　　　　　↓　　　　　　　　　　　　　　　　↑
+　　　　　　　　　　　　　　　componentWillReceiveProps()　
+　　　　　　　　　　　　　　　　↓　　　　　　　　　　　　　　　　↑
+constructor()　　　　　　　shouldComponentUpdate()　　　
+　↓　　　　　　　　　　　　　　↓　　　　　　　　　　　　　　　　↑
+componentWillMount()　　　componentWillupdate()　　　　　
+　↓　　　　　　　　　　　　　　↓　　　　　　　　　　　　　　　　↑
+render()　　　　　　　　　　render()　　　　　　　　　　　　　
+　↓　　　　　　　　　　　　　　↓　　　　　　　　　　　　　　　　↑
+componentDidMount()　　　componentDisUpdate()　　　　　　
+　↓　　　　　　　　　　　　　　↓　　　　　　　　　　　　　　　　↑
+イベント待ち受け　　　　　　　イベント待ち受け　　　　　　　　　↑
 
 ### イベント
 タグ内に`イベント名 = {() => {処理}}`で書ける
