@@ -1,10 +1,14 @@
 import React, {Component} from 'react';
+import _ from 'lodash';
 import './css/LatitubeLongitubeSearch.css';
 import SearchForm from './components/SearchForm';
 import GeocodeResult from './components/GeocodeResult';
 import Map from './components/Map';
 import { geocode } from './domain/Geocoder';
 import HotelsTable from './components/HotelsTable';
+import { searchHotelByLocation } from './domain/HotelRepository';
+
+const sortedHotels = (hotels, sortKey) => _.sortBy(hotels, h => h[sortKey]);
 
 class LatitubeLongitubeSearch extends Component {
   constructor(props) {
@@ -14,10 +18,7 @@ class LatitubeLongitubeSearch extends Component {
         lat: 35.6585805,
         lng: 139.7454329
       },
-      hotels: [
-        { id: 111, name: 'ホテルオークラ', url: 'https://google.com'},
-        { id: 222, name: 'アパホテル', url: 'https:yahoo.co.jps' }
-      ]
+      sortKey: 'price',
     };
   }
 
@@ -37,7 +38,7 @@ class LatitubeLongitubeSearch extends Component {
         switch (status) {
           case 'OK': {
             this.setState({ address, location });
-            break;
+            return searchHotelByLocation(location);
           }
           case 'ZERO_RESULTS': {
             this.setErrorMessae('結果が見つかりませんでした');
@@ -47,8 +48,13 @@ class LatitubeLongitubeSearch extends Component {
             this.setErrorMessae('エラーが発生しました');
           }
         }
+        return [];
+      })
+      .then((hotels) => {
+        this.setState({ hotels: sortedHotels(hotels, this.state.sortKey) });
       })
       .catch((error) => {
+        console.log(error);
         this.setErrorMessae('通信に失敗しました');
       })
   }
