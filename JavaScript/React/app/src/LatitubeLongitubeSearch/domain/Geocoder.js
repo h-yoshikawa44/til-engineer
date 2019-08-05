@@ -1,11 +1,10 @@
 import axios from 'axios';
 
-const GEOCODE_ENDPOINT = process.env.REACT_APP_GEONCODE_URL;
+const GEOCODE_ENDPOINT = process.env.REACT_APP_GEOCODE_URL;
 
 export const geocode = place => 
   axios.get(GEOCODE_ENDPOINT, { params: { address: place, key: process.env.REACT_APP_GOOGLE_MAPS_API_KEY}})
        .then((results) => {
-        console.log(results);
         const data = results.data
         const status = data.status
         const result = data.results[0];
