@@ -56,3 +56,23 @@ const Menu = () => {
 
 export default Menu
 ```
+
+### getパラメータ
+Routeで定義したコンポーネントは自動でいくつかのpropsが追加される  
+そのうちhistoryを利用してgetパラメータをつける
+
+```js
+※placeには入力フォームで入力した値が入るとする
+this.props.history.push(`?query=${place}`);
+```
+
+URLのgetパラメータは文字列でlocation.searchの中に入る  
+これを使用時にハッシュの形にしたい場合は`query-string`ライブラリを使うと良い
+
+```js
+import queryString from 'query-string';
+.
+.
+.
+const params = queryString.parse(this.props.location.search);
+```
