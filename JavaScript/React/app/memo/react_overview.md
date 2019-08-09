@@ -224,6 +224,29 @@ function App() {
 }
 ```
 
+#### プレゼンテーショナルコンポーネント
+propsを引数に、ビューを返すだけのコンポーネント  
+componentsフォルダで管理することが多い
+
+```js
+const SearchForm = props => (
+  <form className="search-form" onSubmit={e => props.onSubmit(e)}>
+    <input
+      className="place-input"
+      type="text"
+      size="30"
+      value={props.place}
+      onChange={e => props.onPlaceChange(e)}
+    />
+    <input className="submit-button" type="submit" value="検索" />
+  </form>
+);
+```
+
+#### コンテナコンポーネント
+Storeを発行してサブスクライブしたりする処理が入るコンポーネント  
+containersフォルダで管理することが多い
+
 #### ライフサイクル
 　　　　　　　　　　　　　　　componentWillUncount()
 　　　　　　　　　　　　　　　　↑
