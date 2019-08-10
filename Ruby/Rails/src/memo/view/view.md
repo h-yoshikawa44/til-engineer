@@ -96,6 +96,33 @@ Strong Parametersを使用して、必須のパラメータと許可されたパ
     end
 ```
 
+#### Ajaxによるフォーム
+form_for を form_for ..., remote: true とするだけで自動的にAjaxを使うようになる
+
+```ruby
+<%= form_for(current_user.active_relationships.build, remote: true) do |f| %>
+  <div><%= hidden_field_tag :followed_id, @user.id %></div>
+  <%= f.submit "Follow", class: "btn btn-primary" %>
+<% end %>
+```
+
+コントローラ側ではリクエストの種類によって応答を場合分けするときは`respond_to`メソッドを使用する
+
+```ruby
+respond_to do |format|
+  format.html { redirect_to user }
+  format.js
+end
+```
+
+ブラウザ側でJavaScriptが無効になっていた場合でもうまく動くようにする  
+config/application.rbに以下を追記
+```ruby
+# 認証トークンをremoteフォームに埋め込む
+    config.action_view.embed_authenticity_token_in_remote_forms = true
+```
+
+
 ### flash
 一度だけ表示するフラッシュメッセージを表示する
 flashのクラス用のスタイルはsuccess、info、warning、dangerの４つ
