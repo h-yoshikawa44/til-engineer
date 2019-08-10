@@ -13,6 +13,9 @@ validation.mdを参照
 - belongs_to モデル名(単数形)  
 例　`belongs_to :user`
 
+明示的にクラスを指定する際は`class_name`  
+外部キーを指定する際は`foreign_key`
+
 ### オブジェクト
 #### 生成
 オブジェクトを引数なしで`new`した場合、すべての属性がnilのオブジェクトを返す

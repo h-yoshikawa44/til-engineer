@@ -26,7 +26,7 @@ get '/help', to: 'static_pages#help'
 get 'static_pages/help', to: 'static_pages#help' as: 'helf'
 ```
 
-### scaffoldでのルーティング
+### resourcesによるルーティング
 例
 resources :users
 
@@ -40,4 +40,29 @@ resources :users
 |/users/:id|PATCH|update|idのユーザを更新アクション|user_path(user)|
 |/users/:id|PUT|update|idのユーザを更新アクション|user_path(user)|
 |/users/:id|DELETE|destroy|idのユーザを削除アクション|user_path(user)|
+
+
+
+例
+resources :user do
+  member do
+    get :following, :followers
+  end
+end
+
+/users/1/followingや/users/1/followers
+|URL|メソッド|アクション|名前付きルート|
+|---|---|---|---|---|
+|/users/1/following|GET|following|following_user_path(1)|
+|/users/1followers|GET|followers|followers_user_path(1)|
+
+例
+resources :users do
+  collection do
+    get :tigers
+  end
+end
+
+/users/tigers（アプリケーションにあるすべてのtigerのリストを表示する）
+
 

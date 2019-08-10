@@ -65,6 +65,13 @@ static_pages/homeのリクエストURLのテスト
   end
 ```
 
+Ajaxでのリクエストを行いたい場合は`xhr: true`をつける
+```ruby
+assert_difference '@user.following.count', 1 do
+  post relationships_path, params: { followed_id: @other.id }, xhr: true
+end
+```
+
 ### ヘルパーのテスト
 test/test_helper.rbでincludeする
 ```ruby
