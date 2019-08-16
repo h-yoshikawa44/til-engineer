@@ -5,7 +5,7 @@ Componentに集まっていた概念をStore、Actionに分離するFluxの概�
 - [公式](https://redux.js.org/)
 
 ### インストール
-`$ yarn add redux react-redux redux-devtools`
+`$ yarn add redux react-redux`
 
 ### Three Priciples
 1. Single source of truth  
@@ -19,8 +19,14 @@ setStateでstateを更新するのでなく、必ずActionを発行して更新�
 (※純粋な関数...Reducer。同じ引数を渡すと必ず同じ結果が返ってくる、副作用のない関数)
 
 ### 基本的な使い方
-createStoreでStoreを作成し、そのstateでdispatchをすることで、渡したアクションタイプに応じたstateの変更が行われる  
+createStoreでStoreを作成し、Storeから取得したstateでdispatchをすることで、渡したアクションタイプに応じたstateの変更が行われる  
 store.subscribeすることで、storeの変更を検知し、変更があるたびにレンダーしなおす
+
+Action　←　Reducer
+　↑　　　　　↓
+View　　←　Store
+
+※Reducerの前に処理を挟みたい場合は、Middlewareを使用する
 
 index.js
 ```js
@@ -113,6 +119,7 @@ ReactDOM.render(
 
 SearchForm.js
 connectを使用してStoreと連結して、propsとして使用できるようにする（以下の場合はstoreとonPlaceChange）
+mapDispatchToPropsのような、dispatchの処理をactionsに分離して使用する方法もある
 ```js
 import { connect } from 'react-redux';
 .
@@ -130,4 +137,37 @@ const mapDispatchToProps = dispatch => ({
 const ConnnectedSearchForm = connect(mapStateToProps, mapDispatchToProps)(SearchForm);
 
 export default ConnnectedSearchForm;
+```
+
+※上記のmapDispatchToPropsのような、dispatchの処理をactionsに分離して使用する方法もある
+
+actions/index.js
+```js
+export const setPlace = place => dispatch => dispatch({ type: 'CHANGE_PLACE', place});
+```
+
+SearchForm.js
+```js
+import { setPlace } from '../actions/';
+.
+.
+.
+export default connect(
+  state => ({
+    place: state.place,
+  }),
+  { setPlace }
+)(SearchForm);
+```
+
+### Middlewareを使用する例
+なお、ミドルウェアはカンマ区切りで複数指定可能
+[公式 Midoleware](https://redux.js.org/advanced/middleware)
+```js
+import thunk from 'redux-thunk';
+
+const store = createStore(
+  reducer,
+  composeWithDevTools(applyMiddleware(thunk)),
+);
 ```

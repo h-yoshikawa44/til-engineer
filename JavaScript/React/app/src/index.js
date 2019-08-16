@@ -1,23 +1,27 @@
 // デフォルトコード
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
+import thunk from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 import './index.css';
 // import App from './App';
 import Menu from './Menu';
 import ReduxTutorial from './Redux-tutorial/Redux-tutorial';
 import * as serviceWorker from './serviceWorker';
-import reducer from './reducers/'
+import reducer from './Redux-tutorial/reducers'
+
+const store = createStore(
+  reducer,
+  composeWithDevTools(applyMiddleware(thunk)),
+);
 
 // ReactDOM.render(<Menu />, document.getElementById('root'));
 ReactDOM.render(
-  <Provider store={createStore(reducer)}>
-  　<ReduxTutorial
-      history={window.history}
-      location={window.location}
-    />
+  <Provider store={store}>
+  　<Menu />
   </Provider>,
   document.getElementById('root')
 );
