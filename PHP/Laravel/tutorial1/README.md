@@ -7,6 +7,6 @@
 - PHP：7.3.7
 - Laravel：5.8.28
 
-### 参考
-- [【初心者向け】20分でLaravel開発環境を爆速構築するDockerハンズオン](https://qiita.com/ucan-lab/items/56c9dc3cf2e6762672f4)
+### 作成手順参考
+https://github.com/h-yoshikawa0724/TIL/tree/master/Docker/PHP/Laravel/pattern1/README.md
 
