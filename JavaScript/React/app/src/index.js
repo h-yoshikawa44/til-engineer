@@ -9,7 +9,6 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import './index.css';
 // import App from './App';
 import Menu from './Menu';
-import ReduxTutorial from './Redux-tutorial/Redux-tutorial';
 import * as serviceWorker from './serviceWorker';
 import reducer from './Redux-tutorial/reducers'
 
