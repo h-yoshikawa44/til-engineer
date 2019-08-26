@@ -1,2 +1,6 @@
+## other
+.DS_Store
+
+## PHP
 /Docker/PHP/PurePHP/mysql/data/*
 /PHP/Laravel_tutorial/.Laradock/*
