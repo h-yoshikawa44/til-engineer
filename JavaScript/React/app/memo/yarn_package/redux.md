@@ -19,7 +19,7 @@ setStateでstateを更新するのでなく、必ずActionを発行して更新�
 (※純粋な関数...Reducer。同じ引数を渡すと必ず同じ結果が返ってくる、副作用のない関数)
 
 ### 基本的な使い方
-createStoreでStoreを作成し、Storeから取得したstateでdispatchをすることで、渡したアクションタイプに応じたstateの変更が行われる  
+createStoreでStoreを作成し、Storeから取得したstateでdispatchをすることで、渡したアクションタイプに応じたstateの変更が行われる(全てのreducerが実行される)  
 store.subscribeすることで、storeの変更を検知し、変更があるたびにレンダーしなおす
 
 Action　←　Reducer
@@ -39,7 +39,7 @@ const render = () => {
   const state = store.getState();
   console.log(state);
   ReactDOM.render(
-    <App 
+    <App
       place={state.place}
       onPlaceChange={place => state.dispatch({ type: 'CHANGE_PLACE', place })}
     />,

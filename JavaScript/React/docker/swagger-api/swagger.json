@@ -1,0 +1,389 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "#概要\n\n##リクエスト要件\n\n- リクエストの方法\n\n     - リクエストは REST 形式の HTTP リクエストとする。\n\n     - リクエストパラメータの日時は全て JST とする。\n\n    \n##レスポンス要件\n\n- リクエストパラメータの日時は JST とする。\n\n\n\n##エラー要件\n\n- Media Type は全て application/json で返却する。",
+    "version": "1.0.0",
+    "title": "Swagger test API設計書",
+    "contact": {},
+    "license": ""
+  },
+  "host": "localhost:8080",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "User Data",
+      "description": "User Data Controller"
+    },
+    {
+      "name": "Content",
+      "description": "Content Controller"
+    }
+  ],
+  "paths": {
+    "/account": {
+			"get": {
+				"tags": [
+					"Account"
+				],
+				"summary": "アカウント情報取得",
+				"description": "ログイン中のアカウント情報を取得する。",
+				"operationId": "doGetUsingGET",
+				"consumes": [
+					"application/json"
+				],
+				"produces": [
+					"application/json"
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/AccountGetOut"
+						}
+					},
+					"400": {
+						"description": "バリデーションエラー",
+						"schema": {
+							"$ref": "#/definitions/ValidationErrorsOut"
+						}
+					},
+					"403": {
+						"description": "認証エラー",
+						"schema": {
+							"$ref": "#/definitions/NotLoginError"
+						}
+					},
+					"500": {
+						"description": "想定外のエラー",
+						"schema": {
+							"$ref": "#/definitions/ErrorInfo"
+						}
+					}
+				}
+			}
+		},
+    "/user/import": {
+      "post": {
+        "tags": [
+          "User Data"
+        ],
+        "summary": "ユーザデータインポート",
+        "description": "ユーザデータのインポートを行う。",
+        "operationId": "doPostUsingPOST_1",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "query",
+            "description": "ユーザID",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "アップロードファイルデータ",
+            "required": true,
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/UserPostOut"
+            }
+          },
+          "400": {
+            "description": "バリデーションエラー",
+            "schema": {
+              "$ref": "#/definitions/ValidationErrorsOut"
+            }
+          },
+          "403": {
+            "description": "認証エラー",
+            "schema": {
+              "$ref": "#/definitions/NotLoginError"
+            }
+          },
+          "500": {
+            "description": "想定外のエラー",
+            "schema": {
+              "$ref": "#/definitions/ErrorInfo"
+            }
+          }
+        }
+      }
+    },
+    "/content/{id}": {
+      "put": {
+        "tags": [
+          "Content"
+        ],
+        "summary": "コンテンツ情報変更",
+        "description": "コンテンツ情報を変更する。",
+        "operationId": "doPutUsingPUT_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "コンテンツID",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "in": "body",
+            "name": "in",
+            "description": "コンテンツ情報",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContentPutIn"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ContentPutOut"
+            }
+          },
+          "400": {
+            "description": "バリデーションエラー",
+            "schema": {
+              "$ref": "#/definitions/ValidationErrorsOut"
+            }
+          },
+          "403": {
+            "description": "認証エラー",
+            "schema": {
+              "$ref": "#/definitions/NotLoginError"
+            }
+          },
+          "409": {
+            "description": "排他エラー",
+            "schema": {
+              "$ref": "#/definitions/ExclusiveAlertStatusUpdateError"
+            }
+          },
+          "500": {
+            "description": "想定外のエラー",
+            "schema": {
+              "$ref": "#/definitions/ErrorInfo"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ContentPutIn": {
+      "type": "object",
+      "required": [
+        "modifiedDate",
+        "status"
+      ],
+      "properties": {
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "example": 0,
+          "description": "ステータス"
+        },
+        "modifiedDate": {
+          "type": "string",
+          "format": "date-time",
+          "example": "2019-04-01T12:34:56",
+          "description": "更新日時 [format=yyyy-MM-ddTHH:mm:ss]"
+        }
+      }
+    },
+    "ContentPutOut": {
+      "type": "object",
+      "required": [
+        "completeMessage",
+        "id",
+        "message",
+        "modifiedDate",
+        "status"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int32",
+          "example": 1,
+          "description": "ID"
+        },
+        "status": {
+          "type": "integer",
+          "format": "int32",
+          "example": 2,
+          "description": "ステータス"
+        },
+        "message": {
+          "type": "string",
+          "example": "メッセージ",
+          "description": "メッセージ"
+        },
+        "modifiedDate": {
+          "type": "string",
+          "format": "date-time",
+          "example": "2019-01-01T00:00:00",
+          "description": "更新日時"
+        },
+        "completeMessage": {
+          "type": "string",
+          "example": "正常終了しました。",
+          "description": "終了メッセージ"
+        }
+      }
+    },
+    "ValidationError": {
+      "type": "object",
+      "required": [
+        "code",
+        "content",
+        "itemName"
+      ],
+      "properties": {
+        "itemName": {
+          "type": "string",
+          "example": "loginId",
+          "description": "項目名"
+        },
+        "code": {
+          "type": "string",
+          "example": "NotBlank",
+          "description": "code"
+        },
+        "content": {
+          "type": "string",
+          "example": "必須項目が設定されていません。",
+          "description": "content"
+        }
+      }
+    },
+    "ValidationErrorsOut": {
+      "type": "object",
+      "required": [
+        "validationInfo"
+      ],
+      "properties": {
+        "validationInfo": {
+          "type": "array",
+          "description": "バリデーション情報",
+          "items": {
+            "$ref": "#/definitions/ValidationError"
+          }
+        }
+      }
+    },
+    "ErrorInfo": {
+      "type": "object",
+      "required": [
+        "code",
+        "content"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "example": "exception.errors.unexpeced.exception",
+          "description": "エラーコード"
+        },
+        "content": {
+          "type": "string",
+          "example": "システムエラーが発生しました。誠に恐れ入りますが、初めからやり直して下さい。",
+          "description": "メッセージ"
+        }
+      }
+    },
+    "AccountGetOut": {
+			"type": "object",
+			"required": [
+				"kana",
+				"loginId",
+				"name"
+			],
+			"properties": {
+				"loginId": {
+					"type": "string",
+					"example": "abc001",
+					"description": "ログインID"
+				},
+				"name": {
+					"type": "string",
+					"example": "山田 太郎",
+					"description": "名前"
+				},
+				"kana": {
+					"type": "string",
+					"example": "ヤマダ タロウ",
+					"description": "カナ"
+				}
+			}
+		},
+    "UserPostOut": {
+      "type": "object",
+      "required": [
+        "completeMessage"
+      ],
+      "properties": {
+        "completeMessage": {
+          "type": "string",
+          "example": "正常終了しました。",
+          "description": "終了メッセージ"
+        }
+      }
+    },
+    "NotLoginError": {
+      "type": "object",
+      "required": [
+        "code",
+        "content"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "example": "exception.errors.security.not.login",
+          "description": "エラーコード"
+        },
+        "content": {
+          "type": "string",
+          "example": "アカウント情報の取得に失敗しました。再度ログインしてください。",
+          "description": "メッセージ"
+        }
+      }
+    },
+    "ExclusiveAlertStatusUpdateError": {
+      "type": "object",
+      "required": [
+        "code",
+        "content"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "example": "exception.errors.alertList.already.update",
+          "description": "エラーコード"
+        },
+        "content": {
+          "type": "string",
+          "example": "他のユーザによりステータスが更新されているため、情報更新に失敗しました。",
+          "description": "メッセージ"
+        }
+      }
+    }
+  }
+}
