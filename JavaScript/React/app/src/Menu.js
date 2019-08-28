@@ -5,7 +5,6 @@ import ReduxTutorial from './Redux-tutorial/Redux-tutorial';
 import ApiTutorial from './Api-tutorial/Api-tutorial';
 
 const topPage = () => <div><h1>Top Page</h1>ここがトップページです</div>
-const page3 = () => <div><h1>page3</h1>3枚目のページです</div>
 const page404 = () => <div><h1>404</h1>存在しないページです</div>  //<= ヒットしなかった時用のページを追加
 
 const Menu = (props) => {
@@ -21,7 +20,7 @@ const Menu = (props) => {
           <li style={liStyle}><Link to='/'>top</Link></li>
           <li style={liStyle}><Link to='/TicTacToe'>三目並べ</Link></li>
           <li style={liStyle}><Link to='/ReduxTutorial'>緯度経度検索</Link></li>
-          <li style={liStyle}><Link to='/ApiTutorial'>page3</Link></li>
+          <li style={liStyle}><Link to='/ApiTutorial'>APIチュートリアル</Link></li>
         </ul>
 
         <div style={{marginLeft: '50px'}}>
