@@ -10,29 +10,8 @@
 
 ### Docker環境作成手順
 - Dockerfile作成
-```dockerfile
-FROM "node:10-alpine"
-
-WORKDIR /usr/src/app/
-
-RUN npm i -g create-react-app
-```
 
 - docker-compose.yml作成
-```yml
-version: "2"
-services:
-  node:
-    build: ./node
-    environment:
-      - NODE_ENV=development
-    volumes:
-      - ./app/:/usr/src/app
-    tty: true
-    stdin_open: true
-    ports:
-      - "3000:3000"
-```
 
 - dockerのビルド  
 `$ docker-compose build`
