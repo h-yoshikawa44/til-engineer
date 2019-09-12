@@ -20,7 +20,7 @@
 `$ docker-compose exec node sh`
 
 - Reactプロジェクト作成  
-`$ create-react-app (プロジェクトフォルダパス)"`
+`$ create-react-app (プロジェクトフォルダパス)`
 
 - yarn インストール  
 `$ yarn install`

@@ -1,5 +1,6 @@
 ## Docker環境
 参考
+- [Dockerを使ってVue CLI 3 の開発環境を構築する](https://qiita.com/satokibi/items/189945f984e5e53117ea)
 
 ### バージョン
 - Node：12.9.0
@@ -19,7 +20,7 @@
 `$ docker-compose exec node sh`
 
 - Vueプロジェクト作成  
-`$ vue create (プロジェクトフォルダパス)"`
+`$ vue create (プロジェクトフォルダパス)`
 
 - yarn インストール  
 `$ yarn install`
