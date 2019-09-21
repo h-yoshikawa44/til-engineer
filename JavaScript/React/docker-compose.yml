@@ -4,6 +4,7 @@ services:
     build: ./docker/node
     environment:
       - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
     volumes:
       - ./app/:/usr/src/app
     tty: true
