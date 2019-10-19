@@ -5,7 +5,9 @@
     "version": "1.0.0",
     "title": "Swagger test API設計書",
     "contact": {},
-    "license": ""
+    "license": {
+      "name": ""
+    }
   },
   "host": "localhost:8080",
   "basePath": "/",
