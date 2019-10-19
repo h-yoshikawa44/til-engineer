@@ -9,12 +9,16 @@
 - React：16.8.6
 
 ### Docker環境作成手順
-- Dockerfile作成
+- 各種Dockerfile作成  
+※この段階ではnodeのDockerfileにCMDの個所はつけないようにする
 
 - docker-compose.yml作成
 
 - dockerのビルド  
 `$ docker-compose build`
+
+- コンテナの起動  
+`$ docker-compose up -d`
 
 - コンテナに入る  
 `$ docker-compose exec node sh`
@@ -22,17 +26,15 @@
 - Reactプロジェクト作成  
 `$ create-react-app (プロジェクトフォルダパス)`
 
-- yarn インストール  
-`$ yarn install`
-
-※Windowsでnpm installする場合は`npm install --no-bin-links`  
-参考：[LaravelのHomestead上のnpm installでMaximum call stack size exceededが発生する場合](https://qiita.com/asuzuki2008/items/acc963569526ff941619)s
-
 - サーバ立ち上げ  
 `$ yarn start`
 
 - ブラウザでアクセス  
 `localhost:3000`もしくは`(DockerホストIP):3000`にアクセス
+
+- Docker起動時にサーバも起動するようにする
+  - nodeのDockerfileに`CMD ["yarn", "start"]`を追記
+  - `$ docker-compose up -d --build`で更新
 
 ### パッケージのバージョンが古い時は
 参考：[Rails lodash.templateの脆弱性](https://qiita.com/sakakinn/items/f55ee3bdd6cce92a4fde)
