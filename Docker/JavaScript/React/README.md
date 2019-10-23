@@ -5,7 +5,7 @@
 - [Swagger EditorとSwagger UIとSwaggerのモックAPIサーバーをdocker-compose化してみた](https://qiita.com/matsuda_chikara/items/a4119a972535a4b69201)
 
 ### バージョン
-- Node：10.16.0
+- Node：12.13.0
 - React：16.8.6
 
 ### Docker環境作成手順
@@ -14,7 +14,7 @@
 
 - docker-compose.yml作成
 
-- dockerのビルド  
+- コンテナのビルド  
 `$ docker-compose build`
 
 - コンテナの起動  
@@ -35,6 +35,9 @@
 - Docker起動時にサーバも起動するようにする
   - nodeのDockerfileに`CMD ["yarn", "start"]`を追記
   - `$ docker-compose up -d --build`で更新
+
+- swagger-uiにアクセス  
+`localhost:8000/docs`
 
 ### パッケージのバージョンが古い時は
 参考：[Rails lodash.templateの脆弱性](https://qiita.com/sakakinn/items/f55ee3bdd6cce92a4fde)
