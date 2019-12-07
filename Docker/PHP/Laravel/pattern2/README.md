@@ -175,6 +175,15 @@ cp -f conf/.**laravel**-env ../(Laravelプロジェクトフォルダ）/.env
 `$ docker-compose ps`
 StateがすべてUpになっていればOK
 
+- workspaceコンテナに入る  
+`$ docker-compose exec workspace bash`
+
+- パッケージのインストール  
+`$ composer install`
+
+- テーブルの作成  
+`$ php artisan migrate`
+
 - 動作確認  
 [http://localhost](http://localhost/)にアクセス  
 ※DockerToolboxの場合は、`http://(dockerのIP):80`
