@@ -3,8 +3,9 @@ version: "3"
 services:
   docusaurus:
     build: .
+    container_name: til-docusaurus
     ports:
-      - 3000:3000
+      - 3001:3000
       - 35729:35729
     volumes:
       - ./docs:/app/docs
