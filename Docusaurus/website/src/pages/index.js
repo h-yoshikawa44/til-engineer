@@ -74,6 +74,14 @@ function Home() {
               to={useBaseUrl('docs/doc1')}>
               勉強記録
             </Link>
+            <Link
+              className={classnames(
+                'button button--outline button--secondary button--lg',
+                styles.getStarted,
+              )}
+              to={useBaseUrl('/portfolio')}>
+              ポートフォリオ
+            </Link>
           </div>
         </div>
       </header>
