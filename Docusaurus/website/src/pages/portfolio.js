@@ -6,6 +6,36 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 
+const editors = [
+  {
+    title: <>Visual Studio Code</>,
+    imageUrl: 'img/logo-icons/visual-studio-code.svg',
+    description: (
+      <>
+        Java以外のコーディングで使用
+      </>
+    ),
+  },
+  {
+    title: <>Eclipse</>,
+    imageUrl: 'img/logo-icons/eclipse.svg',
+    description: (
+      <>
+        Javaのコーディングで使用
+      </>
+    ),
+  },
+   {
+    title: <>Unity</>,
+    imageUrl: 'img/logo-icons/unity.svg',
+    description: (
+      <>
+        研修で使用
+      </>
+    ),
+  },
+];
+
 const environments = [
   {
     title: <>Git</>,
@@ -165,10 +195,34 @@ const langAndframewarks = [
   },
 ]
 
+const careers = [
+  {
+    period: '2019/09 ～ 現在',
+    title: '売上/店舗/ユーザ管理システム',
+    langAndFw: 'JavaScript/React/Java/Spring Boot',
+    db: 'MySQL',
+    description: 'フロントとAPIを担当。'
+  },
+  {
+    period: '2018/07 ～ 2019/02',
+    title: '宿泊予約システム',
+    langAndFw: 'Java/Spring/Python/Serverless Framework',
+    db: 'Amazon Aurora',
+    description: '新規API作成、既存APIの改修。'
+  },
+  {
+    period: '2018/01 ～ 2018/06',
+    title: '保険請求システム',
+    langAndFw: 'PHP/CakePHP',
+    db: 'MySQL',
+    description: '実装を担当。'
+  }
+]
+
 function Skill({imageUrl, title, description}) {
   const imgUrl = useBaseUrl(imageUrl);
   return (
-    <div className={classnames('col col--4', styles.feature)}>
+    <div className={classnames('col col--3', styles.feature)}>
       {imgUrl && (
         <div className="text--center">
           <img className={styles.skillImage} src={imgUrl} alt={title} />
@@ -180,6 +234,24 @@ function Skill({imageUrl, title, description}) {
   );
 }
 
+function Career({period, title, langAndFw, db, description}) {
+  return (
+    <div class="card-demo">
+      <div class="card shadow--tl">
+        <div class="card__header">
+          <p className="text--italic">{period}</p>
+          <h3>{title}</h3>
+        </div>
+        <div class="card__body">
+          <p>言語・FW：{langAndFw}</p>
+          <p>DB：{db}</p>
+          <p>{description}</p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function Portfolio() {
   const context = useDocusaurusContext();
   const {siteConfig = {}} = context;
@@ -189,8 +261,8 @@ function Portfolio() {
       description="よしのポートフォリオ">
       <header className={classnames('hero hero--primary', styles.heroBanner)}>
         <div className="container">
-          <h1 className="hero__title">Hitomi Yoshikawa</h1>
-          <p className="hero__subtitle">精神疾患持ちのプログラマー</p>
+          {/* <h1 className="hero__title">Hitomi Yoshikawa</h1>
+          <p className="hero__subtitle">精神疾患持ちのプログラマー</p> */}
           {/* <div className={styles.buttons}>
             <Link
               className={classnames(
@@ -201,34 +273,72 @@ function Portfolio() {
               勉強記録
             </Link>
           </div> */}
+          <div className="avatar avatar--vertical">
+            <img
+              className={classnames('avatar__photo avatar__photo--xl', styles.avatar__photo_color)}
+              src="img/lion-custom.png"
+            />
+            <div className="avatar__intro">
+              <h2 className="avatar__name">Hitomi Yoshikawa</h2>
+              <p className="avatar__subtitle">
+                精神疾患持ちのプログラマー
+              </p>
+            </div>
+          </div>
         </div>
       </header>
       <main>
-        <h2>スキル</h2>
-        <h3>開発環境</h3>
-        {environments && environments.length && (
-          <section className={styles.skills}>
-            <div className="container">
-              <div className="row">
-                {environments.map((props, idx) => (
-                  <Skill key={idx} {...props} />
+        <div className="padding--md">
+          <h2 className="text--center">スキル</h2>
+          <h3 className={classnames('text--center', styles.decorationLine)}>エディタ</h3>
+          {editors && editors.length && (
+            <section className={styles.skills}>
+              <div className="container">
+                <div className="row">
+                  {editors.map((props, idx) => (
+                    <Skill key={idx} {...props} />
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
+          <h3 className={classnames('text--center', styles.decorationLine)}>開発環境</h3>
+          {environments && environments.length && (
+            <section className={styles.skills}>
+              <div className="container">
+                <div className="row">
+                  {environments.map((props, idx) => (
+                    <Skill key={idx} {...props} />
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
+          <h3 className={classnames('text--center', styles.decorationLine)}>言語・フレームワーク</h3>
+          {langAndframewarks && langAndframewarks.length && (
+            <section className={styles.skills}>
+              <div className="container">
+                <div className="row">
+                  {langAndframewarks.map((props, idx) => (
+                    <Skill key={idx} {...props} />
+                  ))}
+                </div>
+              </div>
+            </section>
+          )}
+        </div>
+        <div className="padding--md">
+          <h2 className="text--center">経歴</h2>
+          {careers && careers.length && (
+            <section>
+              <div className="container">
+                {careers.map((props, idx) => (
+                  <Career key={idx} {...props} />
                 ))}
               </div>
-            </div>
-          </section>
-        )}
-        <h3>言語・フレームワーク</h3>
-        {langAndframewarks && langAndframewarks.length && (
-          <section className={styles.skills}>
-            <div className="container">
-              <div className="row">
-                {langAndframewarks.map((props, idx) => (
-                  <Skill key={idx} {...props} />
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
+            </section>
+          )}
+        </div>
       </main>
     </Layout>
   );

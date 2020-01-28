@@ -11,11 +11,15 @@
 また、それらをただあげていくのでなく、ドキュメントのようにまとめて静的サイト化して、より見やすくする。  
 **現在上げているコードも順次ドキュメントへ移行（フレームワークのコードはそのまま残す）**
 
-## Docusaurus
+## ドキュメントサイト
+### 構築
+[Docusaurus(v2)](https://v2.docusaurus.io/)を使用。
 ドキュメント特化の静的サイトジェネレータ。
 
 2系を使用しているが、alpha版であることに注意。  
 Dockerだとうまく動かせない？（サーバ起動はできるが、ブラウザから確認ができない）ようなので、yarnが使える環境でサーバを起動すること。（自分の場合はWSL)
+
+@docusaurus/preset-classic テンプレートで使用されているCSSフレームワークは[Infima](https://facebookincubator.github.io/infima/)（こちらも現在Docusaurusとともに開発中）
 
 ### 公開された静的サイトとして確認
 [ドキュメントサイト](https://h-yoshikawa0724-til.netlify.com/)
