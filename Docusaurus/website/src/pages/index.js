@@ -68,7 +68,7 @@ function Home() {
           <div className={styles.buttons}>
             <Link
               className={classnames(
-                'button button--outline button--secondary button--lg',
+                'button button--outline button--info button--lg margin--xs',
                 styles.getStarted,
               )}
               to={useBaseUrl('docs/doc1')}>
@@ -76,7 +76,7 @@ function Home() {
             </Link>
             <Link
               className={classnames(
-                'button button--outline button--secondary button--lg',
+                'button button--outline button--info button--lg margin--xs',
                 styles.getStarted,
               )}
               to={useBaseUrl('/portfolio')}>
@@ -86,17 +86,7 @@ function Home() {
         </div>
       </header>
       <main>
-        {features && features.length && (
-          <section className={styles.features}>
-            <div className="container">
-              <div className="row">
-                {features.map((props, idx) => (
-                  <Feature key={idx} {...props} />
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
+        {/* TODO TILに関する文言を追記 */}
       </main>
     </Layout>
   );
