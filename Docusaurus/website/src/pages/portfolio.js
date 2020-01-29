@@ -38,15 +38,6 @@ const editors = [
 
 const environments = [
   {
-    title: <>Git</>,
-    imageUrl: 'img/logo-icons/git-icon.svg',
-    description: (
-      <>
-        普段の案件業務から、個人プロジェクトにわたり使用。差分はVSCodeなどGUIで確認し、コマンドはCLIで操作することが多い。
-      </>
-    ),
-  },
-  {
     title: <>Docker</>,
     imageUrl: 'img/logo-icons/docker-icon.svg',
     description: (
@@ -54,10 +45,37 @@ const environments = [
         実務使用経験あり。また、Dockerを使用した環境構築手順のQiita記事を書いた経験あり。
       </>
     ),
+  },
+  {
+    title: <>Git</>,
+    imageUrl: 'img/logo-icons/git-icon.svg',
+    description: (
+      <>
+        普段の案件業務から、個人プロジェクトにわたり使用。差分はVSCodeなどGUIで確認し、コマンドはCLIで操作することが多い。
+      </>
+    ),
   }
 ];
 
 const langAndframewarks = [
+  {
+    title: <>HTML</>,
+    imageUrl: 'img/logo-icons/html-5.svg',
+    description: (
+      <>
+        基本的には研修で学んだ程度。そのほか、FWのビューで記述したり、ReactのJSX（厳密には異なるが）で書いているなど。
+      </>
+    ),
+  },
+  {
+    title: <>CSS</>,
+    imageUrl: 'img/logo-icons/css-3.svg',
+    description: (
+      <>
+        実務使用経験あり。
+      </>
+    ),
+  },
   {
     title: <>JavaScript</>,
     imageUrl: 'img/logo-icons/javascript.svg',
@@ -163,24 +181,6 @@ const langAndframewarks = [
     description: (
       <>
         自ブログで使用。テーマは公開されているものを使用しているが、それをカスタマイズして使用。
-      </>
-    ),
-  },
-  {
-    title: <>HTML</>,
-    imageUrl: 'img/logo-icons/html-5.svg',
-    description: (
-      <>
-        基本的には研修で学んだ程度。そのほか、FWのビューで記述したり、ReactのJSX（厳密には異なるが）で書いているなど。
-      </>
-    ),
-  },
-  {
-    title: <>CSS</>,
-    imageUrl: 'img/logo-icons/css-3.svg',
-    description: (
-      <>
-        実務使用経験あり。
       </>
     ),
   },
