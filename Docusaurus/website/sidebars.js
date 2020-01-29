@@ -6,8 +6,25 @@
  */
 
 module.exports = {
-  someSidebar: {
-    Docusaurus: ['doc1', 'doc2', 'doc3'],
-    Features: ['mdx'],
-  },
+  php: {
+    Pure: [
+      'PHP/Pure/php-overview',
+      {
+        type: 'category',
+        label: '基本',
+        items: [
+          'PHP/Pure/Basic/php-print',
+          'PHP/Pure/Basic/php-if',
+          'PHP/Pure/Basic/php-loop'
+        ],
+      },
+      {
+        type: 'category',
+        label: '配列',
+        items: [
+          'PHP/Pure/Array/php-array-basic'
+        ],
+      },
+    ]
+  }
 };

@@ -23,7 +23,7 @@ function Home() {
                 'button button--outline button--info button--lg margin--xs',
                 styles.getStarted,
               )}
-              to={useBaseUrl('docs/doc1')}>
+              to={useBaseUrl('docs/top')}>
               勉強記録
             </Link>
             <Link
@@ -61,6 +61,7 @@ function Home() {
                 <li>勉強したことを可視化することでモチベーションに繋げる</li>
                 <li>他の人に勉強した内容を伝えられる材料になる</li>
               </ul>
+              <p>すでにリポジトリにあげているコードやメモは順次ドキュメント化中。</p>
             </div>
           </section>
         </div>

@@ -14,7 +14,7 @@ module.exports = {
         src: 'img/lion-logo.svg',
       },
       links: [
-        {to: 'docs/doc1', label: 'Docs', position: 'left'},
+        {to: 'docs/top', label: 'Docs', position: 'left'},
         {to: '/portfolio', label: 'Portfolio', position: 'left'},
         {
           href: 'https://changeofpace.site',
