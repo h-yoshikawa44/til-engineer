@@ -278,7 +278,7 @@ function Skill({imageUrl, title, description}) {
 
 function Career({period, title, langAndFw, db, environment, other, description}) {
   return (
-    <div class="card-demo">
+    <div class="card-demo margin-vert--sm">
       <div class="card shadow--tl">
         <div class="card__header">
           <p className="text--italic">{period}</p>
@@ -307,18 +307,6 @@ function Portfolio() {
       description="よしのポートフォリオ">
       <header className={classnames('hero hero--primary', styles.heroBanner)}>
         <div className="container">
-          {/* <h1 className="hero__title">Hitomi Yoshikawa</h1>
-          <p className="hero__subtitle">精神疾患持ちのプログラマー</p> */}
-          {/* <div className={styles.buttons}>
-            <Link
-              className={classnames(
-                'button button--outline button--secondary button--lg',
-                styles.getStarted,
-              )}
-              to={useBaseUrl('docs/doc1')}>
-              勉強記録
-            </Link>
-          </div> */}
           <div className="avatar avatar--vertical">
             <img
               className={classnames('avatar__photo avatar__photo--xl', styles.avatar__photo_color)}

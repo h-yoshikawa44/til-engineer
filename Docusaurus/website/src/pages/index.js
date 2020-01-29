@@ -6,54 +6,6 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 
-const features = [
-  {
-    title: <>Easy to Use</>,
-    imageUrl: 'img/undraw_docusaurus_mountain.svg',
-    description: (
-      <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
-      </>
-    ),
-  },
-  {
-    title: <>Focus on What Matters</>,
-    imageUrl: 'img/undraw_docusaurus_tree.svg',
-    description: (
-      <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
-      </>
-    ),
-  },
-  {
-    title: <>Powered by React</>,
-    imageUrl: 'img/undraw_docusaurus_react.svg',
-    description: (
-      <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
-      </>
-    ),
-  },
-];
-
-function Feature({imageUrl, title, description}) {
-  const imgUrl = useBaseUrl(imageUrl);
-  return (
-    <div className={classnames('col col--4', styles.feature)}>
-      {imgUrl && (
-        <div className="text--center">
-          <img className={styles.featureImage} src={imgUrl} alt={title} />
-        </div>
-      )}
-      <h3>{title}</h3>
-      <p>{description}</p>
-    </div>
-  );
-}
-
 function Home() {
   const context = useDocusaurusContext();
   const {siteConfig = {}} = context;
@@ -86,7 +38,32 @@ function Home() {
         </div>
       </header>
       <main>
-        {/* TODO TILに関する文言を追記 */}
+        <div className="padding--md">
+          <h2 className="text--center">TIL</h2>
+          <h3 className={classnames('text--center', styles.decorationLine)}>TILとは？</h3>
+          <section>
+            <div className="container">
+              <blockquote>「Today I Learned」の略で、Github上にTILというリポジトリを作成してそこに今日覚えたことを書いていくというものです。</blockquote>
+              <p className="text--right">
+                出典：
+                <Link to="https://qiita.com/nemui_/items/239335b4ed0c3c797add">
+                  Qiita - Githubのリポジトリ「TIL」を使って小さなアウトプットを習慣化する
+                </Link>
+              </p>
+            </div>
+          </section>
+          <h3 className={classnames('text--center', styles.decorationLine)}>目的</h3>
+          <section>
+          　<div className="container">
+              <p>勉強したコードやメモなどをTILリポジトリにあげていく。またここにドキュメントとしてまとめる。</p>
+              <ul>
+                <li>アウトプットの習慣が身につく</li>
+                <li>勉強したことを可視化することでモチベーションに繋げる</li>
+                <li>他の人に勉強した内容を伝えられる材料になる</li>
+              </ul>
+            </div>
+          </section>
+        </div>
       </main>
     </Layout>
   );
