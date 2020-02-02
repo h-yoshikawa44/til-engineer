@@ -22,4 +22,6 @@ PHPの処理系はPHPタグ`<?php ?>`で囲われた部分を解釈・実行し�
 - [公式ドキュメント](https://php.net/manual/ja/indexes.functions.php)
 
 ### 教材
-- [詳細! PHP 7 + MySQL 入門ノート](https://www.amazon.co.jp/dp/4800711304/ref=cm_sw_r_tw_dp_U_x_anMnEbAAXFZ12)
+- [Progate - PHP](https://prog-8.com/languages/php)
+- [参考書 - 詳細! PHP 7 + MySQL 入門ノート](https://www.amazon.co.jp/dp/4800711304/ref=cm_sw_r_tw_dp_U_x_anMnEbAAXFZ12)
+- [問題集 - 徹底攻略 PHP5技術者認定[初級]試験 問題集 [PJ0-100]対応](https://www.amazon.co.jp/dp/4844332775/ref=cm_sw_r_tw_dp_U_x_tfPnEb44BD4NR)
