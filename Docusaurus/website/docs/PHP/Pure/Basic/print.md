@@ -22,6 +22,15 @@ echo $test; // ABC
 echo 'A', 'B', 'C', 'D'; // ABCD
 ```
 
+なお、ダブルクォーテーションとシングルクォーテーションの違いがあり、ダブルクォーテーションの時のみ変数が展開される。(その分、シングルクォーテーションの時より処理速度が少しかかる)
+
+```php
+<?php
+$test = 'ABC';
+echo "{$test}"; // ABC
+echo '{$test}'; // {$test}
+```
+
 ## print
 [公式ドキュメント](https://www.php.net/manual/ja/function.print)
 
