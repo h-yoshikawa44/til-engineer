@@ -7,7 +7,7 @@ keywords:
   - PHP
 ---
 
-検証バージョン：7.3.6。
+- 検証バージョン：7.3.6
 
 ## if
 ```php
@@ -35,6 +35,18 @@ function ifValue($value)
         echo '小' . "\n";
     }
 }
+```
+
+## 三項演算子
+```php
+条件式 ? 真の時の処理 : 偽の時の処理;
+```
+```php
+<?php
+$num = 9;
+$str = "numの値は";
+$str2 = $num < 10 ? "10未満" : "10以上";
+echo $str . $str2; // numの値は10未満
 ```
 
 ## switch
