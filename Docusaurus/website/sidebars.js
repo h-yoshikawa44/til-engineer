@@ -9,6 +9,8 @@ module.exports = {
   php: {
     Pure: [
       'PHP/Pure/php-overview',
+      'PHP/Pure/php-syntax',
+      'PHP/Pure/php-class',
       {
         type: 'category',
         label: '基本',

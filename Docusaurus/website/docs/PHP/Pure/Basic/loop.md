@@ -7,6 +7,8 @@ keywords:
   - PHP
 ---
 
+検証バージョン：7.3.6。
+
 ## while
 ```php
 while ( 条件式 ) {

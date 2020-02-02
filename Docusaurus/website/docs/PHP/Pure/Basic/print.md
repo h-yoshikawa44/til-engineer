@@ -7,6 +7,8 @@ keywords:
   - PHP
 ---
 
+検証バージョン：7.3.6。
+
 ## echo
 [公式ドキュメント](https://www.php.net/manual/ja/function.echo)
 
