@@ -7,7 +7,7 @@ keywords:
   - PHP
 ---
 
-検証バージョン：7.3.6。
+- 検証バージョン：7.3.6
 
 [公式ドキュメント](https://www.php.net/manual/ja/language.oop5.php)
 
