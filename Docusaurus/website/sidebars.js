@@ -6,6 +6,20 @@
  */
 
 module.exports = {
+  java: {
+    Pure: [
+      'Java/Pure/java-overview',
+      {
+        type: 'category',
+        label: '基本',
+        items: [
+          'Java/Pure/Basic/java-print',
+          'Java/Pure/Basic/java-if',
+          'Java/Pure/Basic/java-loop'
+        ],
+      },
+    ]
+  },
   php: {
     Pure: [
       'PHP/Pure/php-overview',

@@ -24,7 +24,7 @@ description: 勉強記録のトップリンクページ
 - HTML
 - CSS
 - JavaScirpt
-- Java
+- [Java](/docs/Java/Pure/java-overview)
 - [PHP](/docs/PHP/Pure/php-overview)
 - Python
 - Ruby
