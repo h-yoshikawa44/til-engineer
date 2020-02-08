@@ -9,13 +9,16 @@ keywords:
 
 - 検証バージョン：7.3.6
 
+## 実行箇所
+実行ファイルの上から。
+
 ## 文末のセミコロン
 必要。
 
 ## 変数
 [公式ドキュメント - 変数](https://www.php.net/manual/ja/language.variables.php)
 
-変数名はLowerCamelCaseで頭文字に`$`をつけるのが特徴。
+変数名はLowerCamelCaseで、頭文字に`$`をつけるのが特徴。  
 動的型付けであるため、型指定は不要。
 
 ```php
@@ -27,10 +30,22 @@ echo $testValue; // test
 ## 定数
 [公式ドキュメント - 定数](https://www.php.net/manual/ja/language.constants.php)
 
-定数名はScreamingSnakeCase。
+定数名はScreamingSnakeCaseで、こちらには`$`はつかない。
+
+### define
 ```php
 <?php
 define('TEST_VALUE', 'test');
+echo TEST_VALUE; // test
+```
+
+### const
+こちらの場合はトップレベルのスコープで宣言する必要がある。  
+(関数、ループ、if文、try/catchブロックの内部では宣言できない)
+
+```php
+<?php
+const TEST_VALUE = 'test';
 echo TEST_VALUE; // test
 ```
 
