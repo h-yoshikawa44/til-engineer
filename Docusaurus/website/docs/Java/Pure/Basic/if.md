@@ -10,6 +10,8 @@ keywords:
 - 検証バージョン：openjdk version 12
 
 ## if
+式の真偽に応じて処理を行う。
+
 ```java
 if (条件式1) {
     処理1;
@@ -40,8 +42,10 @@ public class Main {
 ```
 
 ## 三項演算子
+if文をより簡潔に記述したもの。
+
 ```java
-条件式 ? 真の時の処理 : 偽の時の処理
+条件式 ? 真の時の処理 : 偽の時の処理;
 ```
 ```java
 public class Main {
@@ -55,11 +59,14 @@ public class Main {
 ```
 
 ## switch
+対象の値が一致する`case`以降の処理を行う。  
+その`case`だけの処理を行いたい場合は、`break`で処理を抜ける。
+`default`句についてはなくても使用可能。
+
 ```java
 switch (対象) {
     case 値1:
         処理1;
-        break;
     case 値2:
         処理2;
     default:

@@ -13,7 +13,7 @@ keywords:
 必要。
 
 ## 変数
-[公式ドキュメント](https://www.php.net/manual/ja/language.variables.php)
+[公式ドキュメント - 変数](https://www.php.net/manual/ja/language.variables.php)
 
 変数名はLowerCamelCaseで頭文字に`$`をつけるのが特徴。
 動的型付けであるため、型指定は不要。
@@ -25,7 +25,7 @@ echo $testValue; // test
 ```
 
 ## 定数
-[公式ドキュメント](https://www.php.net/manual/ja/language.constants.php)
+[公式ドキュメント - 定数](https://www.php.net/manual/ja/language.constants.php)
 
 定数名はScreamingSnakeCase。
 ```php
@@ -35,7 +35,7 @@ echo TEST_VALUE; // test
 ```
 
 ## 関数
-[公式ドキュメント](https://www.php.net/manual/ja/language.functions.php)
+[公式ドキュメント - 関数](https://www.php.net/manual/ja/language.functions.php)
 
 ### 基本構文
 関数名はLowerCamelCase。

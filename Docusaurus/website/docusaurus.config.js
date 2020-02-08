@@ -62,7 +62,7 @@ module.exports = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/h-yoshikawa0724/TIL-Engineer',
+              href: 'https://github.com/h-yoshikawa0724',
             },
             {
               label: 'Twitter',

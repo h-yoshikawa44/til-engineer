@@ -9,7 +9,7 @@ keywords:
 
 - 検証バージョン：7.3.6
 
-[公式ドキュメント](https://www.php.net/manual/ja/language.oop5.php)
+[公式ドキュメント - クラスとオブジェクト](https://www.php.net/manual/ja/language.oop5.php)
 
 ## 基本構文
 クラス名はUpperCamelCase。  

@@ -10,6 +10,12 @@ keywords:
 - 検証バージョン：7.3.6
 
 ## if
+[公式ドキュメント - if](https://www.php.net/manual/ja/control-structures.if.php)
+[公式ドキュメント - else if](https://www.php.net/manual/ja/control-structures.elseif.php)
+[公式ドキュメント - else](https://www.php.net/manual/ja/control-structures.else.php)
+
+式の真偽に応じて処理を行う。
+
 ```php
 if (条件式1) {
     処理１;
@@ -38,6 +44,8 @@ function ifValue($value)
 ```
 
 ## 三項演算子
+if文をより簡潔に記述したもの。
+
 ```php
 条件式 ? 真の時の処理 : 偽の時の処理;
 ```
@@ -50,11 +58,16 @@ echo $str . $str2; // numの値は10未満
 ```
 
 ## switch
+[公式ドキュメント - switch](https://www.php.net/manual/ja/control-structures.switch.php)
+
+対象の値が一致する`case`以降の処理を行う。  
+その`case`だけの処理を行いたい場合は、`break`で処理を抜ける。
+`default`句についてはなくても使用可能。
+
 ```php
 switch(対象) {
     case 値1:
-        処理1;
-        break;
+        処理1
     case 値2:
         処理2;
     default:

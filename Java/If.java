@@ -27,6 +27,13 @@ public class If {
         switchValue(6); // 大中
         switchValue(4); // 中
         switchValue(2); // 小終
+
+        // 三項演算子
+        int num = 9;
+        String str = "numの値は";
+        str += num < 10 ? "10未満" : "10以上";
+        System.out.println(str); // numの値は10未満
+    }
     }
 
     public static void ifValue(int value) {
@@ -51,12 +58,5 @@ public class If {
             default:
                 System.out.println("終");
         }
-    }
-
-    // 三項演算子
-    int num = 9;
-    String str = "numの値は";
-    str += num < 10 ? "10未満" : "10以上";
-    System.out.println(str); // numの値は10未満
     }
 }
