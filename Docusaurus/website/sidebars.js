@@ -9,6 +9,7 @@ module.exports = {
   java: {
     Pure: [
       'Java/Pure/java-overview',
+      'Java/Pure/java-syntax',
       {
         type: 'category',
         label: '基本',
