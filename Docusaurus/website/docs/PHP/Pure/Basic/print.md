@@ -10,7 +10,7 @@ keywords:
 - 検証バージョン：7.3.6
 
 ## echo
-[公式ドキュメント](https://www.php.net/manual/ja/function.echo)
+[公式ドキュメント - echo](https://www.php.net/manual/ja/function.echo)
 
 1つ以上の文字列を出力。改行なし。  
 関数でなく言語構造であるため、引数を括弧でくくる必要がない。
@@ -32,7 +32,7 @@ echo '{$test}'; // {$test}
 ```
 
 ## print
-[公式ドキュメント](https://www.php.net/manual/ja/function.print)
+[公式ドキュメント - print](https://www.php.net/manual/ja/function.print)
 
 単一の引数のみ受け付ける出力。改行なし。  
 関数でなく言語構造であるため、引数を括弧でくくる必要がない。
@@ -45,7 +45,7 @@ print "alphabet $testPrint"; // alphabet DEF
 ```
 
 ## printf
-[公式ドキュメント](https://www.php.net/manual/ja/function.printf)
+[公式ドキュメント - printf](https://www.php.net/manual/ja/function.printf)
 
 フォーマット済みの文字列を出力する。改行なし。
 
@@ -56,7 +56,7 @@ printf($testPrintF, 'a', 'b'); // alphabet A:a B:b
 ```
 
 ## var_dump
-[公式ドキュメント](https://www.php.net/manual/ja/function.var-dump)
+[公式ドキュメント - var_dump](https://www.php.net/manual/ja/function.var-dump)
 
 指定した式に関して、その方や値を含む構造化された情報を返す。
 
@@ -77,7 +77,7 @@ var_dump($testVar);
 ```
 
 ## print_r
-[公式ドキュメント](https://www.php.net/manual/ja/function.print-r)
+[公式ドキュメント - print_r](https://www.php.net/manual/ja/function.print-r)
 
 指定した変数に関する情報をわかりやすく出力。
 
