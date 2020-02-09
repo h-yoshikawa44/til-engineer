@@ -1,7 +1,7 @@
 ---
 id: java-syntax
-title: 基本構文
-sidebar_label: 基本構文
+title: 基本構文（変数、定数）
+sidebar_label: 基本構文（変数、定数）
 description: Javaの基本構文ページ
 keywords:
   - Java
@@ -13,7 +13,7 @@ keywords:
 mainメソッドから。  
 なお、mainメソッドを持つクラスしか実行することはできない。
 
-mainメソッドは必ず以下のようになる（throwsの部分は任意）
+mainメソッドは必ず以下のようになる（throwsの部分は任意）  
 最初に実行されるメソッド = `public static`である必要があるため。
 
 ```java
@@ -27,9 +27,20 @@ public class Main {
 ## 文末のセミコロン
 必要。
 
+---
+※スクリプト言語と違い、以降記述する変数やメソッドは**クラス内でしか定義できない**。
+
+---
+
 ## 変数
 変数名はLowerCamelCase。  
 静的型付けであるため、型指定が必要。
+
+```java
+データ型 変数名;
+
+データ型 変数名 = 初期化の値;
+```
 
 ### プリミティブ型
 使用できるデータ型。
@@ -115,7 +126,13 @@ class Test {
 ## 定数
 定数名はScreamingSnakeCase。
 
-`final`がついたものは、あとから値の変更ができなくなる。
+`final`がついたものは、一度初期化して以降値の変更ができなくなる。
+
+```java
+final データ型 定数名;
+
+final データ型 定数名 = 初期化の値;
+```
 
 ```java
 public class Main {
@@ -127,4 +144,79 @@ public class Main {
 ```
 
 ## メソッド
-※後で書く。
+メソッド名はLowerCamelCase。
+引数の数は任意。
+
+### 基本構文
+- アクセス修飾子：private、protected、public
+- 修飾子：final、static（指定は任意かつ、両方指定も可能）
+- 返り値の型：あらゆるデータ型を指定できる。何も値を返さない場合は`void`を指定する。
+- 引数：引数の数は任意
+
+※アクセス修飾子と修飾子についてはクラスも参照。
+
+```java
+アクセス修飾子 修飾子 返り値の型 メソッド名(データ型 引数名) {
+    // 処理
+}
+``
+
+```java
+public class Main {
+    public static void main(String[] args) throws Exception {
+        Test test = new Test();
+        test.printValue(); // test
+    }
+}
+
+class Test {
+    public void printValue() {
+        System.out.println("test");
+    }
+}
+```
+
+### 返り値
+関数の呼び出し側に値を返す場合は`return`で返す。  
+なお、定義している返り値の型と実際に返す値の型は一致させること。
+
+```java
+public class Main {
+    public static void main(String[] args) throws Exception {
+        Test test = new Test();
+        System.out.println(test.getValue()); // test
+    }
+}
+
+class Test {
+    public String getValue() {
+        return "test";
+    }
+}
+```
+
+### 引数のデフォルト値
+Javaにおいては指定不可。
+
+### 可変長引数
+引数のデータ型に`...`をつけることで受け取ることができる。
+ただし、1つのメソッドにつき1回のみ、かつ最後の引数のみ。
+
+```java
+public class Main {
+    public static void main(String[] args) throws Exception {
+        Test test = new Test();
+        test.printValue("a", "b");
+        // a
+        // b
+    }
+}
+
+class Test {
+    public void printValue(String... strList) {
+        for(String str : strList) {
+            System.out.println(str);
+        }
+    }
+}
+```
