@@ -12,15 +12,24 @@ keywords:
 [公式ドキュメント - クラスとオブジェクト](https://www.php.net/manual/ja/language.oop5.php)
 
 ## 基本構文
-クラス名はUpperCamelCase。  
+クラス名はUpperCamelCase。
+
+```php
+<?php
+class クラス名
+{
+    // プロパティやメソッド定義
+}
+```
+
 クラスの中に定義された定数や変数を`プロパティ`と呼ぶ。  
 また、クラス内に定義された関数を`メソッド`と呼ぶ。
 
 これらは通常インスタンス単位で割り当てられるものである。  
-クラス内で他の変数やメソッドにアクセスする際は`$this->変数名 or メソッド名`とする。
+クラス内で他の変数やメソッドにアクセスは`$this->変数名`、`$this->メソッド名(引数)`とする。
 
 `new クラス名()`でクラスインスタンスを作成。
-変数やメソッドへのアクセスは`クラスインスタンス->変数名 or メソッド名`で可能。
+変数やメソッドへのアクセスは`クラスインスタンス->変数名`、`クラスインスタンス->メソッド名(引数)`で可能。
 
 ```php
 <?php
@@ -29,45 +38,54 @@ class TestClass
     public $value = 'test';
 
     function getValue() {
-        echo $this->value;
+        return $this->value;
+    }
+
+    function echoValue() {
+        echo $this->getValue();
     }
 }
 
 $tc = new TestClass();
 echo $tc->value; // test
-$tc->getValue(); // test
+$tc->echoValue(); // test
 ```
 
 ## 静的なプロパティとメソッド
+[公式ドキュメント - staticキーワード](https://www.php.net/manual/ja/language.oop5.static.php)
+
 `static`をつけて定義したプロパティとメソッドは静的なものとなり、クラス単位で割り当てられる。  
 また`const`で定義された定数も同様である。
 
-クラス内で他の静的な変数やメソッドにアクセスする際は`self::プロパティ名 or メソッド名`となる。  
-インスタンス化せずに呼び出しが可能であり、`クラス名::プロパティ名 or メソッド`で呼び出す。
+クラス内で他の静的な変数やメソッドにアクセスは`self::プロパティ名`、`self::メソッド名(引数)`となる。  
+インスタンス化せずに呼び出しが可能であり、`クラス名::プロパティ名`、`クラス名::メソッド名(引数)`で呼び出す。
 
 **注意点として、静的なメソッドからは静的でない変数やメソッドにアクセスすることはできない。**
+
 ```php
 <?php
-class TestClass
+class Test
 {
     public static $value = 'test';
 
     const TEST_VALUE = 'TEST';
 
-    static function getValue() {
+    static function echoValue() {
         echo self::$value;
         echo ' ';
         echo self::TEST_VALUE;
     }
 }
 
-echo TestClass::$value; // test
-echo TestClass::TEST_VALUE; // TEST
-TestClass::getValue(); // test TEST
+echo Test::$value; // test
+echo Test::TEST_VALUE; // TEST
+Test::echoValue(); // test TEST
 ```
 
 ## アクセス修飾子
-プロパティとメソッドに指定することで、アクセスできる範囲の制御ができる。
+[公式ドキュメント - アクセス権](https://www.php.net/manual/ja/language.oop5.visibility.php)
+
+プロパティ、メソッドに指定することで、アクセスできる範囲の制御ができる。
 変数には指定が必須。定数やメソッドに指定しなかった場合はpublicが適用される。
 
 - public：クラス外から自由にアクセスできる
@@ -75,12 +93,23 @@ TestClass::getValue(); // test TEST
 - private：クラス内からのみアクセスできる
 
 ## コンストラクタ
-クラスのインスタンス化時に実行されるメソッド。  
-`__construct()`で定義する。引数に関しては任意で指定可能。
+[公式ドキュメント - コンストラクタとデストラクタ](https://www.php.net/manual/ja/language.oop5.decon.php)
+
+クラスのインスタンス化時に実行される特殊なメソッドで、プロパティの初期化処理などに使われることが多い。  
+`__construct()`で定義する。
+
+引数に関しては任意で指定可能で、インスタンス化時に`new クラス名(引数)`とすることで渡すことができる。
 
 ```php
 <?php
-class TestClass
+function __construct(引数名) {
+    // 処理
+}
+```
+
+```php
+<?php
+class Test
 {
     public $value;
 
@@ -88,25 +117,27 @@ class TestClass
         $this->value = 'test';
     }
 
-    function getValue() {
+    function echoValue() {
         echo $this->value;
     }
 }
 
-$tc = new TestClass();
-$tc->getValue(); // test
+$tc = new Test();
+$tc->echoValue(); // test
 ```
 
 ## 継承
+[公式ドキュメント - オブジェクトの継承](https://www.php.net/manual/ja/language.oop5.inheritance.php)
+
 ### 子クラスの定義
 クラス定義時に`extends`で継承するクラスを指定。
-アクセス修飾子がprivate以外のプロパティやメソッドは、子クラスへ継承される。
+アクセス修飾子が`private`以外のプロパティやメソッドは、子クラスへ継承される。
 
 なお、多重継承は不可。
 
 ```php
 <?php
-class TestClass
+class Test
 {
     public $value;
 
@@ -114,22 +145,22 @@ class TestClass
         $this->value = 'test';
     }
 
-    function getValue() {
+    function echoValue() {
         echo $this->value;
     }
 }
 
-class SubTestClass extends TestClass
+class SubTest extends Test
 {
     function __construct() {
         $this->value = 'sub test';
     }
 }
 
-$tc = new TestClass();
-$tc->getValue(); // test
-$stc = new SubTestClass();
-$stc->getValue(); // sub test
+$tc = new Test();
+$tc->echoValue(); // test
+$stc = new SubTest();
+$stc->echoValue(); // sub test
 ```
 
 ### オーバーライド
@@ -137,24 +168,24 @@ $stc->getValue(); // sub test
 
 ```php
 <?php
-class TestClass
+class Test
 {
-    function getValue() {
+    function echoValue() {
         echo 'parent';
     }
 }
 
-class SubTestClass extends TestClass
+class SubTest extends Test
 {
-    function getValue() {
-        echo 'sub';
+    function echoValue() {
+        echo 'child';
     }
 }
 
-$tc = new TestClass();
-$tc->getValue(); // parent
-$stc = new SubTestClass();
-$stc->getValue(); // sub
+$tc = new Test();
+$tc->echoValue(); // parent
+$stc = new SubTest();
+$stc->echoValue(); // child
 ```
 
 ### 親クラスのメソッドを使用
@@ -162,14 +193,14 @@ $stc->getValue(); // sub
 
 ```php
 <?php
-class TestClass
+class Test
 {
     function getValue() {
         echo 'parent';
     }
 }
 
-class SubTestClass extends TestClass
+class SubTest extends Test
 {
     function getValue() {
         parent::getValue();
@@ -178,8 +209,8 @@ class SubTestClass extends TestClass
     }
 }
 
-$tc = new TestClass();
+$tc = new Test();
 $tc->getValue(); // parent
-$stc = new SubTestClass();
+$stc = new SubTest();
 $stc->getValue(); // parent sub
 ```

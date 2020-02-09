@@ -1,7 +1,7 @@
 ---
 id: php-syntax
-title: 基本構文
-sidebar_label: 基本構文
+title: 基本構文（変数、定数、関数）
+sidebar_label: 基本構文（変数、定数、関数）
 description: PHPの基本構文ページ
 keywords:
   - PHP
@@ -23,6 +23,13 @@ keywords:
 
 ```php
 <?php
+$変数名;
+
+$変数名 = 初期化の値;
+```
+
+```php
+<?php
 $testValue = 'test';
 echo $testValue; // test
 ```
@@ -33,6 +40,12 @@ echo $testValue; // test
 定数名はScreamingSnakeCaseで、こちらには`$`はつかない。
 
 ### define
+
+```php
+<?php
+define(定数名, 値);
+```
+
 ```php
 <?php
 define('TEST_VALUE', 'test');
@@ -44,6 +57,12 @@ echo TEST_VALUE; // test
 (関数、ループ、if文、try/catchブロックの内部では宣言できない)
 
 ```php
+const 定数名;
+
+const 定数名 = 初期化の値;
+```
+
+```php
 <?php
 const TEST_VALUE = 'test';
 echo TEST_VALUE; // test
@@ -53,28 +72,52 @@ echo TEST_VALUE; // test
 [公式ドキュメント - 関数](https://www.php.net/manual/ja/language.functions.php)
 
 ### 基本構文
-関数名はLowerCamelCase。
+関数名はLowerCamelCase。  
+引数の数は任意。
+
 ```php
 <?php
-function testValue($value)
+function 関数名(引数)
+{
+    // 処理
+}
+```
+
+```php
+<?php
+function echoValue($value)
 {
     echo $value;
 }
 
-testValue('test'); // test
+echoValue('test'); // test
+```
+
+### 返り値
+関数の呼び出し側に値を返す場合は`return`で返す。
+
+```php
+<?php
+function getValue()
+{
+    return ('test');
+}
+
+echo getValue(); // test
 ```
 
 ### タイプヒンティング
-以下のように引数の型を指定して、型のチェックを行うことも可能。
+以下のように引数の型を指定して、型のチェックを行うことも可能。  
+異なる型の値が渡された場合は、変換可能であれば変換（数値→文字列など）し、変換不能であればエラーになる。
 
 ```php
 <?php
-function testValue(string $value)
+function echoValue(string $value)
 {
     echo $value;
 }
 
-testValue('test'); // test
+echoValue('test'); // test
 ```
 
 使用できる型一覧。
@@ -94,12 +137,12 @@ testValue('test'); // test
 
 ```php
 <?php
-function testValue($value = 'test')
+function echoValue($value = 'test')
 {
     echo $value;
 }
 
-testValue(); // test
+echoValue(); // test
 ```
 
 ### 可変長引数
@@ -107,11 +150,11 @@ testValue(); // test
 
 ```php
 <?php
-function testValue(...$value)
+function dumpValue(...$value)
 {
     var_dump($value);
 }
-testValue('a', 'b');
+dumpValue('a', 'b');
 // array(2) {
 //   [0]=>
 //   string(1) "a"
@@ -128,10 +171,10 @@ testValue('a', 'b');
 
 ```php
 <?php
-$testValue = function($value)
+$echoValue = function($value)
 {
     echo $value;
 }; // セミコロンを忘れずにつける
 
-$testValue('test'); // test
+$echoValue('test'); // test
 ```

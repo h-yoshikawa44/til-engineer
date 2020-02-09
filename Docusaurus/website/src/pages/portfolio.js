@@ -257,7 +257,7 @@ const careers = [
     db: '',
     environment: '',
     other: '',
-    description: '独学でプログラミングを勉強し、全くの他業種から転職。C、C++と学んだあとはJavaの勉強に励み、入社までにJava Silverを取得。'
+    description: '独学でプログラミングを勉強し、全くの他業種から転職。C、C++と学んだあとはJavaの勉強に励み、入社日までにJava Goldを取得。'
   }
 ]
 

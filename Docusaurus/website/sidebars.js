@@ -9,10 +9,17 @@ module.exports = {
   java: {
     Pure: [
       'Java/Pure/java-overview',
-      'Java/Pure/java-syntax',
       {
         type: 'category',
-        label: '基本',
+        label: '概念',
+        items: [
+          'Java/Pure/Concept/java-syntax',
+          'Java/Pure/Concept/java-class',
+        ],
+      },
+      {
+        type: 'category',
+        label: '基本処理',
         items: [
           'Java/Pure/Basic/java-print',
           'Java/Pure/Basic/java-if',
@@ -24,11 +31,17 @@ module.exports = {
   php: {
     Pure: [
       'PHP/Pure/php-overview',
-      'PHP/Pure/php-syntax',
-      'PHP/Pure/php-class',
       {
         type: 'category',
-        label: '基本',
+        label: '概念',
+        items: [
+          'PHP/Pure/Concept/php-syntax',
+          'PHP/Pure/Concept/php-class',
+        ],
+      },
+      {
+        type: 'category',
+        label: '基本処理',
         items: [
           'PHP/Pure/Basic/php-print',
           'PHP/Pure/Basic/php-if',
