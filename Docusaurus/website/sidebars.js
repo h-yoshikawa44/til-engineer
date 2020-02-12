@@ -19,6 +19,13 @@ module.exports = {
       },
       {
         type: 'category',
+        label: '考え方',
+        items: [
+          'Java/Pure/Thought/java-encapsulation'
+        ],
+      },
+      {
+        type: 'category',
         label: '基本処理',
         items: [
           'Java/Pure/Basic/java-print',
