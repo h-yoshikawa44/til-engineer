@@ -9,6 +9,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import './index.css';
 // import App from './App';
 import Menu from './Menu';
+import RouterParam from './React-Router/RouterParam';
 import * as serviceWorker from './serviceWorker';
 import reducer from './Redux-tutorial/reducers'
 
@@ -20,7 +21,7 @@ const store = createStore(
 // ReactDOM.render(<Menu />, document.getElementById('root'));
 ReactDOM.render(
   <Provider store={store}>
-  　<Menu />
+  　<RouterParam />
   </Provider>,
   document.getElementById('root')
 );
