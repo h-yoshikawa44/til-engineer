@@ -1,0 +1,49 @@
+name: Develop Check
+on:
+  push:
+    branches-ignore:
+      - master
+      - release/**
+env:
+  project-name: test-project
+
+jobs:
+  check:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - name: Get Yarn Cache Directory Path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Cache Node Modules
+        uses: actions/cache@v1
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-${{ env.project-name }}-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
+          restore-keys: |
+            ${{ runner.os }}-${{ env.project-name }}-
+
+      - name: Package Install
+        run: yarn install
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Slack Notification by NonSuccess
+        uses: 8398a7/action-slack@v2
+        if: success() != true
+        with:
+          status: ${{ job.status }}
+          author_name: 'check'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
