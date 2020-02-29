@@ -5,38 +5,42 @@
 - [Swagger EditorとSwagger UIとSwaggerのモックAPIサーバーをdocker-compose化してみた](https://qiita.com/matsuda_chikara/items/a4119a972535a4b69201)
 
 ### バージョン
-- Node：12.13.0
-- React：16.8.6
+- Node：12系
 
 ### Docker環境作成手順
-- 各種Dockerfile作成  
+・各種Dockerfile作成  
 ※この段階ではnodeのDockerfileにCMDの個所はつけないようにする
 
-- docker-compose.yml作成
+docker-compose.yml作成
 
-- コンテナのビルド  
-`$ docker-compose build`
+・コンテナのビルド
+```
+$ docker-compose build
+```
 
-- コンテナの起動  
-`$ docker-compose up -d`
+・コンテナの起動
+```
+$ docker-compose up -d
+```
 
-- コンテナに入る  
-`$ docker-compose exec node sh`
+・Reactプロジェクト作成
+```
+$ docker-compose exec node create-react-app (プロジェクトフォルダパス)
+```
 
-- Reactプロジェクト作成  
-`$ create-react-app (プロジェクトフォルダパス)`
+・サーバ立ち上げ
+```
+$ yarn start
+```
 
-- サーバ立ち上げ  
-`$ yarn start`
-
-- ブラウザでアクセス  
+・ブラウザでアクセス  
 `localhost:3000`もしくは`(DockerホストIP):3000`にアクセス
 
-- Docker起動時にサーバも起動するようにする
-  - nodeのDockerfileに`CMD ["yarn", "start"]`を追記
-  - `$ docker-compose up -d --build`で更新
+Docker起動時にサーバも起動するようにする
+- nodeのDockerfileに`CMD ["yarn", "start"]`を追記
+- `$ docker-compose up -d --build`で更新
 
-- swagger-uiにアクセス  
+・swagger-uiにアクセス  
 `localhost:8000/docs`
 
 ### パッケージのバージョンが古い時は
