@@ -1,0 +1,44 @@
+version: "3"
+services:
+  node:
+    image: node:12-alpine
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - .:/usr/app
+    tty: true
+    stdin_open: true
+    working_dir: /usr/app
+    command: /bin/sh -c "yarn install && yarn start"
+    ports:
+      - "3001:3000"
+
+  # swagger-editor:
+  #   image: swaggerapi/swagger-editor
+  #   ports:
+  #     - "8081:8080"
+
+  # swagger-ui:
+  #   image: swaggerapi/swagger-ui
+  #   ports:
+  #     - "8082:8080"
+  #   volumes:
+  #     - ./docker/swagger-api/swagger.json:/swagger.json
+  #   environment:
+  #     SWAGGER_JSON: /swagger.json
+      # API_URL: ""
+
+  # swagger-api:
+  #   build: ./docker/swagger-api
+  #   working_dir: /src
+  #   command: node index.js
+
+  # swagger-nginx:
+  #   image: openresty/openresty:alpine
+  #   ports:
+  #     - 8000:80
+  #   depends_on:
+  #     - swagger-api
+  #   volumes:
+  #     - ./docker/nginx/swagger.conf:/etc/nginx/conf.d/default.conf:ro
