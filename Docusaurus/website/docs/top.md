@@ -21,6 +21,7 @@ description: 勉強記録のトップリンクページ
 - Serverless Framework
 
 ## プログラミング
+- [汎用](/docs/General/if-flat)
 - HTML
 - CSS
 - JavaScirpt

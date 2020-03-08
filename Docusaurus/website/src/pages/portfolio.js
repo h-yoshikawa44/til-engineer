@@ -310,7 +310,7 @@ function Portfolio() {
           <div className="avatar avatar--vertical">
             <img
               className={classnames('avatar__photo avatar__photo--xl', styles.avatar__photo_color)}
-              src="img/lion-custom.png"
+              src="img/lion-custom.svg"
             />
             <div className="avatar__intro">
               <h2 className="avatar__name">Hitomi Yoshikawa</h2>

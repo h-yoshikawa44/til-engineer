@@ -6,6 +6,11 @@
  */
 
 module.exports = {
+  general: {
+    'テクニック': [
+      'General/if-flat'
+    ]
+  },
   java: {
     Pure: [
       'Java/Pure/java-overview',
