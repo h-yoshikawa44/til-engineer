@@ -68,6 +68,10 @@ module.exports = {
               label: 'Twitter',
               href: 'https://twitter.com/yoshi0724_lion',
             },
+            {
+              label: 'Qiita',
+              href: 'https://qiita.com/h-yoshikawa',
+            },
           ],
         },
       ],
