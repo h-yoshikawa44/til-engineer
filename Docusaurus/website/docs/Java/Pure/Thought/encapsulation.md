@@ -53,7 +53,7 @@ public class TestBeans {
 ```
 
 #### 種類
-参考：[【Java】formとentityとdtoの違いって？【Bean】](https://qiita.com/mtanabe/items/c879d233d297eda288d4)
+参考：[Qiita - 【Java】formとentityとdtoの違いって？【Bean】](https://qiita.com/mtanabe/items/c879d233d297eda288d4)
 
 JavaBeansはその用途によっていくつかの種類にわけられる。
 
