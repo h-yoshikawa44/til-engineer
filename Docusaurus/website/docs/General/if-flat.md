@@ -7,7 +7,7 @@ keywords:
   - General
 ---
 
-参考：[プログラムの可読性を上げるための条件分岐を減らす方法7個](https://qiita.com/ddtaka/items/b178358ebc5b38c6906a)
+参考：[Qiita - プログラムの可読性を上げるための条件分岐を減らす方法7個](https://qiita.com/ddtaka/items/b178358ebc5b38c6906a)
 
 ## ガード節
 処理の対象外になる条件の場合、関数の先頭でreturn/continueする方法。

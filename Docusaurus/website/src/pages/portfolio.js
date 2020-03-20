@@ -38,20 +38,20 @@ const editors = [
 
 const environments = [
   {
-    title: <>Docker</>,
-    imageUrl: 'img/logo-icons/docker-icon.svg',
-    description: (
-      <>
-        実務使用経験あり。また、Dockerを使用した環境構築手順のQiita記事を書いた経験あり。
-      </>
-    ),
-  },
-  {
     title: <>Git</>,
     imageUrl: 'img/logo-icons/git-icon.svg',
     description: (
       <>
         普段の案件業務から、個人プロジェクトにわたり使用。差分はVSCodeなどGUIで確認し、コマンドはCLIで操作することが多い。
+      </>
+    ),
+  },
+  {
+    title: <>Docker</>,
+    imageUrl: 'img/logo-icons/docker-icon.svg',
+    description: (
+      <>
+        実務使用経験あり。また、Dockerを使用した環境構築手順のQiita記事を書いた経験あり。
       </>
     ),
   }
@@ -316,6 +316,8 @@ function Portfolio() {
               <h2 className="avatar__name">Hitomi Yoshikawa</h2>
               <p className="avatar__subtitle">
                 精神疾患持ちのプログラマー
+                <br />
+                JavaScirpt(React) + Java(Spring)をメインにしたい人
               </p>
             </div>
           </div>
