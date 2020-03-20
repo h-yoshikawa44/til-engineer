@@ -8,8 +8,8 @@ description: 勉強記録のトップリンクページ
 
 ## 環境・インフラ
 - Linux
+- [Git](/docs/Git/git-overview)
 - Docker
-- Git
 
 ## クラウドサービス
 - AWS
