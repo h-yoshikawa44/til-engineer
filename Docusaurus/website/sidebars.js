@@ -6,6 +6,14 @@
  */
 
 module.exports = {
+  git: {
+    Git: [
+      'Git/git-overview',
+      'Git/git-concept',
+      'Git/git-ignore',
+      'Git/git-github-flow'
+    ]
+  },
   general: {
     'テクニック': [
       'General/if-flat'
