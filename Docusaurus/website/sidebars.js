@@ -9,6 +9,7 @@ module.exports = {
   git: {
     Git: [
       'Git/git-overview',
+      'Git/git-ssh',
       'Git/git-concept',
       'Git/git-ignore',
       'Git/git-github-flow',
@@ -16,7 +17,8 @@ module.exports = {
         type: 'category',
         label: 'CLI',
         items: [
-          'Git/Command/git-cli-setting'
+          'Git/Command/git-cli-setting',
+          'Git/Command/git-cli-basic'
         ],
       },
     ]
