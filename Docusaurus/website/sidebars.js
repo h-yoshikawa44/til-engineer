@@ -6,6 +6,18 @@
  */
 
 module.exports = {
+  linux: {
+    Linux: [
+      'Linux/linux-overview',
+      {
+        type: 'category',
+        label: 'CLI',
+        items: [
+          'Linux/Command/linux-ssh-key'
+        ],
+      },
+    ]
+  },
   git: {
     Git: [
       'Git/git-overview',
