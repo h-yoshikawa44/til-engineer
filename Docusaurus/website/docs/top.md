@@ -7,7 +7,7 @@ description: 勉強記録のトップリンクページ
 ドキュメントを書いたものからリンク作成。
 
 ## 環境・インフラ
-- Linux
+- [Linux](/docs/Linux/linux-overview)
 - [Git](/docs/Git/git-overview)
 - Docker
 
