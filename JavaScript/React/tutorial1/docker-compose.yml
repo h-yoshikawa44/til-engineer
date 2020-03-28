@@ -10,6 +10,7 @@ services:
       - .:/usr/app
     tty: true
     stdin_open: true
+    privileged: true
     working_dir: /usr/app
     command: /bin/sh -c "yarn install && yarn start"
     ports:
