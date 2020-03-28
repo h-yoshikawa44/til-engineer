@@ -1,24 +1,29 @@
 version: "3"
 services:
   node:
-    build: ./docker/node
+    image: node:12-alpine
+    container_name: react_tutorial_node
     environment:
       - NODE_ENV=development
       - CHOKIDAR_USEPOLLING=true
     volumes:
-      - ./app/:/usr/src/app
+      - .:/usr/app
     tty: true
     stdin_open: true
+    working_dir: /usr/app
+    command: /bin/sh -c "yarn install && yarn start"
     ports:
       - "3000:3000"
 
   swagger-editor:
     image: swaggerapi/swagger-editor
+    container_name: react_tutorial_swagger-editor
     ports:
       - "8081:8080"
 
   # swagger-ui:
   #   image: swaggerapi/swagger-ui
+  #   container_name: react_tutorial_swagger-ui
   #   ports:
   #     - "8082:8080"
   #   volumes:
@@ -29,11 +34,13 @@ services:
 
   swagger-api:
     build: ./docker/swagger-api
+    container_name: react_tutorial_swagger-api
     working_dir: /src
     command: node index.js
 
   swagger-nginx:
     image: openresty/openresty:alpine
+    container_name: react_tutorial_swagger-nginx
     ports:
       - 8000:80
     depends_on:

@@ -36,7 +36,7 @@ ReactDOM.render(
 ```js
 ReactDOM.render(
   <h1>Hello, world!</h1>,
-  document.querySelector('.container')  // index.htmlのクラスががcontainerの箇所にレンダリング
+  document.querySelector('.container')  // index.htmlのクラスがcontainerの箇所にレンダリング
 );
 ```
 
@@ -212,7 +212,7 @@ class App extends React.Component {
   })}
 ```
 
-#### ファンクショナルコンポーネント
+#### 関数コンポーネント
 renderメソッドしか持たないコンポーネントはこちらで作成する
 ```js
 function App() {
@@ -409,6 +409,14 @@ class Board extends React.Component {
     }
 ```
 
+なお、this.props と this.state は非同期に更新されるため、次の state を求める際に、それらの値に依存するべきではない。  
+ダメな例
+```javascript
+this.setState({
+  counter: this.state.counter + this.props.increment,
+});
+```
+
 ### 関数コンポーネント
 renderメソッドだけを持ち、自分のstateを持たないコンポーネントをシンプルに書くための方法  
 React.Componentを継承するクラスを定義する代わりに、propsを入力として受け取り表示すべき内容を返す関数を定義する
@@ -430,7 +438,12 @@ return (
 
 Reactはリストの項目それぞれに対してkeyプロパティを与えることで、兄弟要素の中でそのアイテムを区別できるようにする必要がある。  
 ```js
-<li key={user.id}>{user.name}: {user.taskCount} tasks left</li>
+const numbers = [1, 2, 3, 4, 5];
+const listItems = numbers.map((number) =>
+  <li key={number.toString()}>
+      {number}
+    </li>
+);
 ```
 
 リストが再レンダーされる際、Reactはそれぞれのリスト項目のkeyについて、前回のリスト項目内に同じkeyを持つものがないか探す。  
@@ -442,3 +455,26 @@ keyはpropsの一部のようにも見えるが、`this.props.key`で参照す�
 **動的なリストを構築する場合は正しい key を割り当てることが強く推奨される**
 
 keyはグローバルに一意である必要はなく、コンポーネントとその兄弟の間で一意であれば十分
+
+リスト項目をコンポーネント化した際は、呼び出し時にkeyプロパティを設定するようにする。
+```javascript
+function ListItem(props) {
+  // ここではkeyプロパティを指定しない
+  return <li>{props.value}</li>;
+}
+
+function NumberList(props) {
+  const numbers = props.numbers;
+  const listItems = numbers.map((number) =>
+    // ここでkeyプロパティを指定
+    <ListItem key={number.toString()}
+              value={number} />
+
+  );
+  return (
+    <ul>
+      {listItems}
+    </ul>
+  );
+}
+```
