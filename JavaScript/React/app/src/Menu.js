@@ -6,6 +6,7 @@ import ApiTutorial from './Api-tutorial/Api-tutorial';
 import Othello from "./Othello/Othello";
 import NavHOC from './HistoryNavHOC';
 import NavHooks from './HistoryNavHooks';
+import PropTypeRoute from './Library/PropTypes/PropTypesRoute';
 
 const topPage = () => <div><h1>Top Page</h1>ここがトップページです</div>
 const page404 = () => <div><h1>404</h1>存在しないページです</div>  //<= ヒットしなかった時用のページを追加
@@ -25,6 +26,7 @@ const Menu = (props) => {
           <li style={liStyle}><Link to='/ReduxTutorial'>緯度経度検索</Link></li>
           <li style={liStyle}><Link to='/ApiTutorial'>APIチュートリアル</Link></li>
           <li style={liStyle}><Link to='/Othello'>オセロ</Link></li>
+          <li style={liStyle}><Link to='/PropTypes'>PropTypesテスト</Link></li>
         </ul>
         <div style={{margin: '20px 0px'}}><NavHOC /></div>
         <div style={{margin: '20px 0px'}}><NavHooks /></div>
@@ -36,6 +38,7 @@ const Menu = (props) => {
             <Route path='/ReduxTutorial' exact component={ReduxTutorial}/>
             <Route path='/ApiTutorial' exact component={ApiTutorial}/>
             <Route path='/Othello' exact component={Othello}/>
+            <Route path='/PropTypes' exact component={PropTypeRoute}/>
             {/* 一番末尾に追加 pathの指定も、対応するLinkの追加も必要ない */}
             <Route exact component={page404}/>
           </Switch>
