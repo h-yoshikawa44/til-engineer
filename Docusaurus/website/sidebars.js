@@ -30,7 +30,9 @@ module.exports = {
         label: 'CLI',
         items: [
           'Git/Command/git-cli-setting',
-          'Git/Command/git-cli-basic'
+          'Git/Command/git-cli-basic',
+          'Git/Command/git-cli-branch',
+          'Git/Command/git-cli-tag'
         ],
       },
     ]
