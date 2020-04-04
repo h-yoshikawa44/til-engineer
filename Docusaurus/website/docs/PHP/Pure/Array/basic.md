@@ -13,12 +13,14 @@ keywords:
 ### 宣言 + 初期化
 ```php
 <?php
+// 宣言+初期化（空）
 $list = [];
 print_r($list);
 // Array
 // (
 // )
 
+// 宣言+初期化
 $list2 = [1, 2, 3];
 print_r($list2);
 // Array
@@ -214,11 +216,34 @@ echo count($list); // 3
 #### sizeof
 [公式ドキュメント](https://www.php.net/manual/ja/function.sizeof)
 
-
 ```php
 <?php
 $list = [1, 2, 3];
 echo sizeof($list); // 3
+```
+
+### 配列のソート
+[公式ドキュメント](https://www.php.net/manual/ja/array.sorting.php)
+
+```php
+<?php
+$sortList = [1, 3, 2];
+asort($sortList); // 値の昇順（キーと値の関係を保持）
+print_r($sortList);
+// Array
+// (
+//     [0] => 1
+//     [2] => 2
+//     [1] => 3
+// )
+arsort($sortList); // 値の降順（キーと値の関係を保持）
+print_r($sortList);
+// Array
+// (
+//     [1] => 3
+//     [2] => 2
+//     [0] => 1
+// )
 ```
 
 ## 連想配列
@@ -260,5 +285,77 @@ print_r($map);
 //     [a] => A
 //     [b] => B
 //     [c] => C
+// )
+```
+
+### 連想配列のソート
+```php
+<?php
+$sortMap = ['C' => 2, 'A' => 1, 'B' => 3];
+asort($sortMap); // 値の昇順（キーと値の関係を保持）
+print_r($sortMap);
+// Array
+// (
+//     [A] => 1
+//     [C] => 2
+//     [B] => 3
+// )
+arsort($sortMap); // 値の降順（キーと値の関係を保持）
+print_r($sortMap);
+// Array
+// (
+//     [B] => 3
+//     [C] => 2
+//     [A] => 1
+// )
+ksort($sortMap); // キーの昇順（キーと値の関係を保持）
+print_r($sortMap);
+// Array
+// (
+//     [A] => 1
+//     [B] => 3
+//     [C] => 2
+// )
+krsort($sortMap); // キーの降順（キーと値の関係を保持）
+print_r($sortMap);
+// Array
+// (
+//     [C] => 2
+//     [B] => 3
+//     [A] => 1
+// )
+```
+
+## 2次元配列
+1次元当たりの要素数はバラバラでも作成可能。
+```php
+<?php
+$array = [[10, 20, 30, 40], [100, 200, 300, 400], [1000, 2000, 3000]];
+print_r($array);
+// Array
+// (
+//     [0] => Array
+//         (
+//             [0] => 10
+//             [1] => 20
+//             [2] => 30
+//             [3] => 40
+//         )
+
+//     [1] => Array
+//         (
+//             [0] => 100
+//             [1] => 200
+//             [2] => 300
+//             [3] => 400
+//         )
+
+//     [2] => Array
+//         (
+//             [0] => 1000
+//             [1] => 2000
+//             [2] => 3000
+//         )
+
 // )
 ```

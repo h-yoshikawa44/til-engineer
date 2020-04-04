@@ -34,7 +34,6 @@ public class If {
         str += num < 10 ? "10未満" : "10以上";
         System.out.println(str); // numの値は10未満
     }
-    }
 
     public static void ifValue(int value) {
         if (value > 5) {
