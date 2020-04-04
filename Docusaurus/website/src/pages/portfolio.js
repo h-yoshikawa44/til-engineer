@@ -197,7 +197,16 @@ const langAndframewarks = [
 
 const careers = [
   {
-    period: '2019/09 ～ 現在',
+    period: '2020/04 ～ 現在',
+    title: '勤怠/入店管理システム',
+    langAndFw: 'Ruby / Rails',
+    db: 'MySQL',
+    environment: 'Git / Docker / Circle Ci',
+    other: '',
+    description: '開発環境、ドキュメント整備。システムの機能改善'
+  },
+  {
+    period: '2019/09 ～ 2020/03',
     title: '売上/店舗/ユーザ管理システム',
     langAndFw: 'JavaScript / React / Java / Spring Boot',
     db: 'MySQL',

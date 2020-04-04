@@ -92,7 +92,7 @@ $ git pull --rebase リモート名 ブランチ名 # git fetch + git rebase と
 
 ## その他ファイル操作
 ### 一時退避
-後入れ先出し方式の操作。
+後入れ先出し方式の操作。  
 参考：[Qiita - 色々な git stash](https://qiita.com/akasakas/items/768c0b563b96f8a9be9d)
 
 #### ファイルの変更を一時退避

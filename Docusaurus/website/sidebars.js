@@ -69,6 +69,13 @@ module.exports = {
           'Java/Pure/Basic/java-loop'
         ],
       },
+      {
+        type: 'category',
+        label: '配列',
+        items: [
+          'Java/Pure/Array/java-array-basic'
+        ],
+      },
     ]
   },
   php: {

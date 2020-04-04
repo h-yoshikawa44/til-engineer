@@ -43,12 +43,20 @@ public class Loop {
         // 1
         // 2
 
+        String[] forList = {"a", "b", "c"};
+        for (int i = 0; i < 3; i++) {
+            System.out.println(forList1[i]);
+        }
+        // a
+        // b
+        // c
+
         /* for(データ型 変数名 : 配列またはコレクション) {
          *     処理;
          * }
          */
-        String[] list = {"A", "B", "C"};
-        for (String value : list) {
+        String[] forExList = {"A", "B", "C"};
+        for (String value : forExList) {
             System.out.println(value);
         }
         // A
