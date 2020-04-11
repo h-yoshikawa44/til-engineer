@@ -6,6 +6,17 @@ module.exports = {
   favicon: 'img/favicon.ico',
   // organizationName: 'facebook', // Usually your GitHub org/user name.
   projectName: 'TIL-Engineer', // Usually your repo name.
+  plugins: [
+    '@docusaurus/plugin-google-gtag',
+    [
+      '@docusaurus/plugin-sitemap',
+      {
+        cacheTime: 600 * 1000, // 600 sec - cache purge period
+        changefreq: 'weekly',
+        priority: 0.5,
+      },
+    ],
+  ],
   themeConfig: {
     navbar: {
       title: 'よしの勉強記録',
@@ -50,6 +61,10 @@ module.exports = {
             {
               label: 'Material Source',
               to: 'docs/source',
+            },
+            {
+              label: 'Privacy Policy',
+              to: 'docs/policy',
             }
           ],
         },
@@ -77,6 +92,9 @@ module.exports = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Hitomi Yoshikawa Built with Docusaurus.`,
     },
+    gtag: {
+      trackingID: 'UA-141521257-2',
+    }
   },
   presets: [
     [
