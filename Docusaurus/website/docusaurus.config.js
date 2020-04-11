@@ -1,7 +1,7 @@
 module.exports = {
   title: 'TIL-Engineer',
   tagline: 'よしの勉強記録 & ポートフォリオ',
-  url: 'https://h-yoshikawa0724-til.netlify.com',
+  url: 'https://h-yoshikawa0724-til-engineer.com',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
   // organizationName: 'facebook', // Usually your GitHub org/user name.
