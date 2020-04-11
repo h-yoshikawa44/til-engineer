@@ -201,9 +201,9 @@ const careers = [
     title: '勤怠/入店管理システム',
     langAndFw: 'Ruby / Rails',
     db: 'MySQL',
-    environment: 'Git / Docker / Circle Ci',
+    environment: 'Git / Docker / Circle Ci / Capistrano',
     other: '',
-    description: '開発環境、ドキュメント整備。システムの機能改善'
+    description: '開発環境、ドキュメント整備。システムの機能改善。'
   },
   {
     period: '2019/09 ～ 2020/03',
