@@ -22,20 +22,6 @@
   justify-content: center;
 }
 
-/* 後で削除 */
-.features {
-  display: flex;
-  align-items: center;
-  padding: 2rem 0;
-  width: 100%;
-}
-
-.featureImage {
-  height: 200px;
-  width: 200px;
-}
-/* 後で削除 ここまで */
-
 .skills {
   display: flex;
   align-items: center;
