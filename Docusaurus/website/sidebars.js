@@ -58,7 +58,8 @@ module.exports = {
         type: 'category',
         label: '考え方',
         items: [
-          'Java/Pure/Thought/java-encapsulation'
+          'Java/Pure/Thought/java-encapsulation',
+          'Java/Pure/Thought/java-singleton'
         ],
       },
       {
