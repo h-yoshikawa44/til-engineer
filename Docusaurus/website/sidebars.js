@@ -31,6 +31,7 @@ module.exports = {
         items: [
           'Git/Command/git-cli-setting',
           'Git/Command/git-cli-basic',
+          'Git/Command/git-cli-file',
           'Git/Command/git-cli-branch',
           'Git/Command/git-cli-tag'
         ],
