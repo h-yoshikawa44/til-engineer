@@ -18,6 +18,7 @@ module.exports = {
     ],
   ],
   themeConfig: {
+    image: 'img/ogp.png',
     navbar: {
       title: 'よしの勉強記録',
       logo: {
