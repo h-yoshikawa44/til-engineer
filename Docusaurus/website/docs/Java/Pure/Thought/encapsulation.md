@@ -80,6 +80,9 @@ JavaBeansはその用途によっていくつかの種類にわけられる。
 - プロパティ変数に参照型の変更可能なオブジェクトを持つ場合は、変更されないよう注意する
 
 ```java
+import java.util.ArrayList;
+import java.util.List;
+
 public final class TestImmutable {
     private final int num;
 
