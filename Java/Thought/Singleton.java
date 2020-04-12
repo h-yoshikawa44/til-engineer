@@ -1,4 +1,4 @@
-public class Main {
+public class Singleton {
     public static void main(String[] args) throws Exception {
         MySingleton i1 = MySingleton.getInstance();
         MySingleton i2 = MySingleton.getInstance();
