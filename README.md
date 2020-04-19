@@ -26,7 +26,7 @@ Dockerだとうまく動かせない？（サーバ起動はできるが、ブ�
 @docusaurus/preset-classic テンプレートで使用されているCSSフレームワークは[Infima](https://facebookincubator.github.io/infima/)（こちらも現在Docusaurusとともに開発中）
 
 ### 公開された静的サイトとして確認
-[ドキュメントサイト](https://h-yoshikawa0724-til-engineer.netlify.com/)
+[ドキュメントサイト](https://h-yoshikawa0724-til-engineer.com/)
 
 ### ローカルでの確認
 サーバ起動
