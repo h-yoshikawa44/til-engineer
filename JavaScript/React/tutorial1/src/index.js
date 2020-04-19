@@ -21,7 +21,7 @@ const store = createStore(
 ReactDOM.render(
   <Provider store={store}>
     <Menu />
-    <hr />
+    <hr style={{marginTop: '100px'}}/>
   　<RouterParam />
   </Provider>,
   document.getElementById('root')
