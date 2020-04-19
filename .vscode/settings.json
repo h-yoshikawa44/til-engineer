@@ -1,6 +1,6 @@
 {
     "eslint.workingDirectories": [
-      "./JavaScript/React/app",
+      "./JavaScript/React/tutorial1",
       "./JavaScript/ReactNative/app"
     ],
     "editor.formatOnSave": false,
