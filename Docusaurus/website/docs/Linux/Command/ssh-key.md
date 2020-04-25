@@ -5,6 +5,7 @@ sidebar_label: SSH認証鍵生成コマンド
 description: Linuxの認証鍵生成ページ
 keywords:
   - Linux
+  - SSH認証鍵
 ---
 
 ## 概要

@@ -5,6 +5,10 @@ sidebar_label: 設定・初期化コマンド
 description: Gitの設定・初期化コマンドページ
 keywords:
   - Git
+  - config
+  - init
+  - remote
+  - clone
 ---
 
 - 検証バージョン：git version 2.25.0.windows.1

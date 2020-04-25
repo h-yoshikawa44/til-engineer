@@ -5,6 +5,9 @@ sidebar_label: 分岐処理
 description: Javaの分岐処理ページ
 keywords:
   - Java
+  - if
+  - 三項演算子
+  - switch
 ---
 
 - 検証バージョン：openjdk version 12

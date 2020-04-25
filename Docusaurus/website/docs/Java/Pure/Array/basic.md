@@ -5,6 +5,7 @@ sidebar_label: 基本操作
 description: Javaの配列基本操作ページ
 keywords:
   - Java
+  - 配列
 ---
 
 - 検証バージョン：openjdk version 12

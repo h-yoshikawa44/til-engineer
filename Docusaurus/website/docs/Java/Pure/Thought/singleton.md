@@ -5,6 +5,7 @@ sidebar_label: シングルトンパターン
 description: Javaのシングルトンパターンページ
 keywords:
   - Java
+  - シングルトンパターン
 ---
 
 - 検証バージョン：openjdk version 12
