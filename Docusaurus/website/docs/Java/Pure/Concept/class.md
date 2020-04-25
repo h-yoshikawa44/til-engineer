@@ -10,6 +10,10 @@ keywords:
 
 - 検証バージョン：openjdk version 12
 
+## 概要
+変数や処理内容を記述したメソッドを定義した設計図のようなもの。`クラス`もしくは`具象クラス`と呼ぶ。
+インスタンス化することで実体化させ、オブジェクトとして扱えるようになる。
+
 ## 基本構文
 クラス名はUpperCamelCase。
 
@@ -260,6 +264,10 @@ class SubTest extends Test {
 
 なお、`final`がついたメソッドはオーバーライドできない。
 
+また、Javaでは`@Override`をメソッドにつけることで、このメソッドはオーバーライドしていると明示できる。  
+（つけなくてもオーバーライドは可能）  
+つけている場合に、当該メソッドがオーバーライド出来ていないと、コンパイル時に検知ができる。
+
 ```java
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -277,6 +285,7 @@ class Test {
 }
 
 class SubTest extends Test {
+    @Override
     public void printValue() {
         System.out.println("child");
     }
