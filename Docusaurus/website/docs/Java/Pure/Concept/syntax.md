@@ -1,7 +1,7 @@
 ---
 id: java-syntax
-title: 基本構文（変数、定数）
-sidebar_label: 基本構文（変数、定数）
+title: 基本構文（変数、定数、メソッド）
+sidebar_label: 基本構文（変数、定数、メソッド）
 description: Javaの基本構文ページ
 keywords:
   - Java
@@ -151,7 +151,7 @@ public class Main {
 - 返り値の型：あらゆるデータ型を指定できる。何も値を返さない場合は`void`を指定する。
 - 引数：引数の数は任意
 
-※アクセス修飾子と修飾子についてはクラスも参照。
+※アクセス修飾子と修飾子については[クラス](/docs/Java/Pure/Concept/java-class)も参照。
 
 ```java
 アクセス修飾子 修飾子 返り値の型 メソッド名(データ型 引数名) {
@@ -197,24 +197,32 @@ class Test {
 Javaにおいては指定不可。
 
 ### 可変長引数
-引数のデータ型に`...`をつけることで受け取ることができる。
+引数のデータ型に`...`をつけることで配列として受け取ることができる。
 ただし、1つのメソッドにつき1回のみ、かつ最後の引数のみ。
+
+可変長引数に対して何も値を渡さなかった場合は、空の配列が渡される。
 
 ```java
 public class Main {
     public static void main(String[] args) throws Exception {
         Test test = new Test();
         test.printValue("a", "b");
+        // 2
         // a
         // b
+        test.printValue();
+        // 0
     }
 }
 
 class Test {
     public void printValue(String... strList) {
+        System.out.println(strList.length);
         for(String str : strList) {
             System.out.println(str);
         }
     }
 }
 ```
+
+なお、引数を明確に定義したメソッドと、可変長引数を使用したメソッドが定義されている場合、前者の方が優先的に呼ばれる。
