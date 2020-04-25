@@ -52,6 +52,8 @@ module.exports = {
         items: [
           'Java/Pure/Concept/java-syntax',
           'Java/Pure/Concept/java-class',
+          'Java/Pure/Concept/java-enum',
+          'Java/Pure/Concept/java-object'
         ],
       },
       {
