@@ -206,8 +206,14 @@ class Initialize {
 ```
 
 ## 継承
+既存のクラスをもとに新たなクラスを定義すること。  
+継承元のクラスを`親クラス`、`スーパークラス`と呼び、継承先のクラスを`子クラス`、`サブクラス`と呼ぶ。
+
+この「子クラスは親クラスの一種である」という関係を`is-a関係`と呼ぶ。
+また、あるオブジェクトが他のオブジェクトの一部であったり、他のオブジェクトを持っていたりする関係を`集約`と言う。この全体と部分の関係は`has-a関係`あるいは`part-of関係`と呼ぶ。そして、集約の中で特に強い関係を`コンポジション`と呼ぶ。
+
 ### 子クラスの定義
-クラス定義時に`extends`で継承するクラスを指定。  
+クラス定義時に`extends`で継承する親クラスを指定（Javaにおいては1つしか指定できない）  
 アクセス修飾子が`private`以外のプロパティやメソッドは、子クラスへ継承される。
 
 なお、多重継承は不可。  
@@ -243,7 +249,14 @@ class SubTest extends Test {
 ```
 
 ### オーバーライド
-親クラスで定義されているメソッドと同名、同引数のメソッドを子クラスで定義して上書きできる。
+親クラスで定義されているインスタンスメソッドを子クラスで再定義すること。  
+子クラスでは処理を変えたい時に活用する。子クラスがインスタンス化され、オーバーライドしたメソッドが呼ばれた場合は、子クラスのメソッドが優先的に呼ばれる。
+
+オーバーライドするにあたって以下の条件がある。
+- メソッド名：同名
+- 引数：全く同じ
+- 戻り値：親クラスで定義したメソッドと同じ型か、その方の子クラス型
+- アクセス修飾子：親クラスで定義したメソッドと同じか、それより公開範囲が広いもの
 
 なお、`final`がついたメソッドはオーバーライドできない。
 
@@ -270,6 +283,34 @@ class SubTest extends Test {
 }
 ```
 
+### 隠蔽
+親クラスで定義されているstaticメソッドや変数を子クラスで再定義すること。
+
+```java
+public class Main {
+    public static void main(String[] args) throws Exception {
+        Test.printValue(); // parent
+        SubTest.printValue(); // child
+        Test tc = new Test();
+        tc.printValue(); // parent
+        SubTest stc = new SubTest();
+        stc.printValue(); // child
+    }
+}
+
+class Test {
+    public static void printValue() {
+        System.out.println("parent");
+    }
+}
+
+class SubTest extends Test {
+    public static void printValue() {
+        System.out.println("child");
+    }
+}
+```
+
 ### 親クラスのメソッドを使用
 明示的に親クラスのメソッドを使用する際は、`super.メソッド名(引数)`で呼び出せる。
 
@@ -287,7 +328,7 @@ public class Main {
 
 class Test {
     public void printValue() {
-        System.out.println("print");
+        System.out.println("parent");
     }
 }
 
@@ -323,5 +364,37 @@ class SubTest extends Test {
         super();
         System.out.println("child");
     }
+}
+```
+
+## オーバーロード
+1つのクラス内に、同名のメソッドやコンストラクタを複数定義すること。
+
+それぞれのメソッドを区別するために以下は異なっている必要がある。
+- 引数の並び
+- 引数のデータ型
+- 引数の数
+
+```java
+public class Main {
+    public static void main(String[] args) throws Exception {
+        Test test = new Test();
+        test.printValue(10); // int:10
+    }
+}
+
+class Test {
+   public void printValue(int num) {
+       System.out.println("int:" + num);
+   }
+   public void printValue(long num) {
+       System.out.println("long:" + num);
+   }
+   public void printValue(Integer num) {
+       System.out.println("Integer:" + num);
+   }
+   public void printValue(int... num) {
+       System.out.println("int...:" + num);
+   }
 }
 ```
