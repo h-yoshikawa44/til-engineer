@@ -5,6 +5,9 @@ sidebar_label: 繰り返し処理
 description: Javaの繰り返し処理ページ
 keywords:
   - Java
+  - while
+  - do~while
+  - for
 ---
 
 - 検証バージョン：openjdk version 12

@@ -5,6 +5,7 @@ sidebar_label: クラス
 description: PHPのクラスページ
 keywords:
   - PHP
+  - クラス
 ---
 
 - 検証バージョン：7.3.6

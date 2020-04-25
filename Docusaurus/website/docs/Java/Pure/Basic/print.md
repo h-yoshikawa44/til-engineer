@@ -5,6 +5,7 @@ sidebar_label: 出力処理
 description: Javaの出力処理ページ
 keywords:
   - Java
+  - 出力
 ---
 
 - 検証バージョン：openjdk version 12

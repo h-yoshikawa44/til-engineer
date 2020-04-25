@@ -5,6 +5,9 @@ sidebar_label: 分岐処理
 description: PHPの分岐処理ページ
 keywords:
   - PHP
+  - if
+  - 三項演算子
+  - switch
 ---
 
 - 検証バージョン：7.3.6

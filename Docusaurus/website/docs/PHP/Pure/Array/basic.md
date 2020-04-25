@@ -5,6 +5,8 @@ sidebar_label: 基本操作
 description: PHPの配列基本操作ページ
 keywords:
   - PHP
+  - 配列
+  - 連想配列
 ---
 
 検証バージョン：7.3.6。

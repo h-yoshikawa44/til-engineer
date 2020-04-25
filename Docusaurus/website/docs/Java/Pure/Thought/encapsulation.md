@@ -5,6 +5,8 @@ sidebar_label: カプセル化
 description: Javaのカプセル化ページ
 keywords:
   - Java
+  - カプセル化
+  - JavaBeans
 ---
 
 - 検証バージョン：openjdk version 12

@@ -5,6 +5,11 @@ sidebar_label: ファイル操作コマンド
 description: Gitのファイル操作コマンドページ
 keywords:
   - Git
+  - stash
+  - restore
+  - checkout
+  - mv
+  - rm
 ---
 
 - 検証バージョン：git version 2.25.0.windows.1

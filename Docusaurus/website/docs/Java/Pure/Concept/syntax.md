@@ -5,6 +5,7 @@ sidebar_label: 基本構文（変数、定数）
 description: Javaの基本構文ページ
 keywords:
   - Java
+  - 基本構文
 ---
 
 - 検証バージョン：openjdk version 12

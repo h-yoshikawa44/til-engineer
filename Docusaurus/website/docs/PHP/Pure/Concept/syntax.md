@@ -5,6 +5,7 @@ sidebar_label: 基本構文（変数、定数、関数）
 description: PHPの基本構文ページ
 keywords:
   - PHP
+  - 基本構文
 ---
 
 - 検証バージョン：7.3.6

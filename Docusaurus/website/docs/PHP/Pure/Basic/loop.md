@@ -5,6 +5,10 @@ sidebar_label: 繰り返し処理
 description: PHPの繰り返し処理ページ
 keywords:
   - PHP
+  - while
+  - do~while
+  - for
+  - foreach
 ---
 
 - 検証バージョン：7.3.6

@@ -5,6 +5,11 @@ sidebar_label: 出力処理
 description: PHPの出力処理ページ
 keywords:
   - PHP
+  - echo
+  - print
+  - printf
+  - var_dump
+  - print_r
 ---
 
 - 検証バージョン：7.3.6

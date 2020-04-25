@@ -5,6 +5,8 @@ sidebar_label: タグ操作コマンド
 description: Gitのタグ操作コマンドページ
 keywords:
   - Git
+  - tag
+  - push
 ---
 
 - 検証バージョン：git version 2.25.0.windows.1

@@ -5,6 +5,7 @@ sidebar_label: クラス
 description: Javaのクラスページ
 keywords:
   - Java
+  - クラス
 ---
 
 - 検証バージョン：openjdk version 12

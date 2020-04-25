@@ -5,6 +5,9 @@ sidebar_label: ブランチ操作コマンド
 description: Gitのブランチ操作コマンドページ
 keywords:
   - Git
+  - branch
+  - switch
+  - checkout
 ---
 
 - 検証バージョン：git version 2.25.0.windows.1

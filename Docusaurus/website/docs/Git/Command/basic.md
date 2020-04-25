@@ -5,6 +5,18 @@ sidebar_label: 基本操作コマンド
 description: Gitの基本操作コマンドページ
 keywords:
   - Git
+  - diff
+  - status
+  - add
+  - restore
+  - reset
+  - commit
+  - push
+  - fetch
+  - merge
+  - rebase
+  - pull
+  - log
 ---
 
 - 検証バージョン：git version 2.25.0.windows.1
