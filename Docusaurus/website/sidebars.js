@@ -54,7 +54,8 @@ module.exports = {
           'Java/Pure/Concept/java-class',
           'Java/Pure/Concept/java-enum',
           'Java/Pure/Concept/java-object',
-          'Java/Pure/Concept/java-abstract-class'
+          'Java/Pure/Concept/java-abstract-class',
+          'Java/Pure/Concept/java-interface'
         ],
       },
       {
@@ -65,6 +66,7 @@ module.exports = {
           'Java/Pure/Thought/java-singleton'
         ],
       },
+      'Java/Pure/java-cast',
       {
         type: 'category',
         label: '基本処理',
