@@ -1,6 +1,6 @@
 ---
 id: git-overview
-title: Git
+title: Git - 概要
 sidebar_label: Gitの概要
 description: Gitのトップページ
 keywords:

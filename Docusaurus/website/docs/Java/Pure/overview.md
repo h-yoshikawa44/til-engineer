@@ -1,6 +1,6 @@
 ---
 id: java-overview
-title: Java
+title: Java - 概要
 sidebar_label: Javaの概要
 description: Javaのトップページ
 keywords:

@@ -1,6 +1,6 @@
 ---
 id: php-loop
-title: 繰り返し処理
+title: PHP - 繰り返し処理
 sidebar_label: 繰り返し処理
 description: PHPの繰り返し処理ページ
 keywords:

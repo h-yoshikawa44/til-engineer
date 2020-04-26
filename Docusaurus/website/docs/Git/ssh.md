@@ -1,6 +1,6 @@
 ---
 id: git-ssh
-title: SSH設定
+title: Git - SSH設定
 sidebar_label: SSH設定
 description: GitのSSH設定ページ
 keywords:

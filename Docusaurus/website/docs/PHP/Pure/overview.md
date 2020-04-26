@@ -1,6 +1,6 @@
 ---
 id: php-overview
-title: PHP
+title: PHP - 概要
 sidebar_label: PHPの概要
 description: PHPのトップページ
 keywords:

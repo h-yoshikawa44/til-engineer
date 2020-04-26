@@ -1,6 +1,6 @@
 ---
 id: php-array-basic
-title: 配列基本操作
+title: PHP - 配列基本操作
 sidebar_label: 基本操作
 description: PHPの配列基本操作ページ
 keywords:

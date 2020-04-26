@@ -1,6 +1,6 @@
 ---
 id: git-cli-basic
-title: 基本操作コマンド
+title: Git - 基本操作コマンド
 sidebar_label: 基本操作コマンド
 description: Gitの基本操作コマンドページ
 keywords:

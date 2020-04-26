@@ -1,6 +1,6 @@
 ---
 id: java-enum
-title: 列挙型・Enumクラス
+title: Java - 列挙型・Enumクラス
 sidebar_label: 列挙型・Enumクラス
 description: Javaの列挙型・Enumクラスページ
 keywords:

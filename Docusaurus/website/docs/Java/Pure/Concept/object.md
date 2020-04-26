@@ -1,6 +1,6 @@
 ---
 id: java-object
-title: Objectクラス
+title: Java - Objectクラス
 sidebar_label: Objectクラス
 description: JavaのObjectクラスページ
 keywords:
