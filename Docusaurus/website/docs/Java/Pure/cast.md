@@ -18,7 +18,7 @@ keywords:
 #### 暗黙の型変換
 左側の型は右側の型で扱える。
 
-byte → short → int → long → float → double
+byte → short → int → long → float → double  
 char → int
 
 代入する際に暗黙の型変換が行われるようになっている。
@@ -55,7 +55,7 @@ public class Main {
 #### キャストによる型変換
 右側の型を左側の型で扱うには`キャスト`を使って、明示的に型変換を行う必要がある。
 
-byte → short → int → long → float → double
+byte → short → int → long → float → double  
 char → int
 
 ```java
