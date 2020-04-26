@@ -1,6 +1,6 @@
 ---
 id: linux-overview
-title: Linux
+title: Linux - 概要
 sidebar_label: Linuxの概要
 description: Linuxのトップページ
 keywords:

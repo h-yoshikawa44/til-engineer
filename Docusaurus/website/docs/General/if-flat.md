@@ -1,6 +1,6 @@
 ---
 id: if-flat
-title: 分岐処理を減らす
+title: 汎用 - 分岐処理を減らす
 sidebar_label: 分岐処理を減らす
 description: 汎用の分岐処理削減ページ
 keywords:

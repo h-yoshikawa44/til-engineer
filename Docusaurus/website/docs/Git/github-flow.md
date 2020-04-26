@@ -1,6 +1,6 @@
 ---
 id: git-github-flow
-title: GitHub Flow
+title: Git - GitHub Flow
 sidebar_label: GitHub Flow
 description: GitのGitHub Flowページ
 keywords:

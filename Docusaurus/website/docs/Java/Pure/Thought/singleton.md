@@ -1,6 +1,6 @@
 ---
 id: java-singleton
-title: シングルトンパターン
+title: Java - シングルトンパターン
 sidebar_label: シングルトンパターン
 description: Javaのシングルトンパターンページ
 keywords:

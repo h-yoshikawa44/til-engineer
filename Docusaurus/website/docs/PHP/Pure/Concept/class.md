@@ -1,6 +1,6 @@
 ---
 id: php-class
-title: クラス
+title: PHP - クラス
 sidebar_label: クラス
 description: PHPのクラスページ
 keywords:

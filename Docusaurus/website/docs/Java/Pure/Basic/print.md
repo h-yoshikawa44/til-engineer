@@ -1,6 +1,6 @@
 ---
 id: java-print
-title: 出力処理
+title: Java - 出力処理
 sidebar_label: 出力処理
 description: Javaの出力処理ページ
 keywords:

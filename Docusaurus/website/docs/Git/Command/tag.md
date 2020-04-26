@@ -1,6 +1,6 @@
 ---
 id: git-cli-tag
-title: タグ操作コマンド
+title: Git - タグ操作コマンド
 sidebar_label: タグ操作コマンド
 description: Gitのタグ操作コマンドページ
 keywords:

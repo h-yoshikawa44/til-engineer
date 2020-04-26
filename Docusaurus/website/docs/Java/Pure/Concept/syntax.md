@@ -1,6 +1,6 @@
 ---
 id: java-syntax
-title: 基本構文（変数、定数、メソッド）
+title: Java - 基本構文（変数、定数、メソッド）
 sidebar_label: 基本構文（変数、定数、メソッド）
 description: Javaの基本構文ページ
 keywords:

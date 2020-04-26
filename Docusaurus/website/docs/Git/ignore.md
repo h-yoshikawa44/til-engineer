@@ -1,6 +1,6 @@
 ---
 id: git-ignore
-title: .gitignore
+title: Git - .gitignore
 sidebar_label: .gitignore
 description: Gitの.gitignoreファイルに関してのページ
 keywords:

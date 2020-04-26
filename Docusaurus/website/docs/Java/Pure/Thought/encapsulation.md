@@ -1,6 +1,6 @@
 ---
 id: java-encapsulation
-title: カプセル化
+title: Java - カプセル化
 sidebar_label: カプセル化
 description: Javaのカプセル化ページ
 keywords:

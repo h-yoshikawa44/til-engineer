@@ -1,6 +1,6 @@
 ---
 id: java-class
-title: クラス
+title: Java - クラス
 sidebar_label: クラス
 description: Javaのクラスページ
 keywords:

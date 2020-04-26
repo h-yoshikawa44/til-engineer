@@ -1,6 +1,6 @@
 ---
 id: java-array-basic
-title: 配列基本操作
+title: Java - 配列基本操作
 sidebar_label: 基本操作
 description: Javaの配列基本操作ページ
 keywords:

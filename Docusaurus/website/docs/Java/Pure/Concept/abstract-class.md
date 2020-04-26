@@ -1,6 +1,6 @@
 ---
 id: java-abstract-class
-title: 抽象クラス
+title: Java - 抽象クラス
 sidebar_label: 抽象クラス
 description: Javaの抽象クラスページ
 keywords:
@@ -42,7 +42,7 @@ keywords:
 ```java
 public class Main {
     public static void main(String[] args) throws Exception {
-        // AbstractTest abstractTest = new AbstractTest(); // 抽象クラスはインスタンス化できない
+        // AbstractTest abstractTest = new AbstractTest(); // 抽象クラスは直接インスタンス化できない
     }
 }
 
@@ -56,7 +56,8 @@ abstract class AbstractTest {
 ```
 
 ## 抽象クラスにおける静的なプロパティとメソッド
-抽象クラスでも具象クラスと同様に`static`をつけることで定義でき、インスタンス化せずに使用することが可能。
+抽象クラスでも具象クラスと同様に`static`をつけることで定義でき、インスタンス化せずに使用することが可能。  
+ただし、staticな抽象メソッドは定義できない。
 
 ```java
 public class Main {

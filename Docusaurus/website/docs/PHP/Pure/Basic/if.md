@@ -1,6 +1,6 @@
 ---
 id: php-if
-title: 分岐処理
+title: PHP - 分岐処理
 sidebar_label: 分岐処理
 description: PHPの分岐処理ページ
 keywords:

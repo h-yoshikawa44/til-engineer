@@ -1,6 +1,6 @@
 ---
 id: php-print
-title: 出力処理
+title: PHP - 出力処理
 sidebar_label: 出力処理
 description: PHPの出力処理ページ
 keywords:

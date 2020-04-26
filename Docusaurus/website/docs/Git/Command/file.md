@@ -1,6 +1,6 @@
 ---
 id: git-cli-file
-title: ファイル操作コマンド
+title: Git - ファイル操作コマンド
 sidebar_label: ファイル操作コマンド
 description: Gitのファイル操作コマンドページ
 keywords:

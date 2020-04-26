@@ -1,6 +1,6 @@
 ---
 id: java-loop
-title: 繰り返し処理
+title: Java - 繰り返し処理
 sidebar_label: 繰り返し処理
 description: Javaの繰り返し処理ページ
 keywords:

@@ -1,6 +1,6 @@
 ---
 id: java-if
-title: 分岐処理
+title: Java - 分岐処理
 sidebar_label: 分岐処理
 description: Javaの分岐処理ページ
 keywords:
