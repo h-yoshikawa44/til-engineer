@@ -25,7 +25,8 @@ const MaterialUIHooks = () => {
   const props = { backgroundColor: 'gray'};
   const classes = useStyles(props);
   return (
-    <React.Fragment>
+    <div>
+      <p>MaterialUIHooks</p>
       <Button variant="contained" className={classes.button}>
         Test
       </Button>
@@ -33,7 +34,7 @@ const MaterialUIHooks = () => {
       <Button variant="contained" className={classes.button2}>
         Test Prop
       </Button>
-    </React.Fragment>
+    </div>
   );
 }
 
