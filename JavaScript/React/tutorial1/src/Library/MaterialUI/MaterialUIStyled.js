@@ -8,7 +8,10 @@ const CustomButton = styled(Button)({
 
 const MaterialUIStyled = () => {
   return (
-    <CustomButton>Test</CustomButton>
+    <div>
+      <p>MaterialUIStyled</p>
+      <CustomButton>Test</CustomButton>
+    </div>
   );
 }
 

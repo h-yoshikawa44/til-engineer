@@ -11,9 +11,12 @@ const styles = {
 const MaterialUIHOC = props => {
   const { classes } = props;
   return (
-    <Button variant="contained" className={classes.button}>
-      Test
-    </Button>
+    <div>
+      <p>MaterialUIHOC</p>
+      <Button variant="contained" className={classes.button}>
+        Test
+      </Button>
+    </div>
   );
 }
 
