@@ -197,13 +197,22 @@ const langAndframewarks = [
 
 const careers = [
   {
-    period: '2020/04 ～ 現在',
+    period: '2020/05 ～ 現在',
+    title: '※自学習期間',
+    langAndFw: '',
+    db: '',
+    environment: 'Docker',
+    other: '',
+    description: '次案件に入るまで自学習。'
+  },
+  {
+    period: '2020/04 ～ 2020/04',
     title: '勤怠/入店管理システム',
     langAndFw: 'Ruby / Rails',
     db: 'MySQL',
     environment: 'Git / Docker / Circle Ci / Capistrano',
     other: '',
-    description: '開発環境、ドキュメント整備。システムの機能改善。'
+    description: '開発環境、ドキュメント整備。※諸事情のより案件停止。'
   },
   {
     period: '2019/09 ～ 2020/03',

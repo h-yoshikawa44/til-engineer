@@ -29,10 +29,15 @@ Dockerだとうまく動かせない？（サーバ起動はできるが、ブ�
 [ドキュメントサイト](https://h-yoshikawa0724-til-engineer.com/)
 
 ### ローカルでの確認
-サーバ起動
+ライブラリインストール
 ```
 $ cd Docusaurus/website
 
+$ yarn install
+```
+
+サーバ起動
+```
 $ yarn start
 ```
 
