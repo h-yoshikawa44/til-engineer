@@ -38,6 +38,13 @@ module.exports = {
       },
     ]
   },
+  docker: {
+    Docker: [
+      'Docker/docker-overview',
+      'Docker/docker-work',
+      'Docker/docker-image'
+    ]
+  },
   general: {
     'テクニック': [
       'General/if-flat'
