@@ -12,21 +12,26 @@
 - 自分の財産になる
 - 他の人に勉強した内容を伝えられる材料になる
 
-また、それらをただあげていくのでなく、ドキュメントのようにまとめて静的サイト化して、より見やすくする。  
+また、ドキュメントのようにまとめて静的サイト化することで、より見やすくする。  
 **現在上げているコードも順次ドキュメントへ移行していき、移行次第コードは削除（フレームワークのコードはそのまま残す）**
 
 ## ドキュメントサイト
-### 構築
-[Docusaurus(v2)](https://v2.docusaurus.io/)を使用。
-ドキュメント特化の静的サイトジェネレータ。
+- Node.js：12.10.0
+- Docusaurus：2.0.0-alpha.54
+- @docusaurus/preset-classic：2.0.0-alpha.54
+  - Infima：0.2.0-alpha.9
 
-2系を使用しているが、alpha版であることに注意。  
-Dockerだとうまく動かせない？（サーバ起動はできるが、ブラウザから確認ができない）ようなので、yarnが使える環境でサーバを起動すること。（自分の場合はWSL)
+※2020/05/02更新
 
-@docusaurus/preset-classic テンプレートで使用されているCSSフレームワークは[Infima](https://facebookincubator.github.io/infima/)（こちらも現在Docusaurusとともに開発中）
+### Docusaurusについて
+- [Docusaurus(v2)](https://v2.docusaurus.io/)  
+- [Infima](https://facebookincubator.github.io/infima/)
+
+2系を使用しているが、開発バージョンであることに注意（Infimaに関しても同様）  
+Dockerだとうまく動かせない？（サーバ起動はできるが、ブラウザから確認ができない）ようなので、yarnが使える環境でサーバを起動すること（自分の場合はWSL)
 
 ### 公開された静的サイトとして確認
-[ドキュメントサイト](https://h-yoshikawa0724-til-engineer.com/)
+[よしの勉強記録 & ポートフォリオ](https://h-yoshikawa0724-til-engineer.com/)
 
 ### ローカルでの確認
 ライブラリインストール
