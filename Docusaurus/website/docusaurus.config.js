@@ -18,6 +18,9 @@ module.exports = {
     ],
   ],
   themeConfig: {
+    prism: {
+      additionalLanguages: ['docker', 'java', 'php'],
+    },
     image: 'img/ogp.png',
     navbar: {
       title: 'よしの勉強記録',
@@ -95,7 +98,7 @@ module.exports = {
     },
     gtag: {
       trackingID: 'UA-141521257-2',
-    }
+    },
   },
   presets: [
     [
