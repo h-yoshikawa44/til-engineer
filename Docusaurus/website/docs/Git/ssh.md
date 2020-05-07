@@ -9,12 +9,12 @@ keywords:
 
 - 検証バージョン：git version 2.25.0.windows.1
 
-## SSH認証に使用する鍵の用意
-※SSH認証鍵生成については[こちら](/docs/Linux/Command/linux-ssh-key)を参照。
+## SSH 認証に使用する鍵の用意
+※SSH 認証鍵生成については[こちら](/docs/Linux/Command/linux-ssh-key)を参照。
 
-## SSH接続設定
+## SSH 接続設定
 ### 秘密鍵の設定
-`~/.ssh/config`にSSH接続設定を記述。
+`~/.ssh/config`に SSH 接続設定を記述。
 
 GitLabの例。
 ```bash
@@ -70,14 +70,14 @@ $ pbcopy < ~/.ssh/公開鍵名
 ```
 もしくは`cat`コマンドなどで表示したものをコピー。
 
-#### Gitアカウントに公開鍵を登録
-GitLabのやり方。
+#### Git アカウントに公開鍵を登録
+GitLab のやり方。
 - Settings → SSH keys へ
   - keys に先ほどコピーした公開鍵の内容をペースト
   - title は自分でわかりやすいものにしておくとよい
   - Add keys で追加
 
-GitHubのやり方。
+GitHub のやり方。
 - Settings → SSH and GPG keys へ
   - New SSH key を選択
   - Title は自分でわかりやすいものにしておくとよい

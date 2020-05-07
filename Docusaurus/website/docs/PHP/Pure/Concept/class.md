@@ -13,7 +13,7 @@ keywords:
 [公式ドキュメント - クラスとオブジェクト](https://www.php.net/manual/ja/language.oop5.php)
 
 ## 基本構文
-クラス名はUpperCamelCase。
+クラス名は UpperCamelCase。
 
 ```php
 <?php
@@ -87,7 +87,7 @@ Test::echoValue(); // test TEST
 [公式ドキュメント - アクセス権](https://www.php.net/manual/ja/language.oop5.visibility.php)
 
 プロパティ、メソッドに指定することで、アクセスできる範囲の制御ができる。
-変数には指定が必須。定数やメソッドに指定しなかった場合はpublicが適用される。
+変数には指定が必須。定数やメソッドに指定しなかった場合は public が適用される。
 
 - public：クラス外から自由にアクセスできる
 - protected：クラス内および継承したクラス内からのみアクセスできる

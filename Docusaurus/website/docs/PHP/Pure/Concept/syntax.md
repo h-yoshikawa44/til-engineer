@@ -19,7 +19,7 @@ keywords:
 ## 変数
 [公式ドキュメント - 変数](https://www.php.net/manual/ja/language.variables.php)
 
-変数名はLowerCamelCaseで、頭文字に`$`をつけるのが特徴。  
+変数名は LowerCamelCase で、頭文字に`$`をつけるのが特徴。  
 動的型付けであるため、型指定は不要。
 
 ```php
@@ -38,7 +38,7 @@ echo $testValue; // test
 ## 定数
 [公式ドキュメント - 定数](https://www.php.net/manual/ja/language.constants.php)
 
-定数名はScreamingSnakeCaseで、こちらには`$`はつかない。
+定数名は ScreamingSnakeCase で、こちらには`$`はつかない。
 
 ### define
 
@@ -55,7 +55,7 @@ echo TEST_VALUE; // test
 
 ### const
 こちらの場合はトップレベルのスコープで宣言する必要がある。  
-(関数、ループ、if文、try/catchブロックの内部では宣言できない)
+(関数、ループ、if 文、try / catch ブロックの内部では宣言できない)
 
 ```php
 const 定数名;
@@ -73,7 +73,7 @@ echo TEST_VALUE; // test
 [公式ドキュメント - 関数](https://www.php.net/manual/ja/language.functions.php)
 
 ### 基本構文
-関数名はLowerCamelCase。  
+関数名は LowerCamelCase。  
 引数の数は任意。
 
 ```php

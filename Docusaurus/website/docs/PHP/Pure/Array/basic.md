@@ -73,7 +73,7 @@ print_r($list);
 #### 配列間に追加：array_splise
 [公式ドキュメント](https://www.php.net/manual/ja/function.array-splice)
 
-array_spliceはもともと置換に使用する関数。
+array_splice はもともと置換に使用する関数。
 削除する文字数を0とすることで間に挿入としても使用できる。
 ```php
 array_splice(配列, 置き換える位置, 削除する文字数, 置き換える値);

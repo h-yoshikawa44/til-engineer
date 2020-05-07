@@ -212,7 +212,7 @@ const careers = [
     db: 'MySQL',
     environment: 'Git / Docker / Circle Ci / Capistrano',
     other: '',
-    description: '開発環境、ドキュメント整備。※諸事情のより案件停止。'
+    description: '開発環境、ドキュメント整備。※諸事情により案件停止。'
   },
   {
     period: '2019/09 ～ 2020/03',

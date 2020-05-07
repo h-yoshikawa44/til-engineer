@@ -57,7 +57,7 @@ abstract class AbstractTest {
 
 ## 抽象クラスにおける静的なプロパティとメソッド
 抽象クラスでも具象クラスと同様に`static`をつけることで定義でき、インスタンス化せずに使用することが可能。  
-ただし、staticな抽象メソッドは定義できない。
+ただし、static な抽象メソッドは定義できない。
 
 ```java
 public class Main {

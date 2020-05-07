@@ -9,7 +9,7 @@ keywords:
 ---
 
 ## 概要
-SSH認証の方法の1つである公開鍵認証における、公開鍵と秘密鍵の生成方法。
+SSH 認証の方法の1つである公開鍵認証における、公開鍵と秘密鍵の生成方法。
 
 ## 認証鍵の生成
 ### 所持している鍵の確認
@@ -22,7 +22,7 @@ $ ssh-keygen -t rsa -C "自分のメールアドレス" # コメントオプシ�
 ```
 
 コマンド実行時には必要に応じて保存先ファイル名とパスフレーズを入力。  
-未入力のままEnterで進めても作成できるが、保存先ファイル名に関しては使用用途に応じた名称（`~/.ssh/git_rsa`など）をつけておくとよい。  
+未入力のまま Enter で進めても作成できるが、保存先ファイル名に関しては使用用途に応じた名称（`~/.ssh/git_rsa`など）をつけておくとよい。  
 なお、保存先ファイル名のデフォルトは`id_rsa`。
 ```bash
 Enter file in which to save the key: # 保存先ファイル名
@@ -43,7 +43,7 @@ $ chmod 600 秘密鍵名
 ```bash
 $ ssh-add -l
 ```
-もし`Could not open a connection to your authentication agent.`が表示された場合は以下のコマンドでssh-agentを起動させる。
+もし`Could not open a connection to your authentication agent.`が表示された場合は以下のコマンドで ssh-agent を起動させる。
 ```bash
 $ eval "$(ssh-agent)"
 ```

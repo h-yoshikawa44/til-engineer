@@ -11,10 +11,10 @@ keywords:
 - 検証バージョン：openjdk version 12
 
 ## 実行箇所
-mainメソッドから。  
-なお、mainメソッドを持つクラスしか実行することはできない。
+main メソッドから。  
+なお、main メソッドを持つクラスしか実行することはできない。
 
-mainメソッドは必ず以下のようになる（throwsの部分は任意）  
+main メソッドは必ず以下のようになる（throws の部分は任意）  
 最初に実行されるメソッド = `public static`である必要があるため。
 
 ```java
@@ -28,10 +28,12 @@ public class Main {
 ## 文末のセミコロン
 必要。
 
+:::info
 スクリプト言語と違い、以降記述する変数やメソッドは**クラス内でしか定義できない**。
+:::
 
 ## 変数
-変数名はLowerCamelCase。  
+変数名は LowerCamelCase。  
 静的型付けであるため、型指定が必要。
 
 ```java
@@ -122,7 +124,7 @@ class Test {
 ```
 
 ## 定数
-定数名はScreamingSnakeCase。
+定数名は ScreamingSnakeCase。
 
 `final`がついたものは、一度初期化して以降値の変更ができなくなる。
 
@@ -142,7 +144,7 @@ public class Main {
 ```
 
 ## メソッド
-メソッド名はLowerCamelCase。
+メソッド名は LowerCamelCase。
 引数の数は任意。
 
 ### 基本構文
@@ -194,7 +196,7 @@ class Test {
 ```
 
 ### 引数のデフォルト値
-Javaにおいては指定不可。
+Java においては指定不可。
 
 ### 可変長引数
 引数のデータ型に`...`をつけることで配列として受け取ることができる。

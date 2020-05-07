@@ -45,7 +45,7 @@ while ($testWhile < 4) {
 ## do~while
 [公式ドキュメント - do~while](https://www.php.net/manual/ja/control-structures.do.while.php)
 
-基本的にはwhile文と同様であるが、必ず1回は処理が実行される構文。
+基本的には while 文と同様であるが、必ず1回は処理が実行される構文。
 
 ```php
 do {
@@ -85,7 +85,7 @@ for ($i = 0; $i < 3; $i++) {
 // 012
 ```
 
-for文の中で使われている変数の値を、以下のように配列のインデックスとして使うことも多い。
+for 文の中で使われている変数の値を、以下のように配列のインデックスとして使うことも多い。
 
 ```php
 <?php
