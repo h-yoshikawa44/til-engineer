@@ -2,7 +2,7 @@
 id: java-abstract-class
 title: Java - 抽象クラス
 sidebar_label: 抽象クラス
-description: Javaの抽象クラスページ
+description: Javaの抽象クラス構文、構成要素および概念まとめ
 keywords:
   - Java
   - 抽象クラス

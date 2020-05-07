@@ -2,7 +2,7 @@
 id: docker-work
 title: Docker - 仕組み
 sidebar_label: 仕組み
-description: Dockerの仕組みページ
+description: Dockerの仕組みと、従来の仮想化との比較まとめ
 keywords:
   - Docker
 ---

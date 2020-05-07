@@ -2,7 +2,7 @@
 id: java-class
 title: Java - クラス
 sidebar_label: クラス
-description: Javaのクラスページ
+description: Javaのクラス構文、構成要素および概念まとめ
 keywords:
   - Java
   - クラス

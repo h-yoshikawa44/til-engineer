@@ -2,7 +2,7 @@
 id: git-cli-setting
 title: Git - 設定・初期化コマンド
 sidebar_label: 設定・初期化コマンド
-description: Gitの設定・初期化コマンドページ
+description: Gitの設定・初期化に関するコマンドまとめ
 keywords:
   - Git
   - config

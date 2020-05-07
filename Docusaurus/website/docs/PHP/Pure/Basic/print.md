@@ -2,7 +2,7 @@
 id: php-print
 title: PHP - 出力処理
 sidebar_label: 出力処理
-description: PHPの出力処理ページ
+description: PHPの出力処理（echo、print、printf、var_dump、print_r）まとめ
 keywords:
   - PHP
   - echo

@@ -2,7 +2,7 @@
 id: java-object
 title: Java - Objectクラス
 sidebar_label: Objectクラス
-description: JavaのObjectクラスページ
+description: JavaのObjectクラスの構成要素まとめ
 keywords:
   - Java
   - Object

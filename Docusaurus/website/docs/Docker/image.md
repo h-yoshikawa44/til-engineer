@@ -2,7 +2,7 @@
 id: docker-image
 title: Docker - イメージ
 sidebar_label: イメージ
-description: Dockerのイメージページ
+description: Dockerのイメージの概要と、イメージに関する概念まとめ
 keywords:
   - Docker
   - イメージ

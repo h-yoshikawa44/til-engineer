@@ -2,7 +2,7 @@
 id: java-cast
 title: Java - 型変換
 sidebar_label: 型変換
-description: Javaの型変換ページ
+description: Javaの型変換（暗黙の型変換、キャスト）まとめ
 keywords:
   - Java
   - 型変換

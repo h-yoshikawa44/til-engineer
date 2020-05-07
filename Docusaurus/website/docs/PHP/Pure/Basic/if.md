@@ -2,7 +2,7 @@
 id: php-if
 title: PHP - 分岐処理
 sidebar_label: 分岐処理
-description: PHPの分岐処理ページ
+description: PHPの分岐処理（if、三項演算子、switch）まとめ
 keywords:
   - PHP
   - if

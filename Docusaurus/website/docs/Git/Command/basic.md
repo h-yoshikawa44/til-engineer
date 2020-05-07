@@ -2,7 +2,7 @@
 id: git-cli-basic
 title: Git - 基本操作コマンド
 sidebar_label: 基本操作コマンド
-description: Gitの基本操作コマンドページ
+description: Gitの基本操作（作業内容アップ、取り込み）コマンドまとめ
 keywords:
   - Git
   - diff

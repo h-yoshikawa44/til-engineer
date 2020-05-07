@@ -2,7 +2,7 @@
 id: java-loop
 title: Java - 繰り返し処理
 sidebar_label: 繰り返し処理
-description: Javaの繰り返し処理ページ
+description: Javaの繰り返し処理（while、do~while、for）まとめ
 keywords:
   - Java
   - while
