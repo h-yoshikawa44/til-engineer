@@ -15,7 +15,7 @@ keywords:
 イメージ上のデータは複数の読み取り専用のレイヤで構成されている。  
 1つのコマンド実行につき1つのレイヤーが追加されていく感じ。
 
-Dockerイメージのレイヤ。
+Docker イメージのレイヤ。
 - レイヤー４　←↓読み取り専用
 - レイヤー３
 - レイヤー２
@@ -35,49 +35,49 @@ Dockerイメージのレイヤ。
 
 書き方は別ページ参照（準備中）
 
-Dockerfileから自分でイメージを作成することを`イメージビルド`と呼ぶ。
+Dockerfile から自分でイメージを作成することを`イメージビルド`と呼ぶ。
 
 ### Docker Hub
 #### 概要
 [Docker Hub](https://hub.docker.com)
 
-Dockerイメージのレジストリサービス。  
+Docker イメージのレジストリサービス。  
 自分で作成したイメージの公開、公開されているイメージの検索、ダウンロードを行うことができる。
 
-一からDockerfileを書いてイメージを作成するのは難しいため、Docker環境を作る際はまずここでイメージを検索してみると良い。
+一から Dockerfile を書いてイメージを作成するのは難しいため、Docker環境 を作る際はまずここでイメージを検索してみると良い。
 
 #### 自分で作成したイメージを公開
-- Dockerアカウントを作成
+- Docker アカウントを作成
 - Docker Hubにログイン
 - Create Repository
   - 必要事項を入力
-  - 無料版の場合、privateは1つのみ
-- Docker Hubへイメージをpush
+  - 無料版の場合、private は1つのみ
+- Docker Hubへイメージを push
   - `$ docker login` でレジストリサーバへログイン
   - `$ docker tag`でタグ付けのルールに沿ってタグをつけておく
     - Docker ID/イメージ名:タグ名
-  - Docker Hubにpushする
+  - Docker Hub に push する
     - `$ docker push Docker ID/イメージ名:タグ名`
 
 #### Automated Build（自動ビルド）
-GitHubやBitbucketといったソースコードのホスティングサービスでビルドコンテキスト（Dockerfileやその他のビルドに必要なファイル群）を管理。その上で、リポジトリ上のビルドコンテキストの内容が変更された場合に自動的にビルドを実行する仕組み。
+GitHub や Bitbucket といったソースコードのホスティングサービスでビルドコンテキスト（ Dockerfile やその他のビルドに必要なファイル群）を管理。その上で、リポジトリ上のビルドコンテキストの内容が変更された場合に自動的にビルドを実行する仕組み。
 
 リンクさせるまでの流れ（初回）
-- ホスティングサービスで、Dockerイメージ用のGitリポジトリを用意
-- Gitクライアントを用意
-- Docker Hubのアカウント画面
+- ホスティングサービスで、Docker イメージ用の Git リポジトリを用意
+- Git クライアントを用意
+- Docker Hub のアカウント画面
   - Create → Create Automated Build
-  - Link Accountsを選択
+  - Link Accounts を選択
   - どのホスティングサービスとリンクするか選択
-  - リンク方法を選択（Public and Privateの方が推奨）
-  - Gitのホスティングサービスにログイン
-  - Authrize Dockerを選択
+  - リンク方法を選択（Public and Private の方が推奨）
+  - Git のホスティングサービスにログイン
+  - Authrize Docker を選択
 
-リンク後にDocker Hubリポジトリの作成。
-- Docker Hubのアカウント画面
+リンク後に Docker Hub リポジトリの作成。
+- Docker Hub のアカウント画面
   - Create → Create Automated Build
   - リポジトリを選択
-  - Docker Hubとしてのリポジトリを作成
+  - Docker Hub としてのリポジトリを作成
     - Push Type
     - Name
     - Docker Lacation

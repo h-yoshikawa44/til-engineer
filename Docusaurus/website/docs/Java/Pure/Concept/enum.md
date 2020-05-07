@@ -38,7 +38,7 @@ class Color {
 
 ### Enumクラス
 列挙型を定義したものをコンパイルすると、クラスファイルが作成される。  
-`java.lang.Enum`クラスを継承したfinalクラスとなるため、継承はできない。  
+`java.lang.Enum`クラスを継承した final クラスとなるため、継承はできない。  
 列挙された値は`public static final`指定のクラス定数となる。
 
 ```java
@@ -72,9 +72,9 @@ final class Color extends java.lang.Enum<Color> {
 |---|---|
 |final String name()|enum定数の名前を返す。任意でオーバーライドは不可|
 |String toString()|enum定数の名前を返す。任意でオーバーライド可能|
-|final boolean equals(Object other)|指定されたオブジェクトがこのenum定数と同じ場合はtrueを返す|
-|final int hashCode()|enum定数のハッシュコードを返す|
-|static &lt;T extends Enum &lt;T&gt;&gt; T valueOf(Class &lt;T&gt; enumType, String name)|指定された名前を持つ、enum型のenum定数を返す|
+|final boolean equals(Object other)|指定されたオブジェクトがこの enum 定数と同じ場合は true を返す|
+|final int hashCode()|enum 定数のハッシュコードを返す|
+|static &lt;T extends Enum &lt;T&gt;&gt; T valueOf(Class &lt;T&gt; enumType, String name)|指定された名前を持つ、enum 型の enum 定数を返す|
 |final int ordinal()|列挙宣言での位置を返す|
 
 ### 列挙型における定義

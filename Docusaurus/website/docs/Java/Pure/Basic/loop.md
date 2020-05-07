@@ -42,7 +42,7 @@ public class Main {
 ```
 
 ## do~while
-基本的にはwhile文と同様であるが、必ず1回は処理が実行される構文。
+基本的には while 文と同様であるが、必ず1回は処理が実行される構文。
 
 ```java
 do {
@@ -106,8 +106,8 @@ public class Main {
 }
 ```
 
-## 拡張for
-他の言語でいうforeachに近い構文。  
+## 拡張 for
+他の言語でいう foreach に近い構文。  
 配列またはコレクションの要素がある限り、処理を繰り返す。
 
 ```java

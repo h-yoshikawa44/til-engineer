@@ -10,21 +10,21 @@ keywords:
 ![Docker logo](/img/logo-icons/docker-icon.svg)
 
 ## 概要
-Docker社が提供しているコンテナ型のアプリケーション実行環境。  
-（2019年11月にEnterprise製品群はMirantis社に売却）  
-Docker自体はGo言語で書かれている。
+Docker 社が提供しているコンテナ型のアプリケーション実行環境。  
+（2019年11月に Enterprise 製品群は Mirantis 社に売却）  
+Docker 自体は Go 言語で書かれている。
 
-常駐型のDocker Deamonを起動することで、Dockerコンテナの操作が可能になる。
+常駐型の Docker Deamon を起動することで、Docker コンテナの操作が可能になる。
 
 ## インストール
 公式サイトより。
 
-`Community`版と`Enterprise`版があるが、Dockerの基本的な機能を使用する程度であれば無償の`Community`版で良い。
+`Community`版と`Enterprise`版があるが、Docker の基本的な機能を使用する程度であれば無償の`Community`版で良い。
 
 ### Windows(Pro)/Mac
-Windows(Pro)版で利用する際は、あらかじめ`Hyper-V`を有効化しておくこと。
+Windows(Pro) 版で利用する際は、あらかじめ`Hyper-V`を有効化しておくこと。
 
-プラットフォームに応じた`Docker Desktop`をダウンロードしてインストール（ダウンロード時にDocker Hubのアカウントを作成する必要がある）
+プラットフォームに応じた`Docker Desktop`をダウンロードしてインストール（ダウンロード時に Docker Hub のアカウントを作成する必要がある）
 
 この`Docker Desktop`には以下が含まれている。
 - Docker Engine
@@ -35,7 +35,7 @@ Windows(Pro)版で利用する際は、あらかじめ`Hyper-V`を有効化し�
 - Credential Helper
 
 ### Linux
-Linuxディストリビューションに応じたパッケージをダウンロードしてインストール。
+Linux ディストリビューションに応じたパッケージをダウンロードしてインストール。
 
 ## 種別
 ### Docker Engine - Community

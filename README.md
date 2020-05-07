@@ -1,6 +1,7 @@
-# TIL
+# TIL-Engineer
 [![Netlify Status](https://api.netlify.com/api/v1/badges/8af81460-1140-4eb4-823d-56a99af5353a/deploy-status)](https://app.netlify.com/sites/h-yoshikawa0724-til-engineer/deploys)
 
+## TILとは？
 > 「Today I Learned」の略で、Github上にTILというリポジトリを作成してそこに今日覚えたことを書いていくというものです。
 
 出典：[Qiita - Githubのリポジトリ「TIL」を使って小さなアウトプットを習慣化する](https://qiita.com/nemui_/items/239335b4ed0c3c797add)

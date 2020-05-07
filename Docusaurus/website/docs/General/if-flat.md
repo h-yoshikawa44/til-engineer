@@ -10,7 +10,7 @@ keywords:
 参考：[Qiita - プログラムの可読性を上げるための条件分岐を減らす方法7個](https://qiita.com/ddtaka/items/b178358ebc5b38c6906a)
 
 ## ガード節
-処理の対象外になる条件の場合、関数の先頭でreturn/continueする方法。
+処理の対象外になる条件の場合、関数の先頭で return / continue する方法。
 
 悪い例（Java）
 ```java
@@ -55,7 +55,7 @@ public class Main {
 ```
 
 ## bool判定
-bool判定する際に簡略化して書く方法。
+bool 判定する際に簡略化して書く方法。
 
 悪い例（Java)
 ```java
@@ -136,10 +136,10 @@ public class Main {
 ```
 
 ## 三項演算子
-if文は三項演算子を使うことで、より簡潔に記述できる。  
+if 文は三項演算子を使うことで、より簡潔に記述できる。  
 ただし、複雑な処理の場合は可読性が落ちるので、簡潔な処理の時のみ使用するとよい。
 
-if文の例（Java)
+if 文の例（Java)
 ```java
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -167,7 +167,7 @@ public class Main {
 ```
 
 ## 型定義の実装
-PHPのように動的型付けでありながらメソッドの引数の型指定が行えるものは、定義の時点で型を指定しておくことで、メソッド内での型チェックを減らすことができる。
+PHP のように動的型付けでありながらメソッドの引数の型指定が行えるものは、定義の時点で型を指定しておくことで、メソッド内での型チェックを減らすことができる。
 
 メソッド内で型チェックする例（PHP)
 ```php
