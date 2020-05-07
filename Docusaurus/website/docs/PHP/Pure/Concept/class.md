@@ -2,7 +2,7 @@
 id: php-class
 title: PHP - クラス
 sidebar_label: クラス
-description: PHPのクラスページ
+description: PHPのクラス構文、構成要素および概念まとめ
 keywords:
   - PHP
   - クラス

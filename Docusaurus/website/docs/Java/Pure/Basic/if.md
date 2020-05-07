@@ -2,7 +2,7 @@
 id: java-if
 title: Java - 分岐処理
 sidebar_label: 分岐処理
-description: Javaの分岐処理ページ
+description: Javaの分岐処理（if、三項演算子、switch）まとめ
 keywords:
   - Java
   - if

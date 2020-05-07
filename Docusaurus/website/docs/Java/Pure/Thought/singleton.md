@@ -2,7 +2,7 @@
 id: java-singleton
 title: Java - シングルトンパターン
 sidebar_label: シングルトンパターン
-description: Javaのシングルトンパターンページ
+description: Javaのシングルトンクラスの特徴まとめ
 keywords:
   - Java
   - シングルトンパターン

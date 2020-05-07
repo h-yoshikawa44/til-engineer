@@ -2,7 +2,7 @@
 id: git-concept
 title: Git - 基本概念
 sidebar_label: 基本概念
-description: Gitの基本概念ページ
+description: Gitの構成要素や、使用する上での基本概念まとめ
 keywords:
   - Git
 ---

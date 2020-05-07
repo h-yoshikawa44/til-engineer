@@ -2,7 +2,7 @@
 id: php-syntax
 title: PHP - 基本構文（変数、定数、関数）
 sidebar_label: 基本構文（変数、定数、関数）
-description: PHPの基本構文ページ
+description: PHPの基本的な構文まとめ
 keywords:
   - PHP
   - 基本構文

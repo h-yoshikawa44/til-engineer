@@ -2,7 +2,7 @@
 id: php-array-basic
 title: PHP - 配列基本操作
 sidebar_label: 基本操作
-description: PHPの配列基本操作ページ
+description: PHPの配列、連想配列の基本的な操作まとめ
 keywords:
   - PHP
   - 配列

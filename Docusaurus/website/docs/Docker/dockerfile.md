@@ -2,7 +2,7 @@
 id: docker-dockerfile
 title: Docker - Dockerfile
 sidebar_label: Dockerfile
-description: DockerのDockerfileページ
+description: DockerのDockerfileで定義できる命令まとめ
 keywords:
   - Docker
   - Dockerfile

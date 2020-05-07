@@ -2,7 +2,7 @@
 id: linux-ssh-key
 title: Linux - SSH認証鍵生成コマンド
 sidebar_label: SSH認証鍵生成コマンド
-description: Linuxの認証鍵生成ページ
+description: Linuxの認証鍵生成手順まとめ
 keywords:
   - Linux
   - SSH認証鍵

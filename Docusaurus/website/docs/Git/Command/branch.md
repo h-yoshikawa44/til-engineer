@@ -2,7 +2,7 @@
 id: git-cli-branch
 title: Git - ブランチ操作コマンド
 sidebar_label: ブランチ操作コマンド
-description: Gitのブランチ操作コマンドページ
+description: Gitのブランチ操作に関するコマンドまとめ
 keywords:
   - Git
   - branch

@@ -2,7 +2,7 @@
 id: java-interface
 title: Java - インタフェース
 sidebar_label: インタフェース
-description: Javaのインタフェースページ
+description:  Javaのインタフェース構文、構成要素および概念まとめ
 keywords:
   - Java
   - インタフェース

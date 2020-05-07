@@ -2,7 +2,7 @@
 id: java-array-basic
 title: Java - 配列基本操作
 sidebar_label: 基本操作
-description: Javaの配列基本操作ページ
+description: Javaの配列の基本的な操作まとめ
 keywords:
   - Java
   - 配列

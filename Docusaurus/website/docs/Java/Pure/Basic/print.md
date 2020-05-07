@@ -2,7 +2,7 @@
 id: java-print
 title: Java - 出力処理
 sidebar_label: 出力処理
-description: Javaの出力処理ページ
+description: Javaの出力処理（println、print）まとめ
 keywords:
   - Java
   - 出力

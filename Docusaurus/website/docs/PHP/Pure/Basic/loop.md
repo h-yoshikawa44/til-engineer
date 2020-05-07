@@ -2,7 +2,7 @@
 id: php-loop
 title: PHP - 繰り返し処理
 sidebar_label: 繰り返し処理
-description: PHPの繰り返し処理ページ
+description: PHPの繰り返し処理（while、do~while、for、foreach）まとめ
 keywords:
   - PHP
   - while

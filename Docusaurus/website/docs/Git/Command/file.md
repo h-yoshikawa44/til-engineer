@@ -2,7 +2,7 @@
 id: git-cli-file
 title: Git - ファイル操作コマンド
 sidebar_label: ファイル操作コマンド
-description: Gitのファイル操作コマンドページ
+description: Gitのファイル操作に関するコマンドまとめ
 keywords:
   - Git
   - stash
