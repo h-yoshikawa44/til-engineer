@@ -42,7 +42,8 @@ module.exports = {
     Docker: [
       'Docker/docker-overview',
       'Docker/docker-work',
-      'Docker/docker-image'
+      'Docker/docker-image',
+      'Docker/docker-dockerfile'
     ]
   },
   general: {
