@@ -6,6 +6,12 @@
  */
 
 module.exports = {
+  web: {
+    Web: [
+      'Web/web-overview',
+      'Web/web-work'
+    ]
+  },
   linux: {
     Linux: [
       'Linux/linux-overview',
