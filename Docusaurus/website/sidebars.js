@@ -9,7 +9,15 @@ module.exports = {
   web: {
     Web: [
       'Web/web-overview',
-      'Web/web-work'
+      'Web/web-work',
+      {
+        type: 'category',
+        label: '歴史',
+        items: [
+          'Web/History/web-before',
+          'Web/History/web-birth'
+        ]
+      }
     ]
   },
   linux: {
