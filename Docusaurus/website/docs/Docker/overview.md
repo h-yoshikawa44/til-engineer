@@ -1,7 +1,7 @@
 ---
 id: docker-overview
 title: Docker - 概要
-sidebar_label: Dockerの概要
+sidebar_label: Docker の概要
 description: Dockerのトップページ
 keywords:
   - Docker

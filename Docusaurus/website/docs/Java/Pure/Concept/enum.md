@@ -1,7 +1,7 @@
 ---
 id: java-enum
-title: Java - 列挙型・Enumクラス
-sidebar_label: 列挙型・Enumクラス
+title: Java - 列挙型・Enum クラス
+sidebar_label: 列挙型・Enum クラス
 description: Javaの列挙型・Enumクラスの構文、構成要素および概念まとめ
 keywords:
   - Java
