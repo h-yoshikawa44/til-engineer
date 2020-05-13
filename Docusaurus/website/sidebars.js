@@ -15,7 +15,9 @@ module.exports = {
         label: '歴史',
         items: [
           'Web/History/web-before',
-          'Web/History/web-birth'
+          'Web/History/web-birth',
+          'Web/History/web-standardization',
+          'Web/History/web-api'
         ]
       }
     ]

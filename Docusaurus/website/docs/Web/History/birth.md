@@ -23,7 +23,7 @@ keywords:
 その後、WorldWideWeb を誰に対しても無償で開放することを発表。  
 ただ無償で公開するだけでなく、どうやって作られているのか、その裏側の仕組みなども公開された。
 
-Tim 氏および CERN の発表以来、Web は少しずつ普及。  
+Berners-Lee 氏および CERN の発表以来、Web は少しずつ普及。  
 その普及を一気に推し進めたものとして Mosaic の存在がある。
 
 Mosaic は1993年にイリノイ大学の NCSA（ National Center for Supercomputing Application、米国立スーパーコンピュータ応用研究所）が公開したブラウザ。  
