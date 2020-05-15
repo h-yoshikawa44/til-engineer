@@ -26,7 +26,15 @@ module.exports = {
         label: 'REST',
         items: [
           'Web/Rest/web-architecture-style',
-          'Web/Rest/web-resource'
+          'Web/Rest/web-resource',
+          'Web/Rest/web-configration-style',
+        ]
+      },
+      {
+        type: 'category',
+        label: 'URI',
+        items: [
+          'Web/Uri/web-uri-basic'
         ]
       }
     ]
