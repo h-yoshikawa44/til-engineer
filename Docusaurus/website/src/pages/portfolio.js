@@ -197,22 +197,24 @@ const langAndframewarks = [
 
 const careers = [
   {
-    period: '2020/05 ～ 現在',
-    title: '※自学習期間',
-    langAndFw: '',
+    period: '2020/05/18 ～ 2020/05/23、～ 現在',
+    title: 'Jigsaw Like Puzzle（ジグソーパズルっぽいパズルゲーム）',
+    langAndFw: 'JavaScirpt / React',
     db: '',
-    environment: 'Docker',
+    environment: 'Git / Docker',
+    cloudService: 'Firebase[Hosting]',
     other: '',
-    description: '次案件に入るまで自学習。'
+    description: '個人開発。第2回 web1week（1週間でwebサービスを作るイベント）による、お題「Like」の投稿作品。イベント後も不定期で機能改善。'
   },
   {
-    period: '2020/04 ～ 2020/04',
+    period: '2020/04、2020/06 ～ 現在',
     title: '勤怠/入店管理システム',
     langAndFw: 'Ruby / Rails',
-    db: 'MySQL',
-    environment: 'Git / Docker / Circle Ci / Capistrano',
+    db: 'MySQL / Redis',
+    environment: 'Git / Docker / Circle CI / Capistrano',
+    cloudService: 'AWS[EC2, Cognito]',
     other: '',
-    description: '開発環境、ドキュメント整備。※諸事情により案件停止。'
+    description: '開発環境、ドキュメント整備から着手。バグ対応や機能改善の保守。※一度、諸事情により案件停止したが再開。'
   },
   {
     period: '2019/09 ～ 2020/03',
@@ -220,6 +222,7 @@ const careers = [
     langAndFw: 'JavaScript / React / Java / Spring Boot',
     db: 'MySQL',
     environment: 'Git / Docker',
+    cloudService: '',
     other: 'Swagger',
     description: '実装部分を担当。メインはフロント担当であったものの、機能改修要件ではAPI側の修正も一緒に行なった時もあり。'
   },
@@ -229,6 +232,7 @@ const careers = [
     langAndFw: '',
     db: '',
     environment: '',
+    cloudService: '',
     other: '',
     description: '通勤のリハビリをするところからはじまり、少しずつ勤務時間を伸ばして徐々に復帰。案件に入るまではReactの自学習。'
   },
@@ -238,6 +242,7 @@ const careers = [
     langAndFw: '',
     db: '',
     environment: '',
+    cloudService: '',
     other: '',
     description: '大きく体調を崩して休職。心療内科もとい精神科で「適応障害」「不安障害」の診断がつく。'
   },
@@ -247,6 +252,7 @@ const careers = [
     langAndFw: 'Java / Spring(+ Spring Boot) / Python',
     db: 'Amazon Aurora / Redis',
     environment: 'Git / Jenkins / Serverless Framework',
+    cloudService: 'AWS[CLI, EC2, ElastiCache, Lambda, API Gateway]',
     other: '',
     description: '実装部分を担当。既存APIにキャッシュの導入、APIの新規作成、バッチ作成など。'
   },
@@ -255,7 +261,8 @@ const careers = [
     title: '保険請求システム',
     langAndFw: 'PHP / CakePHP',
     db: 'MySQL',
-    environment: 'Git / Docker / Circle Ci / Deployer',
+    environment: 'Git / Docker / Circle CI / Deployer',
+    cloudService: 'AWS[EC2, RDS]',
     other: '',
     description: '実装部分を担当。既存システムを元に、一から構築して作成。フロントとAPIとは切り離されておらず、CakePHPでどちらも対応。'
   },
@@ -265,6 +272,7 @@ const careers = [
     langAndFw: 'C# / HTML / CSS / JavaScript / PHP / Ruby / Rails',
     db: 'MariaDB / SQLite',
     environment: 'Git',
+    cloudService: '',
     other: '',
     description: '未経験入社の社員がはじめに受講する研修。10月はC# + Unityでゲームを。11月はPHP、12月はRuby + Railsで日報システムを演習の成果物としてチームで作成。'
   },
@@ -274,6 +282,7 @@ const careers = [
     langAndFw: '',
     db: '',
     environment: '',
+    cloudService: '',
     other: '',
     description: '独学でプログラミングを勉強し、全くの他業種から転職。C、C++と学んだあとはJavaの勉強に励み、入社日までにJava Goldを取得。'
   }
@@ -294,7 +303,7 @@ function Skill({imageUrl, title, description}) {
   );
 }
 
-function Career({period, title, langAndFw, db, environment, other, description}) {
+function Career({period, title, langAndFw, db, environment, cloudService, other, description}) {
   return (
     <div class="card-demo margin-vert--sm">
       <div class="card shadow--tl">
@@ -307,6 +316,7 @@ function Career({period, title, langAndFw, db, environment, other, description})
             {langAndFw && <li>言語・FW：{langAndFw}</li>}
             {db && <li>DB：{db}</li>}
             {environment && <li>環境：{environment}</li>}
+            {cloudService && <li>クラウドサービス：{cloudService}</li>}
             {other && <li>その他：{other}</li>}
           </ul>
           <p>{description}</p>
