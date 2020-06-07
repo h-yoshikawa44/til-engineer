@@ -31,6 +31,7 @@ module.exports = {
       links: [
         {to: 'docs/top', label: 'Docs', position: 'left'},
         {to: '/portfolio', label: 'Portfolio', position: 'left'},
+        {to: '/myproducts', label: 'MyProducts', position: 'left'},
         {
           href: 'https://changeofpace.site',
           label: 'Blog',
