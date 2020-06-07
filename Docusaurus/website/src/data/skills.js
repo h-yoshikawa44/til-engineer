@@ -2,25 +2,25 @@ import React from 'react';
 
 export const editors = [
   {
-    title: <>Visual Studio Code</>,
+    title: 'Visual Studio Code',
     imageUrl: 'img/logo-icons/visual-studio-code.svg',
     description: (
       <>
-        Java以外の言語のコーディングで使用。
+        Java以外の言語のコーディングで使用。メインで使用しているエディタ。
       </>
     ),
   },
   {
-    title: <>Eclipse</>,
+    title: 'Eclipse',
     imageUrl: 'img/logo-icons/eclipse.svg',
     description: (
       <>
-        Javaのコーディングで使用。
+        Javaのコーディングで使用。Springの場合は、Spring Tool Suiteを使用することもある。
       </>
     ),
   },
    {
-    title: <>Unity</>,
+    title: 'Unity',
     imageUrl: 'img/logo-icons/unity.svg',
     description: (
       <>
@@ -32,7 +32,7 @@ export const editors = [
 
 export const environments = [
   {
-    title: <>Git</>,
+    title: 'Git',
     imageUrl: 'img/logo-icons/git-icon.svg',
     description: (
       <>
@@ -41,7 +41,7 @@ export const environments = [
     ),
   },
   {
-    title: <>Docker</>,
+    title: 'Docker',
     imageUrl: 'img/logo-icons/docker-icon.svg',
     description: (
       <>
@@ -53,7 +53,7 @@ export const environments = [
 
 export const langAndframewarks = [
   {
-    title: <>HTML</>,
+    title: 'HTML',
     imageUrl: 'img/logo-icons/html-5.svg',
     description: (
       <>
@@ -62,7 +62,7 @@ export const langAndframewarks = [
     ),
   },
   {
-    title: <>CSS</>,
+    title: 'CSS',
     imageUrl: 'img/logo-icons/css-3.svg',
     description: (
       <>
@@ -71,7 +71,7 @@ export const langAndframewarks = [
     ),
   },
   {
-    title: <>JavaScript</>,
+    title: 'JavaScript',
     imageUrl: 'img/logo-icons/javascript.svg',
     description: (
       <>
@@ -80,7 +80,7 @@ export const langAndframewarks = [
     ),
   },
   {
-    title: <>React</>,
+    title: 'React',
     imageUrl: 'img/logo-icons/react.svg',
     description: (
       <>
@@ -89,7 +89,7 @@ export const langAndframewarks = [
     ),
   },
   {
-    title: <>Docusaurus</>,
+    title: 'Docusaurus',
     imageUrl: 'img/logo-icons/docusaurus.svg',
     description: (
       <>
@@ -98,7 +98,7 @@ export const langAndframewarks = [
     ),
   },
   {
-    title: <>Java</>,
+    title: 'Java',
     imageUrl: 'img/logo-icons/java.svg',
     description: (
       <>
@@ -107,7 +107,7 @@ export const langAndframewarks = [
     ),
   },
   {
-    title: <>Spring</>,
+    title: 'Spring',
     imageUrl: 'img/logo-icons/spring.svg',
     description: (
       <>
@@ -116,7 +116,7 @@ export const langAndframewarks = [
     ),
   },
   {
-    title: <>PHP</>,
+    title: 'PHP',
     imageUrl: 'img/logo-icons/php.svg',
     description: (
       <>
@@ -125,7 +125,7 @@ export const langAndframewarks = [
     ),
   },
   {
-    title: <>CakePHP</>,
+    title: 'CakePHP',
     imageUrl: 'img/logo-icons/cakephp.svg',
     description: (
       <>
@@ -134,7 +134,7 @@ export const langAndframewarks = [
     ),
   },
   {
-    title: <>Laravel</>,
+    title: 'Laravel',
     imageUrl: 'img/logo-icons/laravel.svg',
     description: (
       <>
@@ -143,7 +143,7 @@ export const langAndframewarks = [
     ),
   },
   {
-    title: <>Python</>,
+    title: 'Python',
     imageUrl: 'img/logo-icons/python.svg',
     description: (
       <>
@@ -152,7 +152,7 @@ export const langAndframewarks = [
     ),
   },
   {
-    title: <>Ruby</>,
+    title: 'Ruby',
     imageUrl: 'img/logo-icons/ruby.svg',
     description: (
       <>
@@ -161,7 +161,7 @@ export const langAndframewarks = [
     ),
   },
   {
-    title: <>Rails</>,
+    title: 'Rails',
     imageUrl: 'img/logo-icons/rails.svg',
     description: (
       <>
@@ -170,7 +170,7 @@ export const langAndframewarks = [
     ),
   },
   {
-    title: <>Jekyll</>,
+    title: 'Jekyll',
     imageUrl: 'img/logo-icons/jekyll.svg',
     description: (
       <>
@@ -179,7 +179,7 @@ export const langAndframewarks = [
     ),
   },
   {
-    title: <>C#</>,
+    title: 'C#',
     imageUrl: 'img/logo-icons/c-sharp.svg',
     description: (
       <>

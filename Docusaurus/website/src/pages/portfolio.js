@@ -10,7 +10,7 @@ import careers from '../data/careers';
 function Skill({ imageUrl, title, description }) {
   const imgUrl = useBaseUrl(imageUrl);
   return (
-    <div className={classnames('col col--3', styles.feature)}>
+    <div className="col col--3">
       {imgUrl && (
         <div className="text--center">
           <img className={styles.skillImage} src={imgUrl} alt={title} />
@@ -24,13 +24,13 @@ function Skill({ imageUrl, title, description }) {
 
 function Career({ period, title, langAndFw, db, environment, cloudService, other, description }) {
   return (
-    <div class="card-demo margin-vert--sm">
-      <div class="card shadow--tl">
-        <div class="card__header">
+    <div className="card-demo margin-vert--sm">
+      <div className="card shadow--tl">
+        <div className="card__header">
           <p className="text--italic">{period}</p>
           <h3>{title}</h3>
         </div>
-        <div class="card__body">
+        <div className="card__body">
           <ul>
             {langAndFw && <li>言語・FW：{langAndFw}</li>}
             {db && <li>DB：{db}</li>}
@@ -71,56 +71,56 @@ function Portfolio() {
         </div>
       </header>
       <main>
-        <div className="padding--md">
+        <div className="container padding--md">
           <h2 className="text--center">スキル</h2>
-          <h3 className={classnames('text--center', styles.decorationLine)}>エディタ</h3>
-          {editors && editors.length && (
-            <section className={styles.skills}>
-              <div className="container">
+          <section>
+            <h3 className={classnames('text--center', styles.decorationLine)}>エディタ</h3>
+            {editors && editors.length && (
+              <div className="padding-vert--lg">
                 <div className="row">
                   {editors.map((props, idx) => (
                     <Skill key={idx} {...props} />
                   ))}
                 </div>
               </div>
-            </section>
-          )}
-          <h3 className={classnames('text--center', styles.decorationLine)}>開発環境</h3>
-          {environments && environments.length && (
-            <section className={styles.skills}>
-              <div className="container">
+            )}
+          </section>
+          <section>
+            <h3 className={classnames('text--center', styles.decorationLine)}>開発環境</h3>
+            {environments && environments.length && (
+              <div className="padding-vert--lg">
                 <div className="row">
                   {environments.map((props, idx) => (
                     <Skill key={idx} {...props} />
                   ))}
                 </div>
               </div>
-            </section>
-          )}
-          <h3 className={classnames('text--center', styles.decorationLine)}>言語・フレームワーク</h3>
-          {langAndframewarks && langAndframewarks.length && (
-            <section className={styles.skills}>
-              <div className="container">
+            )}
+          </section>
+          <section>
+            <h3 className={classnames('text--center', styles.decorationLine)}>言語・フレームワーク</h3>
+            {langAndframewarks && langAndframewarks.length && (
+              <div className="padding-vert--lg">
                 <div className="row">
                   {langAndframewarks.map((props, idx) => (
                     <Skill key={idx} {...props} />
                   ))}
                 </div>
               </div>
-            </section>
-          )}
+            )}
+          </section>
         </div>
-        <div className="padding--md">
+        <div className="container padding--md">
           <h2 className="text--center">経歴</h2>
-          {careers && careers.length && (
-            <section>
-              <div className="container">
-                {careers.map((props, idx) => (
-                  <Career key={idx} {...props} />
-                ))}
-              </div>
-            </section>
-          )}
+          <section>
+            {careers && careers.length && (
+              <>
+              {careers.map((props, idx) => (
+                <Career key={idx} {...props} />
+              ))}
+              </>
+            )}
+          </section>
         </div>
       </main>
     </Layout>

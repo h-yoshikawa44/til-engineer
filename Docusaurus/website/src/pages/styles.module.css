@@ -22,13 +22,6 @@
   justify-content: center;
 }
 
-.skills {
-  display: flex;
-  align-items: center;
-  padding: 2rem 0;
-  width: 100%;
-}
-
 .skillImage {
   height: 100px;
   width: 100px;
