@@ -38,11 +38,11 @@ function Home() {
         </div>
       </header>
       <main>
-        <div className="padding--md">
+        <div className="container padding--md">
           <h2 className="text--center">TIL</h2>
-          <h3 className={classnames('text--center', styles.decorationLine)}>TILとは？</h3>
           <section>
-            <div className="container">
+            <h3 className={classnames('text--center', styles.decorationLine)}>TILとは？</h3>
+            <div>
               <blockquote>「Today I Learned」の略で、Github上にTILというリポジトリを作成してそこに今日覚えたことを書いていくというものです。</blockquote>
               <p className="text--right">
                 出典：
@@ -52,9 +52,9 @@ function Home() {
               </p>
             </div>
           </section>
-          <h3 className={classnames('text--center', styles.decorationLine)}>目的</h3>
           <section>
-          　<div className="container">
+            <h3 className={classnames('text--center', styles.decorationLine)}>目的</h3>
+          　<div>
               <p>勉強したコードやメモなどをTILリポジトリにあげていく。またここにドキュメントとしてまとめる。</p>
               <ul>
                 <li>アウトプットの習慣が身につく</li>
