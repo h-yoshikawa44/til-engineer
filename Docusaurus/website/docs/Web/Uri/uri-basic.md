@@ -5,7 +5,7 @@ sidebar_label: URI の基本
 description: URIの基本概要と構文まとめ
 keywords:
   - Web
-  - REST
+  - URI
 ---
 
 ## URI の概要
