@@ -9,9 +9,15 @@ services:
       context: ./
       dockerfile: ./ruby/Dockerfile
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    environment:
+      - SPROCKETS_CACHE=/cache
     volumes:
       - ./src:/src
+      - cache:/cache
     ports:
       - "3000:3000"
     depends_on:
       - db
+
+volumes:
+  cache:
