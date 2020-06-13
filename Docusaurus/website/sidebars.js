@@ -34,7 +34,8 @@ module.exports = {
         type: 'category',
         label: 'URI',
         items: [
-          'Web/Uri/web-uri-basic'
+          'Web/Uri/web-uri-basic',
+          'Web/Uri/web-uri-type'
         ]
       }
     ]
