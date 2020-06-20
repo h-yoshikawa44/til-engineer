@@ -1,0 +1,55 @@
+{
+  "name": "app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "axios": "^0.19.0",
+    "geolib": "^3.0.4",
+    "lodash": "^4.17.15",
+    "prop-types": "^15.7.2",
+    "query-string": "^6.8.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-google-maps": "^9.4.5",
+    "react-redux": "^7.1.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
+    "react-transition-group": "^4.2.1",
+    "redux": "^4.0.4",
+    "redux-devtools": "^3.5.0",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app",
+    "plugins": [
+      "react",
+      "jsx-a11y",
+      "import"
+    ],
+    "rules": {
+      "react/jsx-filename-extension": 0
+    }
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "eslint-config-airbnb": "^18.0.1"
+  }
+}

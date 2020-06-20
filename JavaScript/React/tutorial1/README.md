@@ -1,6 +1,6 @@
 ## 教材
 - [公式 チュートリアル](https://ja.reactjs.org/tutorial/tutorial.html)
-- [Udemy 最短で学ぶReactとReduxの基礎から実践まで](https://www.udemy.com/react-redux-from-beginning/)
+- ※他、各種ドキュメントや記事を参考
 
 ## Docker環境
 ### バージョン

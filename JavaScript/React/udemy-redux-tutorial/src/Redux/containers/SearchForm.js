@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 import '../css/SearchForm.css';
-import { setPlace, startSearch } from '../actions/';
+import { setPlace, startSearch } from '../actions';
 
 const SearchForm = props => (
   <form
