@@ -1,0 +1,16 @@
+version: "3"
+services:
+  node:
+    image: node:12.18-alpine
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - .:/usr/app
+    tty: true
+    stdin_open: true
+    privileged: true
+    working_dir: /usr/app
+    command: /bin/sh -c "yarn install && yarn start"
+    ports:
+      - "3000:3000"

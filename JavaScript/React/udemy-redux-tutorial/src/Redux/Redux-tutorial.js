@@ -7,7 +7,7 @@ import SearchForm from './containers/SearchForm';
 import GeocodeResult from './components/GeocodeResult';
 import Map from './components/Map';
 import HotelsTable from './components/HotelsTable';
-import { startSearch } from './actions/';
+import { startSearch } from './actions';
 
 class ReduxTutorial extends Component {
   componentDidMount() {
