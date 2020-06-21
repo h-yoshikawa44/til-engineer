@@ -1,8 +1,8 @@
 version: "3"
 services:
   node:
-    image: node:12-alpine
-    container_name: react_tutorial_node
+    image: node:12.18-alpine
+    container_name: react_generic_node
     environment:
       - NODE_ENV=development
       - CHOKIDAR_USEPOLLING=true
@@ -18,13 +18,13 @@ services:
 
   swagger-editor:
     image: swaggerapi/swagger-editor
-    container_name: react_tutorial_swagger-editor
+    container_name: react_generic_swagger-editor
     ports:
       - "8081:8080"
 
   # swagger-ui:
   #   image: swaggerapi/swagger-ui
-  #   container_name: react_tutorial_swagger-ui
+  #   container_name: react_generic_swagger-ui
   #   ports:
   #     - "8082:8080"
   #   volumes:
@@ -35,13 +35,13 @@ services:
 
   swagger-api:
     build: ./docker/swagger-api
-    container_name: react_tutorial_swagger-api
+    container_name: react_generic_swagger-api
     working_dir: /src
     command: node index.js
 
   swagger-nginx:
     image: openresty/openresty:alpine
-    container_name: react_tutorial_swagger-nginx
+    container_name: react_generic_swagger-nginx
     ports:
       - 8000:80
     depends_on:
