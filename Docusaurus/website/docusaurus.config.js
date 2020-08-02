@@ -7,7 +7,6 @@ module.exports = {
   // organizationName: 'facebook', // Usually your GitHub org/user name.
   projectName: 'TIL-Engineer', // Usually your repo name.
   plugins: [
-    '@docusaurus/plugin-google-gtag',
     [
       '@docusaurus/plugin-sitemap',
       {
