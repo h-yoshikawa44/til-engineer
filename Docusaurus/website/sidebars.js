@@ -36,7 +36,8 @@ module.exports = {
         items: [
           'Web/Uri/web-uri-basic',
           'Web/Uri/web-uri-type',
-          'Web/Uri/web-uri-code'
+          'Web/Uri/web-uri-code',
+          'Web/Uri/web-uri-url-urn'
         ]
       }
     ]
