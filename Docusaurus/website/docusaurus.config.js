@@ -6,17 +6,6 @@ module.exports = {
   favicon: 'img/favicon.ico',
   // organizationName: 'facebook', // Usually your GitHub org/user name.
   projectName: 'TIL-Engineer', // Usually your repo name.
-  plugins: [
-    '@docusaurus/plugin-google-gtag',
-    [
-      '@docusaurus/plugin-sitemap',
-      {
-        cacheTime: 600 * 1000, // 600 sec - cache purge period
-        changefreq: 'weekly',
-        priority: 0.5,
-      },
-    ],
-  ],
   themeConfig: {
     prism: {
       additionalLanguages: ['docker', 'java', 'php'],
@@ -28,7 +17,7 @@ module.exports = {
         alt: '獅子のロゴアイコン',
         src: 'img/lion-logo.svg',
       },
-      links: [
+      items: [
         {to: 'docs/top', label: 'Docs', position: 'left'},
         {to: '/portfolio', label: 'Portfolio', position: 'left'},
         {to: '/myproducts', label: 'MyProducts', position: 'left'},
@@ -107,6 +96,11 @@ module.exports = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+        sitemap: {
+          cacheTime: 600 * 1000, // 600 sec - cache purge period
+          changefreq: 'weekly',
+          priority: 0.5,
+        }
       },
     ],
   ],
