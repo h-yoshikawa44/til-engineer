@@ -18,11 +18,11 @@
 
 ## ドキュメントサイト
 - Node.js：12.10.0
-- Docusaurus：2.0.0-alpha.54
-- @docusaurus/preset-classic：2.0.0-alpha.54
-  - Infima：0.2.0-alpha.9
+- Docusaurus：2.0.0-alpha.61
+- @docusaurus/preset-classic：2.0.0-alpha.61
+  - Infima：0.2.0-alpha.12
 
-※2020/05/02更新
+※2020/08/02更新
 
 ### Docusaurusについて
 - [Docusaurus(v2)](https://v2.docusaurus.io/)  
