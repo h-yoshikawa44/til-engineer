@@ -28,7 +28,7 @@ module.exports = {
         alt: '獅子のロゴアイコン',
         src: 'img/lion-logo.svg',
       },
-      links: [
+      items: [
         {to: 'docs/top', label: 'Docs', position: 'left'},
         {to: '/portfolio', label: 'Portfolio', position: 'left'},
         {to: '/myproducts', label: 'MyProducts', position: 'left'},
