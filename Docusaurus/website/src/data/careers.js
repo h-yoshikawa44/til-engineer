@@ -15,7 +15,7 @@ const careers = [
     langAndFw: 'Ruby / Rails',
     db: 'MySQL / Redis',
     environment: 'Git / Docker / Circle CI / Capistrano',
-    cloudService: 'AWS[EC2, Cognito]',
+    cloudService: 'AWS[EC2, RDS, Cognito]',
     other: '',
     description: '開発環境、ドキュメント整備から着手。バグ対応や機能改善の保守。※一度、諸事情により案件停止したが再開。'
   },

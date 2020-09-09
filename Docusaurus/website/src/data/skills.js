@@ -156,7 +156,7 @@ export const langAndframewarks = [
     imageUrl: 'img/logo-icons/ruby.svg',
     description: (
       <>
-        研修で学んだ程度。
+        保守案件での業務使用経験あり。
       </>
     ),
   },
@@ -165,7 +165,7 @@ export const langAndframewarks = [
     imageUrl: 'img/logo-icons/rails.svg',
     description: (
       <>
-        研修で学んだあと、Railsチュートリアルを学んだ程度。
+        保守案件での業務使用経験あり。
       </>
     ),
   },
