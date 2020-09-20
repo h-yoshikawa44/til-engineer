@@ -38,7 +38,16 @@ function Career({ period, title, langAndFw, db, environment, cloudService, other
             {cloudService && <li>クラウドサービス：{cloudService}</li>}
             {other && <li>その他：{other}</li>}
           </ul>
-          <p>{description}</p>
+          <div className="catd__footer">
+            {description.map((text) => {
+              return (
+                <>
+                  {text}
+                  <br />
+                </>
+              )
+            })}
+          </div>
         </div>
       </div>
     </div>
