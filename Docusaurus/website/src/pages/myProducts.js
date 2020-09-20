@@ -27,10 +27,11 @@ function MyProduct() {
                   return (
                     <div className="col col--4 margin-bottom--lg" key={idx}>
                       <div className="card shadow--lw">
-                        <div className="card__image">
+                        <div className={classnames('text--center', 'card__image')} >
                           <img
                             src={useBaseUrl(product.imageUrl)}
                             alt={product.productName}
+                            height="180"
                           />
                         </div>
                         <div className="card__body">

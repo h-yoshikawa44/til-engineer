@@ -2,6 +2,17 @@ import React from 'react';
 
 const eventProducts = [
   {
+    productName: 'Close to 2',
+    description: (
+      <>
+      web1week（1週間でwebサービスを作るイベント）のお題「2」の投稿作品。計算結果が一番「2」に近い式をあてるゲーム。
+      </>
+    ),
+    imageUrl: 'img/my-products/close-to-2/overview.png',
+    url: 'https://h-yoshikawa0724.github.io/close-to-2/',
+    githubUrl: 'https://github.com/h-yoshikawa0724/close-to-2'
+  },
+  {
     productName: 'Jigsaw Like Puzzle',
     description: (
       <>
