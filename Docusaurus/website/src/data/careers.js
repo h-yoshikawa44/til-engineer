@@ -1,5 +1,17 @@
 const careers = [
   {
+    period: '2020/10',
+    title: '退職：フロイデ株式会社',
+    langAndFw: '',
+    db: '',
+    environment: '',
+    cloudService: '',
+    other: '',
+    description: [
+      '「適応障害」の再発などもあり、休職の後退職。しばらくは療養に専念することに。'
+    ]
+  },
+  {
     period: '2020/09/07 ～ 2020/09/14',
     title: 'Close to 2（計算結果が一番「2」に近い式をあてるゲーム）',
     langAndFw: 'JavaScirpt / React',
@@ -25,7 +37,7 @@ const careers = [
     ]
   },
   {
-    period: '2020/04、2020/06 ～ 現在',
+    period: '2020/04、2020/06 ～ 2020/09',
     title: '勤怠/入店管理システム',
     langAndFw: 'Ruby / Rails',
     db: 'MySQL / Redis',
