@@ -69,6 +69,10 @@ module.exports = {
               href: 'https://qiita.com/h-yoshikawa',
             },
             {
+              label: 'Zenn',
+              href: 'https://zenn.dev/h_yoshikawa0724',
+            },
+            {
               html: `
                 <a href="https://www.netlify.com" target="_blank" rel="noreferrer noopener" aria-label="Deploys by Netlify">
                   <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg" alt="Deploys by Netlify" />
