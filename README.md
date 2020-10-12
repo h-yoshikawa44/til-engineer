@@ -17,10 +17,10 @@
 **現在上げているコードも順次ドキュメントへ移行していき、移行次第コードは削除（フレームワークのコードはそのまま残す）**
 
 ## ドキュメントサイト
-- Node.js：12.10.0
-- Docusaurus：2.0.0-alpha.61
-- @docusaurus/preset-classic：2.0.0-alpha.61
-  - Infima：0.2.0-alpha.12
+- Node.js：12.18.3
+- Docusaurus：2.0.0-alpha.65
+- @docusaurus/preset-classic：2.0.0-alpha.65
+  - Infima：0.2.0-alpha.13
 
 ※2020/08/02更新
 
