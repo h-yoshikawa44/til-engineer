@@ -3,9 +3,10 @@ module.exports = {
   tagline: 'よしの勉強記録 & ポートフォリオ',
   url: 'https://h-yoshikawa0724-til-engineer.com',
   baseUrl: '/',
+  onBrokenLinks: 'throw',
   favicon: 'img/favicon.ico',
   // organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'TIL-Engineer', // Usually your repo name.
+  projectName: 'til-engineer', // Usually your repo name.
   themeConfig: {
     prism: {
       additionalLanguages: ['docker', 'java', 'php'],
