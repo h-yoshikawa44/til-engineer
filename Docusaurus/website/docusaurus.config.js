@@ -27,7 +27,7 @@ module.exports = {
           position: 'left',
         },
         {
-          href: 'https://github.com/h-yoshikawa0724/TIL-Engineer',
+          href: 'https://github.com/h-yoshikawa0724/til-engineer',
           label: 'GitHub',
           position: 'right',
         },
