@@ -71,7 +71,7 @@ function Portfolio() {
             <div className="avatar__intro">
               <h2 className="avatar__name">Hitomi Yoshikawa</h2>
               <p className="avatar__subtitle">
-                精神疾患持ちのプログラマー
+                精神疾患持ちのWebプログラマー
               </p>
             </div>
           </div>

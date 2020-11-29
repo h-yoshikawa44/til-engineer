@@ -22,7 +22,7 @@
 - @docusaurus/preset-classic：2.0.0-alpha.65
   - Infima：0.2.0-alpha.13
 
-※2020/08/02更新
+※2020/10/12更新
 
 ### Docusaurusについて
 - [Docusaurus(v2)](https://v2.docusaurus.io/)  
