@@ -1,5 +1,17 @@
 const careers = [
   {
+    period: '2020/11 ～',
+    title: '（療養中）',
+    langAndFw: '',
+    db: '',
+    environment: '',
+    cloudService: '',
+    other: '',
+    description: [
+      '心身共に療養しながら、社会復帰に向けて個人開発をやったり勉強したり。'
+    ]
+  },
+  {
     period: '2020/10',
     title: '退職：フロイデ株式会社',
     langAndFw: '',

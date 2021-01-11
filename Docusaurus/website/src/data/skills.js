@@ -15,7 +15,7 @@ export const editors = [
     imageUrl: 'img/logo-icons/eclipse.svg',
     description: (
       <>
-        Javaのコーディングで使用。Springの場合は、Spring Tool Suiteを使用することもある。
+        Javaのコーディングで使用。Springの場合は、Spring Tool Suiteを使用することもあり。
       </>
     ),
   },
@@ -45,7 +45,7 @@ export const environments = [
     imageUrl: 'img/logo-icons/docker-icon.svg',
     description: (
       <>
-        実務使用経験あり。また、Dockerを使用した環境構築手順のQiita記事を書いた経験あり。
+        実務使用経験あり。多少、自分で環境を作ったことがあり、基礎的な知識がある程度。
       </>
     ),
   }
@@ -120,7 +120,7 @@ export const langAndframewarks = [
     imageUrl: 'img/logo-icons/php.svg',
     description: (
       <>
-        実務使用経験あり。個人勉強もしている言語。
+        実務使用経験あり。個人勉強もしていた言語。
       </>
     ),
   },
