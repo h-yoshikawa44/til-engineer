@@ -1,17 +1,25 @@
-version: '3'
+version: '3.9'
 services:
   db:
     image: postgres
     volumes:
-      - ./tmp/db:/var/lib/postgresql/
+      - ./tmp/db:/var/lib/postgresql
+    environment:
+      POSTGRES_PASSWORD: password
   web:
     build:
       context: ./
-      dockerfile: ./ruby/Dockerfile
+      dockerfile: ./docker/ruby/Dockerfile
     command: bash -c "rm -f tmp/pids/server.pid && bundle exec rails s -p 3000 -b '0.0.0.0'"
+    environment:
+      - SPROCKETS_CACHE=/cach
     volumes:
-      - ./src:/src
+      - .:/src
+      - cache:/cache
     ports:
       - "3000:3000"
     depends_on:
       - db
+
+volumes:
+  cache:
