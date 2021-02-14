@@ -63,7 +63,7 @@ module.exports = {
             },
             {
               label: 'Twitter',
-              href: 'https://twitter.com/yoshi0724_lion',
+              href: 'https://twitter.com/yoshi44_lion',
             },
             {
               label: 'Qiita',
