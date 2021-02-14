@@ -28,7 +28,7 @@ module.exports = {
           position: 'left',
         },
         {
-          href: 'https://github.com/h-yoshikawa0724/til-engineer',
+          href: 'https://github.com/h-yoshikawa44/til-engineer',
           label: 'GitHub',
           position: 'right',
         },
@@ -59,7 +59,7 @@ module.exports = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/h-yoshikawa0724',
+              href: 'https://github.com/h-yoshikawa44',
             },
             {
               label: 'Twitter',
@@ -96,7 +96,7 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // editUrl:
-          //   'https://github.com/h-yoshikawa0724/TIL-Engineer/edit/master/website/',
+          //   'https://github.com/h-yoshikawa44/til-engineer/edit/master/website/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
