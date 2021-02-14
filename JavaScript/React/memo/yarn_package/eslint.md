@@ -1,7 +1,7 @@
 ## eslint
 静的解析ツール
 
-自記事：[create-react-appで作成した雛形 + VSCodeにESLintとPrettierを導入する](https://qiita.com/h-yoshikawa/items/14a114da903fb0eff886)
+自記事：[create-react-appで作成した雛形 + VSCodeにESLintとPrettierを導入する](https://qiita.com/h-yoshikawa44/items/14a114da903fb0eff886)
 
 ### インストール
 `$ yarn add -D eslint eslint-plugin-react babel-eslint`

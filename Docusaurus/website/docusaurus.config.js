@@ -67,7 +67,7 @@ module.exports = {
             },
             {
               label: 'Qiita',
-              href: 'https://qiita.com/h-yoshikawa',
+              href: 'https://qiita.com/h-yoshikawa44',
             },
             {
               label: 'Zenn',
