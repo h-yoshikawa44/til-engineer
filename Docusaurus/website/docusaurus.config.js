@@ -20,7 +20,7 @@ module.exports = {
       },
       items: [
         {to: 'docs/top', label: 'Docs', position: 'left'},
-        {to: '/portfolio', label: 'Portfolio', position: 'left'},
+        {to: '/skillandcareer', label: 'Skill & Career', position: 'left'},
         {to: '/myproducts', label: 'MyProducts', position: 'left'},
         {
           href: 'https://changeofpace.site',
