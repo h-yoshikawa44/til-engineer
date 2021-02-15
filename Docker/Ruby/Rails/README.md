@@ -20,7 +20,7 @@
 　|- README.md
 ```
 
-- [Dockerfile](https://github.com/h-yoshikawa0724/TIL/blob/master/Ruby/Rails/docker/ruby/Dockerfile) 作成
+- [Dockerfile](https://github.com/h-yoshikawa44/til-engineer/blob/master/Ruby/Rails/docker/ruby/Dockerfile) 作成
 
 - Gemfile を作成
 ```ruby
@@ -30,9 +30,9 @@ gem 'rails', '~>5'
 
 - Gemfile.lock を作成(中身は空で OK)
 
-- [entrypoint.sh](https://github.com/h-yoshikawa0724/TIL/blob/master/Ruby/Rails/entrypoint.sh) を作成
+- [entrypoint.sh](https://github.com/h-yoshikawa44/til-engineer/blob/master/Ruby/Rails/entrypoint.sh) を作成
 
-- [docker-compose.yml](https://github.com/h-yoshikawa0724/TIL/blob/master/Ruby/Rails/docker-compose.yml) を作成
+- [docker-compose.yml](https://github.com/h-yoshikawa44/til-engineer/blob/master/Ruby/Rails/docker-compose.yml) を作成
 
 - ビルドして、Railsプロジェクトを作成
 ```
