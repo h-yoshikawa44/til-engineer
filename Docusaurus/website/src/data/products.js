@@ -9,7 +9,7 @@ const eventProducts = [
       </>
     ),
     imageUrl: 'img/my-products/close-to-2/overview.png',
-    url: 'https://h-yoshikawa0724.github.io/close-to-2/',
+    url: 'https://h-yoshikawa44.github.io/close-to-2/',
     githubUrl: 'https://github.com/h-yoshikawa44/close-to-2'
   },
   {
