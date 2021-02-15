@@ -54,27 +54,17 @@ function Career({ period, title, langAndFw, db, environment, cloudService, other
   )
 }
 
-function Portfolio() {
+function SkillAndCareer() {
   const context = useDocusaurusContext();
   const {siteConfig = {}} = context;
   return (
     <Layout
-      title={'portfolio from h-yoshikawa'}
-      description="よしのポートフォリオ">
+      title="Skill &amp; Career"
+      description="よしのスキル &amp; 経歴">
       <header className={classnames('hero hero--primary', styles.heroBanner)}>
         <div className="container">
-          <div className="avatar avatar--vertical">
-            <img
-              className={classnames('avatar__photo avatar__photo--xl', styles.avatar__photo_color)}
-              src={useBaseUrl("img/lion-custom.svg")}
-            />
-            <div className="avatar__intro">
-              <h2 className="avatar__name">Hitomi Yoshikawa</h2>
-              <p className="avatar__subtitle">
-                精神疾患持ちのWebプログラマー
-              </p>
-            </div>
-          </div>
+          <h1 className="hero__title">Skill &amp; Career</h1>
+          <p className="hero__subtitle">スキルと経歴</p>
         </div>
       </header>
       <main>
@@ -134,4 +124,4 @@ function Portfolio() {
   );
 }
 
-export default Portfolio;
+export default SkillAndCareer;

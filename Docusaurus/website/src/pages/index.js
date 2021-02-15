@@ -6,13 +6,27 @@ import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 
+function PersonalLinkItem({ url, text }) {
+  return (
+    <li>
+      <a
+        href={url}
+        target="_blank"
+        rel="noreferrer noopener"
+      >
+        {text}
+      </a>
+    </li>
+  );
+}
+
 function Home() {
   const context = useDocusaurusContext();
   const {siteConfig = {}} = context;
   return (
     <Layout
-      title={`${siteConfig.title} from h-yoshikawa`}
-      description="よしの勉強記録 & ポートフォリオ サイト">
+      title="Home"
+      description="よしのポートフォリオサイト">
       <header className={classnames('hero hero--primary', styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>
@@ -23,46 +37,95 @@ function Home() {
                 'button button--outline button--info button--lg margin--xs',
                 styles.getStarted,
               )}
-              to={useBaseUrl('docs/top')}>
-              勉強記録
+              to={useBaseUrl('/skillandcareer')}
+            >
+              スキル &amp; 経歴
             </Link>
             <Link
               className={classnames(
                 'button button--outline button--info button--lg margin--xs',
                 styles.getStarted,
               )}
-              to={useBaseUrl('/portfolio')}>
-              ポートフォリオ
+              to={useBaseUrl('/myproducts')}
+            >
+              個人開発
             </Link>
           </div>
         </div>
       </header>
       <main>
         <div className="container padding--md">
-          <h2 className="text--center">TIL</h2>
           <section>
-            <h3 className={classnames('text--center', styles.decorationLine)}>TILとは？</h3>
+            <h3 className={classnames('text--center', styles.decorationLine)}>当サイトについて</h3>
             <div>
-              <blockquote>「Today I Learned」の略で、Github上にTILというリポジトリを作成してそこに今日覚えたことを書いていくというものです。</blockquote>
-              <p className="text--right">
-                出典：
-                <Link to="https://qiita.com/nemui_/items/239335b4ed0c3c797add">
-                  Qiita - Githubのリポジトリ「TIL」を使って小さなアウトプットを習慣化する
-                </Link>
+              <p>
+                Web プログラマーである h-yoshikawa44 のポートフォリオサイトです。<br />
+                経験スキルや実務経歴、個人開発の履歴、各種技術活動に関するアカウントのリンクなどを集約しています。
               </p>
             </div>
           </section>
           <section>
-            <h3 className={classnames('text--center', styles.decorationLine)}>目的</h3>
+            <h3 className={classnames('text--center', styles.decorationLine)}>管理人プロフィール</h3>
           　<div>
-              <p>勉強したコードやメモなどをTILリポジトリにあげていく。またここにドキュメントとしてまとめる。</p>
-              <ul>
-                <li>アウトプットの習慣が身につく</li>
-                <li>勉強したことを可視化することでモチベーションに繋げる</li>
-                <li>自分の財産になる</li>
-                <li>他の人に勉強した内容を伝えられる材料になる</li>
-              </ul>
-              <p>すでにリポジトリにあげているコードやメモ、頭の中の知識を順次ドキュメント化中（休日メインでゆっくりやってます）</p>
+              <div className="card-demo margin-vert--sm">
+                <div className="card shadow--tl">
+                  <div className="card__header">
+                    <div className="avatar">
+                      <img
+                        className={classnames('avatar__photo avatar__photo--xl', styles.avatar__photo_color)}
+                        src={useBaseUrl("img/lion-custom.svg")}
+                      />
+                      <div className="avatar__intro">
+                        <h3 className="avatar__name">Hitomi Yoshikawa</h3>
+                        <small className="avatar__subtitle">
+                          よし（h-yoshikawa44）
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="card__body">
+                    <p>
+                      精神疾患持ちの Web プログラマー。<br />
+                      2020年秋頃に退職してから療養していましたが、社会復帰に向けて少しずつ活動再開しています。<br />
+                      <br />
+                      実務経験として、フロントエンド、バックエンドともに経験はありますが、
+                      いまいちスキルの中途半端感があるのでフロントエンド領域のスキルを伸ばそうかと思っています。
+                    </p>
+                  </div>
+                  <div className="card__footer">
+                    <p>
+                      個人ブログや各種技術活動に関するアカウントはこちら。<br />
+                      （※Qiita、Zenn および Crieit に投稿している記事は、全てブログにも投稿しています）
+                    </p>
+                    <ul>
+                      <PersonalLinkItem
+                        url={siteConfig.customFields.url.blog}
+                        text="ブログ"
+                      />
+                      <PersonalLinkItem
+                        url={siteConfig.customFields.url.github}
+                        text='GitHub'
+                      />
+                      <PersonalLinkItem
+                        url={siteConfig.customFields.url.twitter}
+                        text='Twitter'
+                      />
+                      <PersonalLinkItem
+                        url={siteConfig.customFields.url.qiita}
+                        text='Qiita'
+                      />
+                      <PersonalLinkItem
+                        url={siteConfig.customFields.url.zenn}
+                        text='Zenn'
+                      />
+                       <PersonalLinkItem
+                        url={siteConfig.customFields.url.crieit}
+                        text='Crieit'
+                      />
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
         </div>

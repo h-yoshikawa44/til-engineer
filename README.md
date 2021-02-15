@@ -1,5 +1,5 @@
 # TIL-Engineer
-[![Netlify Status](https://api.netlify.com/api/v1/badges/8af81460-1140-4eb4-823d-56a99af5353a/deploy-status)](https://app.netlify.com/sites/h-yoshikawa0724-til-engineer/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8af81460-1140-4eb4-823d-56a99af5353a/deploy-status)](https://app.netlify.com/sites/h-yoshikawa44-portfolio/deploys)
 
 ## TILとは？
 > 「Today I Learned」の略で、Github上にTILというリポジトリを作成してそこに今日覚えたことを書いていくというものです。
@@ -32,7 +32,7 @@
 Dockerだとうまく動かせない？（サーバ起動はできるが、ブラウザから確認ができない）ようなので、yarnが使える環境でサーバを起動すること（自分の場合はWSL)
 
 ### 公開された静的サイトとして確認
-[よしの勉強記録 & ポートフォリオ](https://h-yoshikawa0724-til-engineer.com/)
+[h-yoshikawa44's Portfolio](https://h-yoshikawa44.com/)
 
 ### ローカルでの確認
 ライブラリインストール

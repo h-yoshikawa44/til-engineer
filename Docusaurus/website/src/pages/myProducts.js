@@ -5,10 +5,10 @@ import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
 import eventProducs from '../data/products';
 
-function MyProduct() {
+function MyProducts() {
   return (
     <Layout
-      title='個人開発 from h-yoshikawa'
+      title='MyProducts'
       description="よしの個人開発">
       <header className={classnames('hero hero--primary', styles.heroBanner)}>
         <div className="container">
@@ -72,4 +72,4 @@ function MyProduct() {
   );
 }
 
-export default MyProduct;
+export default MyProducts;
