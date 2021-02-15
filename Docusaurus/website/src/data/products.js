@@ -9,8 +9,8 @@ const eventProducts = [
       </>
     ),
     imageUrl: 'img/my-products/close-to-2/overview.png',
-    url: 'https://h-yoshikawa0724.github.io/close-to-2/',
-    githubUrl: 'https://github.com/h-yoshikawa0724/close-to-2'
+    url: 'https://h-yoshikawa44.github.io/close-to-2/',
+    githubUrl: 'https://github.com/h-yoshikawa44/close-to-2'
   },
   {
     productName: 'Jigsaw Like Puzzle',
@@ -21,7 +21,7 @@ const eventProducts = [
     ),
     imageUrl: 'img/my-products/jigsaw-like-puzzle/overview.png',
     url: 'https://jigsaw-like-puzzle.web.app',
-    githubUrl: 'https://github.com/h-yoshikawa0724/jigsaw-like-puzzle'
+    githubUrl: 'https://github.com/h-yoshikawa44/jigsaw-like-puzzle'
   }
 ];
 

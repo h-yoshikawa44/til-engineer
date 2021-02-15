@@ -1,34 +1,44 @@
 module.exports = {
-  title: 'TIL-Engineer',
-  tagline: 'よしの勉強記録 & ポートフォリオ',
-  url: 'https://h-yoshikawa0724-til-engineer.com',
+  title: 'h-yoshikawa44\'s Portfolio',
+  tagline: 'よしのポートフォリオ',
+  url: 'https://h-yoshikawa44.com',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   favicon: 'img/favicon.ico',
   // organizationName: 'facebook', // Usually your GitHub org/user name.
   projectName: 'til-engineer', // Usually your repo name.
+  customFields: {
+    url: {
+      blog: 'https://changeofpace.site',
+      github: 'https://github.com/h-yoshikawa44',
+      twitter: 'https://twitter.com/yoshi44_lion',
+      qiita: 'https://qiita.com/h-yoshikawa44',
+      zenn: 'https://zenn.dev/h_yoshikawa0724',
+      crieit: 'https://crieit.net/users/h-yoshikawa0724'
+    }
+  },
   themeConfig: {
     prism: {
       additionalLanguages: ['docker', 'java', 'php'],
     },
     image: 'img/ogp.png',
     navbar: {
-      title: 'よしの勉強記録',
+      title: 'h-yoshikawa44\'s Portfolio',
       logo: {
         alt: '獅子のロゴアイコン',
         src: 'img/lion-logo.svg',
       },
       items: [
-        {to: 'docs/top', label: 'Docs', position: 'left'},
-        {to: '/portfolio', label: 'Portfolio', position: 'left'},
+        {to: '/skillandcareer', label: 'Skill & Career', position: 'left'},
         {to: '/myproducts', label: 'MyProducts', position: 'left'},
+        {to: 'docs/top', label: 'TIL', position: 'left'},
         {
           href: 'https://changeofpace.site',
           label: 'Blog',
           position: 'left',
         },
         {
-          href: 'https://github.com/h-yoshikawa0724/til-engineer',
+          href: 'https://github.com/h-yoshikawa44/til-engineer',
           label: 'GitHub',
           position: 'right',
         },
@@ -59,19 +69,23 @@ module.exports = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/h-yoshikawa0724',
+              href: 'https://github.com/h-yoshikawa44',
             },
             {
               label: 'Twitter',
-              href: 'https://twitter.com/yoshi0724_lion',
+              href: 'https://twitter.com/yoshi44_lion',
             },
             {
               label: 'Qiita',
-              href: 'https://qiita.com/h-yoshikawa',
+              href: 'https://qiita.com/h-yoshikawa44',
             },
             {
               label: 'Zenn',
               href: 'https://zenn.dev/h_yoshikawa0724',
+            },
+            {
+              label: 'Crieit',
+              href: 'https://crieit.net/users/h-yoshikawa0724'
             },
             {
               html: `
@@ -96,7 +110,7 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // editUrl:
-          //   'https://github.com/h-yoshikawa0724/TIL-Engineer/edit/master/website/',
+          //   'https://github.com/h-yoshikawa44/til-engineer/edit/master/website/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
