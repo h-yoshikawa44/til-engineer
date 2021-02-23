@@ -28,6 +28,8 @@ $ npx create-next-app nextjs-blog --use-npm --example "https://github.com/vercel
 サーバ立ち上げ
 ```
 $ npm run dev
+or
+$ yarn dev
 ```
 
 ブラウザからアクセス
@@ -37,3 +39,64 @@ localhost:3000
 
 Next.js の開発サーバでは高速更新が有効になっている。
 そのため、ファイルを変更すると即時にブラウザに自動反映する。
+
+### TypeScript 化対応
+tsconfig.json 作成
+```
+$ touch tsconfig.json
+```
+
+必要なライブラリインストール
+```
+$ yarn add -D typescript @types/react @types/node
+```
+
+サーバ立ち上げ
+```
+$ npm run dev
+or
+$ yarn dev
+```
+こうすると Next.js は以下のことを行う
+- tsconfig.json ファイルにデータを入力
+- next-env.d.ts ファイルを作成。これにより、Next.js タイプがTypeScript コンパイラによって確実に取得されるようになる。このファイルには触れないこと。
+
+---
+データ取得関数は以下のような型を使う
+```tsx
+import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
+
+export const getStaticProps: GetStaticProps = async context => {
+  // ...
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  // ...
+}
+
+export const getServerSideProps: GetServerSideProps = async context => {
+  // ...
+}
+```
+
+API ルートは以下のような型を使う
+```ts
+import { NextApiRequest, NextApiResponse } from 'next'
+
+export default (req: NextApiRequest, res: NextApiResponse) => {
+  // ...
+}
+```
+
+起点となる pages/_app.js は pages/_app.tsx とする
+```tsx
+import { AppProps } from 'next/app'
+
+function App({ Component, pageProps }: AppProps) {
+  return <Component {...pageProps} />
+}
+
+export default App
+```
+
+他ファイルも、.tsx（UI コンポーネント）、.ts（ロジック）へ拡張子を変更して、コードを最適化する。
