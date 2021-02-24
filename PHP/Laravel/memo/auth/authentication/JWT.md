@@ -2,7 +2,7 @@
 JWT(JSON Web Token)とは、JSONに電子署名を用いて必要に応じてJSONを検証して認証可否を決定する仕様  
 IoT等にも利用されている認証方式でトークン認証よりもセキュア
 
-JWT認証の利用はユーザ情報を特定するため、Illuminate\Contracts\Auth\Authenticatableインタフェースと。Tymon\JWTAuth\COntracts\JWTSubjectインタフェースを実装しておく必要がある
+JWT認証の利用はユーザ情報を特定するため、Illuminate\Contracts\Auth\Authenticatableインタフェースと。Tymon\JWTAuth\Contracts\JWTSubjectインタフェースを実装しておく必要がある
 
 - tymon/jwt-authのインストール  
   ※https://packagist.org/packages/tymon/jwt-authでバージョン確認
@@ -17,7 +17,7 @@ JWT認証の利用はユーザ情報を特定するため、Illuminate\Contracts
 
 
 実装例
-- App\UserでTymon\JWTAuth\COntracts\JWTSubjectインタフェースを実装
+- App\UserでTymon\JWTAuth\Contracts\JWTSubjectインタフェースを実装
 - Config.auth.phpに認証ドライバを追加
 ```php
    'defaults' => [

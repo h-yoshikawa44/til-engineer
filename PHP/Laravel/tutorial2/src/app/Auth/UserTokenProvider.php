@@ -5,7 +5,7 @@ namespace App\Auth;
 use App\DataProvider\UserTokenProviderInterface;
 use App\Entity\User;
 use Illuminate\Contracts\Aut\Authenticatable;
-use Illuminate\COntracts\Auth\UserProvider;
+use Illuminate\Contracts\Auth\UserProvider;
 
 final class UserTokenProvider implements UserProvider
 {

@@ -1,12 +1,10 @@
 ## 教材・参考
-- [PHPフレームワーク Laravel Webアプリケーション開発](https://www.amazon.co.jp/dp/4802611846/ref=cm_sw_r_tw_awdo_c_x_Ciu4CbTTXNA8A)
+- [PHPフレームワーク Laravel Webアプリケーション開発](https://www.socym.co.jp/book/1184)
   - [GitHub](https://github.com/laravel-socym)
 
-## LaradockによるLaravel環境
-
+## Docker環境
+出典：[ucan-lab/docker-laravel](https://github.com/ucan-lab/docker-laravel)
 ### バージョン
-- PHP：7.2
-- Laravel：5.8.2
-
-### 作成手順参考
-https://github.com/h-yoshikawa44/til-engineer/tree/master/Docker/PHP/Laravel/pattern2/README.md
+- PHP：7.4.14
+- Laravel：5.8.19
+- MySQL：8.0.23

@@ -37,7 +37,7 @@ package.jsonのeslintConfigキーで設定が書ける
 
 .eslintrc.js(もしくはyml、json)にファイルを切り出しても設定が書ける。  
 記述方式は公式参照  
-[ESLint - COnfiguring ESLint](https://eslint.org/docs/user-guide/configuring)
+[ESLint - Configuring ESLint](https://eslint.org/docs/user-guide/configuring)
 
 
 #### 初期化+設定ファイルテンプレ作成  
@@ -187,7 +187,7 @@ package.jsonのprettierキーで書ける。
 もしくは.prettierrc.js(もしくはyml、json)ファイルに切り出して書ける。
 
 記述方式は公式参照
-[Prettier - COnfigration File](https://prettier.io/docs/en/configuration.html)
+[Prettier - Configration File](https://prettier.io/docs/en/configuration.html)
 
 ### ファイル保存時に自動整形
 .vscode/setting.jsonに追記
