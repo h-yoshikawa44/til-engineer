@@ -3,7 +3,7 @@
 namespace App\Provider;
 
 use App\Foundation\Socialite\AmazonProvider;
-use Illuminate\COntracts\Foundation\Application;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Socialite\Contracts\Factory;
 use Laravel\Socialite\SocialiteManager;
