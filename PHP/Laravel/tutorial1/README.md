@@ -1,12 +1,10 @@
 ## 教材・参考
-- [PHPフレームワーク Laravel入門](https://www.amazon.co.jp/dp/B07CLLW4MX/ref=cm_sw_r_tw_awdb_c_x_AV43CbJQWQQE6)
+- [PHPフレームワーク Laravel入門](https://www.shuwasystem.co.jp/book/9784798052588.html)
 
 ## Docker環境
-
+出典：[ucan-lab/docker-laravel](https://github.com/ucan-lab/docker-laravel)
 ### バージョン
-- PHP：7.3.7
+- PHP：7.4.14
 - Laravel：5.8.28
-
-### 作成手順参考
-https://github.com/h-yoshikawa44/til-engineer/tree/master/Docker/PHP/Laravel/pattern1/README.md
+- MySQL：8.0.23
 
