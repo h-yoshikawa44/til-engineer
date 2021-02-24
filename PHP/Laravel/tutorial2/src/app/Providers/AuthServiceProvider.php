@@ -3,7 +3,7 @@
 namespace App\Providers;
 
 use App\User;
-use Illuminate\COntracts\Auth\Access\Gate as GateContent;
+use Illuminate\Contracts\Auth\Access\Gate as GateContent;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 

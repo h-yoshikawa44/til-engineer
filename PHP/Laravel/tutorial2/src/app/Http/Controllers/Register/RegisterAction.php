@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Http\COntrollers\Register;
+namespace App\Http\Controllers\Register;
 
 use App\Http\Controllers\Controller;
-use Laravel\Socialite\COntracts\Factory;
+use Laravel\Socialite\Contracts\Factory;
 use Symfony\COmponent\HttpFoundation\RedirectResponse;
 
 final class RegisterAction extends Controller
