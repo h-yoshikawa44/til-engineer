@@ -71,7 +71,7 @@ $ docker-compose up -d
 
 - 初期DBの作成
 ```
-$ docker-compose run web rake db:create
+$ docker-compose exec web rails db:create
 ```
 
 以下の用になれば無事作成されている
