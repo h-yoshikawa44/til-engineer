@@ -8,3 +8,13 @@
 - Laravel：5.8.28
 - MySQL：8.0.23
 
+### 初回環境構築
+.env ファイル作成
+```
+$ cp .env.example .env
+```
+
+初回セットアップ
+```
+$ make init
+```
