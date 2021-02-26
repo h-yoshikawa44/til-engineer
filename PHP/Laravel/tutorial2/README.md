@@ -8,3 +8,14 @@
 - PHP：7.4.14
 - Laravel：5.8.19
 - MySQL：8.0.23
+
+### 初回環境構築
+.env ファイル作成
+```
+$ cp .env.example .env
+```
+
+初回セットアップ
+```
+$ make init
+```
