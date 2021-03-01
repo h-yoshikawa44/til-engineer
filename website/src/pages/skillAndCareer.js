@@ -4,7 +4,7 @@ import Layout from '@theme/Layout';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import styles from './styles.module.css';
-import { editors, environments, langAndframewarks } from '../data/skills';
+import { editors, environments, langAndframewarks, database } from '../data/skills';
 import careers from '../data/careers';
 
 function Skill({ imageUrl, title, description }) {
@@ -100,6 +100,18 @@ function SkillAndCareer() {
               <div className="padding-vert--lg">
                 <div className="row">
                   {langAndframewarks.map((props, idx) => (
+                    <Skill key={idx} {...props} />
+                  ))}
+                </div>
+              </div>
+            )}
+          </section>
+          <section>
+            <h3 className={classnames('text--center', styles.decorationLine)}>データベース</h3>
+            {database && database.length && (
+              <div className="padding-vert--lg">
+                <div className="row">
+                  {database.map((props, idx) => (
                     <Skill key={idx} {...props} />
                   ))}
                 </div>

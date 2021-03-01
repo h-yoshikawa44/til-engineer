@@ -68,7 +68,7 @@ export const langAndframewarks = [
       <>
         実務使用経験あり。
       </>
-    ),
+    )
   },
   {
     title: 'JavaScript',
@@ -94,6 +94,15 @@ export const langAndframewarks = [
     description: (
       <>
         当サイトで使用。v1は少々使いづらさを感じたので、v2を使用。
+      </>
+    ),
+  },
+  {
+    title: 'Next.js',
+    imageUrl: 'img/logo-icons/nextjs.svg',
+    description: (
+      <>
+        つい最近、個人勉強を始めたフレームワーク。Reactの知識を深める中で、この技術も習得していきたい。
       </>
     ),
   },
@@ -188,3 +197,15 @@ export const langAndframewarks = [
     ),
   },
 ];
+
+export const database = [
+  {
+    title: 'MySQL',
+    imageUrl: 'img/logo-icons/mysql.svg',
+    description: (
+      <>
+        実務使用経験あり。
+      </>
+    ),
+  },
+]
