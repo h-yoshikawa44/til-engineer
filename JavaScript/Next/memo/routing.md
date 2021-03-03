@@ -3,14 +3,22 @@ Next.js では、pages ディレクトリ配下のファイルからエクスポ
 
 ### 基本的な仕組み
 ページは、ファイル名に基づいてルートに関連付けられるようになっている。
-- `pages/index.js` is associated with the / route.
-- `pages/posts/first-post.js` is associated with the /posts/first-post route.
+- `pages/index.js` → /
+- `pages/about.js` → /about
+- `pages/about/index.js` → /about
+- `pages/posts/first-post.js` → /posts/first-post
 
 ※注意点として、コンポーネントには任意の名前を付けることができるが、デフォルトのエクスポートとしてエクスポートする必要がある。
 
 つまりは、pages ディレクトリ配下 JS ファイルを作成するだけで、ファイルへのパスが URL パスとなる。  
 （別途、ルーティングライブラリを導入する必要がない）
 
+### 特殊なページ
+#### pages/_app.js（pages/_app.tsx）
+アプリケーション初期化で、最初に一度だけ読み込まれるページ。
+初期化処理やグローバル CSS の読み込みなどを行う
+#### pages/_document.js（pages/_document.tsx）
+画面の全体構造を定義したい時に使用。
 ### リンク
 通常、リンクは a タグを使って実現するが、Next.js においては、a タグをラップした next/link のリンクコンポーネントを使用。 Link コンポーネントを使用することで、アプリケーションの別のページにクライアント側で移動できる。  
 （クライアント側でのナビゲーション → JS を使用してのページ遷移であり、ブラウザの更新による遷移と比べて高速に動作する）
@@ -41,6 +49,14 @@ Next.js ではコード分割を自動的に行われる。
 つまりリンクをクリックする前に、すでにリンク先ページのコードはバックグラウンドで読み込まれているため、高速にページ遷移が行われる。
 
 ### 動的ルーティング
+[XX].js というようなファイルやディレクトリを作ると動的なルーティングを実現できる。  
+pages/users/[userId].js というファイルがあったとすると、/users/1 や /users/hoge などが該当する。
+
+- pages/users/[userId].js → /users/hoge
+- pages/[a]/[b].js → /hoge/fuga
+- pages/[...ids].js → /a/b/c/d
+
+内部外部問わず、どこかから複数のデータを取得してきて、それをもとに動的ルーティングにしたい場合は、getStaticPaths と getStaticProps を定義するとよい。  
 getStaticProps で取得したデータを元にしたルートを生成するということが可能。
 
 例
