@@ -6,7 +6,7 @@ export const editors = [
     imageUrl: 'img/logo-icons/visual-studio-code.svg',
     description: (
       <>
-        Java以外の言語のコーディングで使用。メインで使用しているエディタ。
+        Java 以外の言語のコーディングで使用。メインで使用しているエディタ。
       </>
     ),
   },
@@ -15,16 +15,7 @@ export const editors = [
     imageUrl: 'img/logo-icons/eclipse.svg',
     description: (
       <>
-        Javaのコーディングで使用。Springの場合は、Spring Tool Suiteを使用することもあり。
-      </>
-    ),
-  },
-   {
-    title: 'Unity',
-    imageUrl: 'img/logo-icons/unity.svg',
-    description: (
-      <>
-        研修で使用。正直あまり覚えていない。
+        Java のコーディングで使用。Spring の場合は、Spring Tool Suite を使用したこともあり。
       </>
     ),
   },
@@ -36,7 +27,7 @@ export const environments = [
     imageUrl: 'img/logo-icons/git-icon.svg',
     description: (
       <>
-        普段の案件業務から、個人プロジェクトにわたり使用。差分はVSCodeなどGUIで確認し、コマンドはCLIで操作することが多い。
+        普段の案件業務から、個人開発にわたり使用。差分は VSCode の GUI で確認し、コマンドは CLI で操作することが多い。
       </>
     ),
   },
@@ -57,7 +48,7 @@ export const langAndframewarks = [
     imageUrl: 'img/logo-icons/html-5.svg',
     description: (
       <>
-        基本的には研修で学んだ程度。そのほか、FWのビューで記述したり、ReactのJSX（厳密には異なるが）で書いているなど。
+        基本的には研修で学んだ程度。そのほか、FW のビューで記述したり、React の JSX（厳密には異なるが）で書いているなど。
       </>
     ),
   },
@@ -75,7 +66,17 @@ export const langAndframewarks = [
     imageUrl: 'img/logo-icons/javascript.svg',
     description: (
       <>
-        実務使用経験ありであるが、基本的にフロントのみ。あとはGoogle Apps Scriptの経験あり。
+        実務使用経験ありであるが、基本的にフロントのみ。あとは Google Apps Script の経験あり。
+      </>
+    ),
+  },
+  {
+    title: 'TypeScript',
+    imageUrl: 'img/logo-icons/typescript-icon.svg',
+    description: (
+      <>
+        つい最近、個人開発でReactのコードを書く上で使い始めた言語。
+        経験としては1か月程度。自分の中で、フロント側のコードを書く際のデファクトにしたい。
       </>
     ),
   },
@@ -102,7 +103,7 @@ export const langAndframewarks = [
     imageUrl: 'img/logo-icons/nextjs.svg',
     description: (
       <>
-        つい最近、個人勉強を始めたフレームワーク。Reactの知識を深める中で、この技術も習得していきたい。
+        つい最近、個人勉強を始めたフレームワーク。React の知識を深める中で、この技術も習得していきたい。
       </>
     ),
   },
@@ -111,7 +112,7 @@ export const langAndframewarks = [
     imageUrl: 'img/logo-icons/java.svg',
     description: (
       <>
-        実務使用経験あり。この業界に入る前にメインで学んでいた言語で、自分のスキルのうち、バックエンドでメインにしたい言語。
+        実務使用経験あり。この業界に入る前にメインで学んでいた言語。その当時に資格を取得済みであるが、ここ最近はブランクがある。
       </>
     ),
   },
@@ -120,7 +121,7 @@ export const langAndframewarks = [
     imageUrl: 'img/logo-icons/spring.svg',
     description: (
       <>
-        実務使用経験あり。テンプレートエンジンは使用せず、APIとしての開発経験のみ。
+        実務使用経験あり。テンプレートエンジンは使用せず、API としての開発経験のみ。
       </>
     ),
   },
@@ -138,7 +139,7 @@ export const langAndframewarks = [
     imageUrl: 'img/logo-icons/cakephp.svg',
     description: (
       <>
-        実務使用経験あり。最初の案件で使用したFWであるため、ブランクあり。
+        実務使用経験あり。最初の案件で使用した FW であるため、ブランクあり。
       </>
     ),
   },
@@ -147,7 +148,7 @@ export const langAndframewarks = [
     imageUrl: 'img/logo-icons/laravel.svg',
     description: (
       <>
-        個人勉強しているのみのFW。
+        過去に個人勉強していたことがある FW。現在、個人開発で API の実装に使用。
       </>
     ),
   },
@@ -156,7 +157,7 @@ export const langAndframewarks = [
     imageUrl: 'img/logo-icons/python.svg',
     description: (
       <>
-        実務使用経験あり。AWS LambdaをPythonで書いていた経験のみ。
+        実務使用経験あり。AWS Lambda を Python で書いていた経験のみ。
       </>
     ),
   },
