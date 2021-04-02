@@ -1,29 +1,12 @@
 :
 
 # ==== Type ====
-# --TIL活動--
-# TIL: 通常のTIL活動
-# TIL Docs: TIL活動のドキュメント化
-#
-# --ポートフォリオサイト--
-# Feat: 機能追加
-# Fix: バグ・typo・エラー修正
-# Refactor: リファクタリング・改善
-# Update: ポートフォリオデータ更新
-# Lib Update: ライブラリ・バージョン更新
-# Test: テストの追加・改善
-# Settings: 環境周りの設定の追加・改善
-# Docs: ドキュメント追加・更新
-# Remove: 不要な機能削除
-# Misc: その他
+# 言語・FW名 : 通常のTIL活動
 
 # ==== Format ====
 # type: Subject(#issue)
 #
 # Commit body...
-#
-# ※TILコミットだけのpushをする場合は [skip ci] をつける
-# ※ポートフォリオサイトに関するコミットはIssueを発行して、番号をつける
 
 # ==== The Seven Rules ====
 # 1. Separate subject from body with a blank line（件名と内容は空白行で区切る）
