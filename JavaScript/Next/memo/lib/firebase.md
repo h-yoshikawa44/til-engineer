@@ -8,6 +8,8 @@ Firebase のコンソールで、プロジェクトを作成。
 Google Analytics の導入は任意。
 
 ### Firebase SDK 設定（クライアントサイドで使用する場合）
+※SDK バージョン 9系の手順  
+　8系と9系とでは、大きく異なる点があることに注意
 #### ライブラリインストール
 ```
 $ yarn add firebase
@@ -15,6 +17,34 @@ $ yarn add firebase
 
 #### SDK の初期化処理
 lib/firebase.ts 作成
+
+v9
+```ts
+import { initializeApp, getApps } from 'firebase/app'
+import { getAnalytics } from 'firebase/analytics'
+
+import 'firebase/analytics'
+import 'firebase/auth'
+import 'firebase/firestore'
+
+if (typeof window !== 'undefined' && getApps().length === 0) {
+  const firebaseConfig = {
+    apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+    authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+    databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL,
+    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+    measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
+  }
+
+  initializeApp(firebaseConfig)
+  getAnalytics()
+}
+```
+
+v8
 ```ts
 import firebase from 'firebase/app'
 import 'firebase/analytics'
@@ -43,7 +73,7 @@ Firebase はブラウザ上で Next.js を動作させているときに利用�
 そのため、`window`オブジェクトがあるかどうかで分岐をさせている。
 （`process.browser`でも判断可能）
 
-また、この初期化ファイルが何度もインポートされ、そのたびに初期化されるのを防ぐために`firebase.apps.length === 0`で、すでに初期化されている場合は何もしないようにしている。
+また、この初期化ファイルが何度もインポートされ、そのたびに初期化されるのを防ぐために`getApps().length === 0`で、すでに初期化されている場合は何もしないようにしている。
 
 #### .env.local を作成
 自分のプロジェクトに合わせて適宜値を設定。
@@ -131,6 +161,48 @@ if (admin.apps.length == 0) {
 
 あとは使いたい場所で各種インポートして使用する。
 
+### Firebase Auth の使い方
+v9
+```ts
+import { getAuth, onAuthStateChanged, signInAnonymously } from 'firebase/auth'
+.
+.
+.
+function useAuthentication() {
+  const [user, setUser] = useRecoilState(userState)
+
+  useEffect(() => {
+    if (user !== null) {
+      return
+    }
+    const auth = getAuth()
+
+    signInAnonymously(auth).catch(function (error) {
+      // Handle Errors here.
+      console.error(error)
+      // ...
+    })
+
+    onAuthStateChanged(auth, function (firebaseUser) {
+      if (firebaseUser) {
+        const loginUser: User = {
+          uid: firebaseUser.uid,
+          isAnonymous: firebaseUser.isAnonymous,
+          name: ''
+        }
+        setUser(loginUser)
+        createUserIfNotFound(loginUser)
+      } else {
+        // User is signed out.
+        setUser(null)
+      }
+      // ...
+    })
+  }, [])
+
+  return { user }
+}
+```
 
 ### Firestore の使い方
 Firebase コンソールからデータベースを作成。
@@ -146,12 +218,39 @@ import 'firebase/firestore'
 ```
 
 #### 使い方の例
+v9
+```ts
+import {
+  getFirestore,
+  collection,
+  doc,
+  getDoc,
+  setDoc,
+} from 'firebase/firestore'
+.
+.
+.
+  const db = getFirestore()
+  const usersCollection = collection(db, 'users')
+  const userRef = doc(usersCollection, user.uid)
+  const document = await getDoc(userRef)
+  if (document.exists()) {
+    // すでに存在する場合は書き込まない
+    return
+  }
+
+  await setDoc(userRef, {
+    name: 'taro' + new Date().getTime(),
+  })
+```
+
+v8
 ```ts
 import firebase from 'firebase/app'
 .
 .
 .
-const userRef = firebase.firestore().collection('users').doc(user.uid)
+  const userRef = firebase.firestore().collection('users').doc(user.uid)
   const doc = await userRef.get()
   if (doc.exists) {
     // すでに存在する場合は書き込まない
@@ -163,9 +262,42 @@ const userRef = firebase.firestore().collection('users').doc(user.uid)
   })
 ```
 doc メソッドを使用すると、ドキュメントの ID を指定できる。  
-また、collection のあとに where で条件を指定したり、limit で取得数の指定をしたりもできる。
+また、collection のあとに where で条件を指定したり、limit で取得数の指定をしたりもできる(v8)
 
 複数の更新処理をしたい場合は、トランザクションを使用するとよい。
+
+v9
+```ts
+import {
+  collection,
+  doc,
+  getDoc,
+  getDocs,
+  getFirestore,
+  limit,
+  query,
+  runTransaction,
+  serverTimestamp,
+  Timestamp,
+  where,
+} from 'firebase/firestore'
+.
+.
+.
+  await runTransaction(db, async (t) => {
+    t.set(answerRef, {
+      uid: user.uid,
+      questionId: question.id,
+      body,
+      createdAt: serverTimestamp(),
+    })
+    t.update(doc(questionsCollection, question.id), {
+      isReplied: true,
+    })
+  })
+```
+
+v8
 ```ts
   await firebase.firestore().runTransaction(async (t) => {
     t.set(answerRef, {
